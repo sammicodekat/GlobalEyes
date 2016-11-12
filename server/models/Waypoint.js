@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const waypointSchema = new Schema({
   waypointName: { type: String, required: true },
-  pointsOfInterest: [{ type: Schema.Types.ObjectId, ref: 'PointOfInterest' }],,
+  pointsOfInterest: [{ type: Schema.Types.ObjectId, ref: 'PointOfInterest' }],
   falseRoute: {type: Array},
 })
 
