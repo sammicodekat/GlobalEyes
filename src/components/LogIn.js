@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
+
 import { signInWithGoogle, signOut } from '../actions/auth'
 
 @connect(state => ({
@@ -17,6 +19,7 @@ import { signInWithGoogle, signOut } from '../actions/auth'
 export default class LogIn extends Component {
   _logIn = () => {
     this.props.logIn()
+    browserHistory.push('/scenarios')
   }
 
   _logOut = () => {
