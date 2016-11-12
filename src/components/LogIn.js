@@ -18,15 +18,15 @@ export default class LogIn extends Component {
   constructor(props){
     super(props)
 
-    this._logIn = this._logIn.bind(this)
-    this._logOut = this._logOut.bind(this)
+    // this._logIn = this._logIn.bind(this)
+    // this._logOut = this._logOut.bind(this)
   }
 
-  _logIn() {
+  _logIn = () => {
     this.props.logIn()
   }
 
-  _logOut() {
+  _logOut = () => {
     this.props.logOut()
   }
 

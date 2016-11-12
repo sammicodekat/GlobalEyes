@@ -1,17 +1,16 @@
 import * as types from '../actions/actionTypes'
+import initialState from './initialState'
 
 //creating a template for our data
-const initialState = {
-  authenticated: false,
-  user: {}
-}
+
 
 export default function(state = initialState, {type, payload}) {
   switch(type) {
     case types.SIGN_IN_SUCCESS:
+    let { uid, displayName, email, photoURL } = payload
       return Object.assign({}, state, {
         authenticated: true,
-        user: payload
+        user: { uid, displayName, email, photoURL }
       })
     case types.SIGN_OUT_SUCCESS:
       return initialState
