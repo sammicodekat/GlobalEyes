@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux'
-import scenarios from './scenariosReducer'
-import scenario from './scenarioReducer'
+import scenariosReducer from './scenariosReducer'
+import scenarioReducer from './scenarioReducer'
 
 const rootReducer = combineReducers({
-  scenarios,
-  scenario
+  scenariosReducer,
+  scenarioReducer
 })
 
 export default rootReducer
