@@ -1,54 +1,54 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 
 export default class GMap extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.initMap()
   }
 
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate() {
     this.initMap()
   }
 
-  initMap () {
+  initMap() {
     const { mapRef } = this.refs
     const { google } = this.props
 
-    let zoom = 4
-    let center = {lat: 41.85, lng: -97.65}
+    const zoom = 4
+    const center = { lat: 41.85, lng: -97.65 }
 
-    var map = new google.maps.Map(mapRef, {
+    const map = new google.maps.Map(mapRef, {
       zoom,
       center
     })
 
-    let markers = [{current: true, visited: true, lat: 41.85, lng: -97.65}, {current: false, visited: true, lat: 20, lng: -80}, {current: false, visited: false, lat: 40, lng: -80}]
+    const markers = [{ current: true, visited: true, lat: 41.85, lng: -97.65 }, { current: false, visited: true, lat: 20, lng: -80 }, { current: false, visited: false, lat: 40, lng: -80 }]
     // var { markers } = this.props
 
     markers.forEach(markerPoint => {
       // let locationObj = markerPoint.geometry.location
-      let { lat, lng } = markerPoint
+      const { lat, lng } = markerPoint
 
-      let markerIcon = ''
+      let icon = ''
 
-      if (markerPoint.current) markerIcon = './images/marker_current.png'
-      else if (markerPoint.visited) markerIcon = './images/marker_visited.png'
-      else markerIcon = './images/marker_new.png'
+      if (markerPoint.current) icon = './images/marker_current.png'
+      else if (markerPoint.visited) icon = './images/marker_visited.png'
+      else icon = './images/marker_new.png'
 
-      var marker = new google.maps.Marker({
-        position: {lat, lng},
-        map: map,
-        icon: markerIcon
+      const marker = new google.maps.Marker({
+        position: { lat, lng },
+        map,
+        icon
       })
 
-      var contentString = `<h5>${markerPoint.lat}, ${markerPoint.lng}</h5>`
+      const contentString = `<h5>${markerPoint.lat}, ${markerPoint.lng}</h5>`
 
-      var infowindow = new google.maps.InfoWindow({
+      const infowindow = new google.maps.InfoWindow({
         content: contentString
       })
 
       let prevInfoWindow
 
-      marker.addListener('click', function () {
+      marker.addListener('click', () => {
         if (prevInfoWindow) prevInfoWindow.close()
         prevInfoWindow = infowindow
         console.log('prevInfoWindow: ', prevInfoWindow)
@@ -59,7 +59,7 @@ export default class GMap extends Component {
 
   render() {
     return (
-      <div ref="mapRef" className="mapRef"></div>
+      <div ref="mapRef" className="mapRef" />
     )
   }
 }

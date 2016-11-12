@@ -9,14 +9,14 @@ import OneScenarioPage from './OneScenarioPage'
 
 export default class MyRouter extends Component {
 
-  render () {
+  render() {
     return (
       <Router history={browserHistory}>
-        <Route path='/' component={Layout}>
+        <Route path="/" component={Layout}>
           <IndexRoute component={Home} />
-          <Route path='/map' component={MapView} />
-          <Route path='/scenarios' component={ScenariosPage} />
-          <Route path='/scenarios/:id' component={OneScenarioPage} />
+          <Route path="/map" component={MapView} />
+          <Route path="/scenarios" component={ScenariosPage} />
+          <Route path="/scenarios/:id" component={OneScenarioPage} />
         </Route>
       </Router>
     )

@@ -31,9 +31,9 @@ router.route('/:id')
 .delete((req, res) => {
   Scenario.findByIdAndRemove(req.params.id)
   .then(() => {
-    res.send('removed!');
+    res.send('removed!')
   })
   .catch(err => res.status(400).send(err))
-});
+})
 
 module.exports = router

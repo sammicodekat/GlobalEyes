@@ -1,4 +1,6 @@
 export default {
-    scenarios: [],
-    scenario: {}
+  scenarios: [],
+  scenario: {},
+  authenticated: false,
+  user: {}
 }

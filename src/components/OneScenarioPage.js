@@ -1,38 +1,49 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux'
-import ScenariosList from './ScenariosList'
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { getScenario } from '../actions/scenarioActions'
 
+import Vouchers from './Vouchers'
+
 class OneScenarioPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            scenario: {}
-        }
+  constructor(props) {
+    super(props)
+    this.state = {
+      scenario: {}
     }
-    componentWillMount() {
-        this.props.getScenario(this.props.params.id)
-    }
-    componentWillReceiveProps({scenario}) {
-        this.setState({scenario});
-    }
+  }
 
-    render() {
-        let {scenario} = this.state
+  componentWillMount() {
+    this.props.getScenario(this.props.params.id)
+  }
 
-        return (
-            <div>
-              <div>
-                <h1>ScenarioHI</h1>
-                <p>{scenario.scenarioName}</p>
-              </div>
-            </div>
-        )
-    }
+  componentWillReceiveProps({ scenario }) {
+    this.setState({ scenario })
+  }
+
+  render() {
+    const { scenario } = this.state
+    const { vouchers } = scenario
+
+    return (
+      <div>
+        <div>
+          <h1>{scenario.scenarioName || ''}</h1>
+          <h4>created by: {scenario.scenarioAuthor || ''}</h4>
+          <div className="greeting">
+            <p>Greetings Traveller,</p>
+            <p>You are about to embark on an amazing adventure.</p>
+            <p>Your journey begins in X.</p>
+            <p>Good Luck!</p>
+          </div>
+          <Vouchers vouchers={vouchers} />
+        </div>
+      </div>
+    )
+  }
 }
 
-export default connect(state => ({scenario: state.scenario}), dispatch => ({
-    getScenario(id) {
-        dispatch(getScenario(id))
-    }
+export default connect(state => ({ scenario: state.scenario }), dispatch => ({
+  getScenario(id) {
+    dispatch(getScenario(id))
+  }
 }))(OneScenarioPage)

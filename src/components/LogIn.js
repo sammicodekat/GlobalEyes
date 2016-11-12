@@ -1,5 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
+
 import { signInWithGoogle, signOut } from '../actions/auth'
 
 @connect(state => ({
@@ -15,25 +17,19 @@ import { signInWithGoogle, signOut } from '../actions/auth'
 }))
 
 export default class LogIn extends Component {
-  constructor(props){
-    super(props)
-
-    this._logIn = this._logIn.bind(this)
-    this._logOut = this._logOut.bind(this)
-  }
-
-  _logIn() {
+  _logIn = () => {
     this.props.logIn()
+    browserHistory.push('/scenarios')
   }
 
-  _logOut() {
+  _logOut = () => {
     this.props.logOut()
   }
 
   render() {
     const { loggedIn } = this.props
-    let logInButton =  <button onClick={this._logIn} className="logIn">Sign In</button>
-    let logOutButton = <button onClick={this._logOut} className="logOut">Sign Out</button>
+    const logInButton = <button onClick={this._logIn} className="logIn">Sign In</button>
+    const logOutButton = <button onClick={this._logOut} className="logOut">Sign Out</button>
     return (
       <div>
         {loggedIn ? logOutButton : logInButton}
