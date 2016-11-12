@@ -32,3 +32,7 @@ require('./config/webpack')(app);
 
 app.use('/api', require('./routes/api'));
 
+app.get('*', (req, res) => {
+  let indexPath = path.join(__dirname, '../public/index.html')
+  res.sendFile(indexPath)
+})
