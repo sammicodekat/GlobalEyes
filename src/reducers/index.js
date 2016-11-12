@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux'
-import scenarios from './scenarios'
-import scenario from './scenario'
+import scenarios from './scenariosReducer'
+import scenario from './scenarioReducer'
 
 const rootReducer = combineReducers({
   scenarios,
