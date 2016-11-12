@@ -5,7 +5,7 @@ const scenarioSchema = new Schema({
   scenarioName: { type: String, required: true },
   scenarioAuthor: { type: String, required: true},
   waypoints: [{ type: Schema.Types.ObjectId, ref: 'Waypoint' }],
-  vouchers: {type: Number} 
+  vouchers: {type: Number}
 })
 
 const Scenario = mongoose.model('Scenario', scenarioSchema)
