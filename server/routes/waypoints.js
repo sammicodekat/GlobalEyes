@@ -2,34 +2,33 @@ const express = require('express')
 
 const router = express.Router()
 
-const Scenario = require('../models/Scenario')
+const Waypoints = require('../models/Waypoints')
 
 router.route('/')
 .get((req, res) => {
-  Scenario.find()
-  .then((scenarios) => { res.send(scenarios) })
+  Waypoints.find()
+  .then((waypointss) => { res.send(waypointss) })
   .catch((err) => { res.status(400).send(err) })
 })
 .post((req, res) => {
-  Scenario.create(req.body)
-  .then((scenario) => { res.send(scenario) })
+  Waypoints.create(req.body)
+  .then((waypoints) => { res.send(waypoints) })
   .catch((err) => { res.status(400).send(err) })
 })
 
 router.route('/:id')
 .get((req, res) => {
-  Scenario.findById(req.params.id)
-  .populate('waypoints')
-  .then(scenario => res.send(scenario))
+  Waypoints.findById(req.params.id)
+  .then(waypoints => res.send(waypoints))
   .catch(err => res.status(400).send(err))
 })
 .put((req, res) => {
-  Scenario.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
-  .then(newScenario => res.send(newScenario))
+  Waypoints.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+  .then(newWaypoints => res.send(newWaypoints))
   .catch(err => res.status(400).send(err))
 })
 .delete((req, res) => {
-  Scenario.findByIdAndRemove(req.params.id)
+  Waypoints.findByIdAndRemove(req.params.id)
   .then(() => {
     res.send('removed!');
   })
