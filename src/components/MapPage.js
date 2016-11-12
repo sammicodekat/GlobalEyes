@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import GMap from './GMap'
 import Vouchers from './Vouchers'
 
-class MapView extends Component {
+class MapPage extends Component {
   render() {
     // let { vouchers } = this.props.scenario
     const vouchers = 5
@@ -22,4 +22,4 @@ class MapView extends Component {
 
 export default connect(state => ({
   scenario: state.scenarioReducer
-}))(MapView)
+}))(MapPage)

@@ -1,3 +1,5 @@
+/* global document */
+
 import React, { Component } from 'react'
 
 export default class GMap extends Component {
@@ -10,7 +12,7 @@ export default class GMap extends Component {
   }
 
   initMap() {
-    const { mapRef } = this.refs
+    const mapRef = document.getElementById('mapRef')
     const { google } = this.props
 
     const zoom = 4
@@ -59,7 +61,7 @@ export default class GMap extends Component {
 
   render() {
     return (
-      <div ref="mapRef" className="mapRef" />
+      <div id="mapRef" className="mapRef" />
     )
   }
 }
