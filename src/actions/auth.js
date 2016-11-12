@@ -29,11 +29,6 @@ function signOutError(err) {
   }
 }
 
-export function signInWithGoogle() {
-  const provider = new firebase.auth.GoogleAuthProvider()
-  return authenticate(provider)
-}
-
 export function authenticate(provider) {
   return dispatch => {
     firebaseAuth.signInWithPopup(provider)
@@ -42,12 +37,15 @@ export function authenticate(provider) {
   }
 }
 
-export function signOut(){
+export function signInWithGoogle() {
+  const provider = new firebase.auth.GoogleAuthProvider()
+  return authenticate(provider)
+}
+
+export function signOut() {
   return dispatch => {
     firebaseAuth.signOut()
       .then(() => dispatch(signOutSuccess()))
-      .catch(err => dispatch(signOutErr(err)))
+      .catch(err => dispatch(signOutError(err)))
   }
 }
-
-

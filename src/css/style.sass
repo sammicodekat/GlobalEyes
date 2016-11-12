@@ -2,37 +2,6 @@
 
 @import reset
 
-=respond-to($breakpoint)
-  @if $breakpoint == "xsmall"
-    @media (min-width: 320px)
-      @content
-    }
-  }
-
-  @if $breakpoint == "small" {
-    @media (min-width: 767px) {
-      @content
-    }
-  }
-
-  @else if $breakpoint == "medium" {
-    @media (min-width: 992px) {
-      @content
-    }
-  }
-
-  @else if $breakpoint == "large" {
-    @media (min-width: 1200px) {
-      @content
-    }
-  }
-}
-
-@include respond-to(xsmall) { ... }
-@include respond-to(small) { ... }
-@include respond-to(medium) { ... }
-@include respond-to(large) { ... }
-
 body
   font-family: 'Ubuntu', sans-serif
   background-color: #29abe2

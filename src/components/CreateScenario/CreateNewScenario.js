@@ -4,8 +4,8 @@ import React from 'react'
 // import Checkbox from './Checkbox'
 // import NumberInput from './NumberInput'
 
-const CreateNewScenario = ({profile, allRaces, allEducationLevels, onSave, onChange, loading, errors}) => {
-  return(
+const CreateNewScenario = ({ profile, allRaces, allEducationLevels, onSave, onChange, loading, errors }) => {
+  return (
     <form>
       {/* <TextInput
         name="postiion"
