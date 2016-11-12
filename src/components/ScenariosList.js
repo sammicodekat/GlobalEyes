@@ -1,13 +1,15 @@
 import React from 'react'
 
-const renderScenariosList = scenarios => (scenarios.map(scenario => (
-    <button key={scenarioId} onClick={() => {}}>{scenario.scenarioName}</button>
+const renderScenariosList = scenarios => (scenarios.map((scenario, i) => (
+    <button key={`${scenario.scenarioId}${i}`} onClick={() => {}}>{scenario.scenarioName}</button>
 )))
 
-export default const ScenariosList = (scenarios) => {
+const ScenariosList = ({ scenarios }) => {
     return (
         <div>
             {renderScenariosList(scenarios)}
         </div>
     )
 }
+
+export default ScenariosList

@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, browserHistory } from 'react-router'
 import Layout from './Layout'
 import Home from './Home'
 import MapView from './MapView'
+import ScenariosPage from './ScenariosPage'
 
 export default class MyRouter extends Component {
 
@@ -13,6 +14,7 @@ export default class MyRouter extends Component {
         <Route path='/' component={Layout}>
           <IndexRoute component={Home} />
           <Route path='/map' component={MapView} />
+          <Route path='/scenarios' component={ScenariosPage} />
         </Route>
       </Router>
     )

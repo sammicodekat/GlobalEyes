@@ -1,27 +1,41 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux'
-import {getScenarios} from '../actions/scenariosActions'
-import {browserHistory} from 'react-router'
+import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { getScenarios } from '../actions/scenarioActions'
+import { browserHistory } from 'react-router'
 import ScenariosList from './ScenariosList'
+
 class ScenariosPage extends Component {
     constructor(props) {
         super(props);
+      this.state = {
+        scenarios: [],
+      }
     }
+    componentWillReceiveProps({ scenarios }) {
+      this.setState({ scenarios });
+    }
+
+    // componentWillUpdate(nextProps, nextState) {
+    //   console.log('componentWillUpdate: ', nextState);
+    // }
+
     render() {
-        let {scenarios} = this.props
+        let { scenarios } = this.state
         return (
             <div>
               <div>
                 <h1>Scenarios</h1>
-                {ScenariosList}
-                </div>
+                <ScenariosList scenarios={scenarios} />
+              </div>
             </div>
         )
     }
 }
 
-export default connect(state => ({scenarios: state.scenarios}), dispatch => ({
-    getScenarios() {
-        dispatch(getScenarios())
-    }
-}))(ScenariosPage)
+function mapStateToProps(state) {
+  return {
+   scenarios: state.scenarios
+  }
+}
+
+export default connect(mapStateToProps, null)(ScenariosPage)
