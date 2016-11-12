@@ -7,3 +7,4 @@ router.use('/poi', require('./poi'))
 router.use('/waypoints', require('./waypoints'))
 
 module.exports = router;
+
