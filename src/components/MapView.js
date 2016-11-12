@@ -3,11 +3,14 @@ import GMap from './GMap'
 
 export default class MapView extends Component {
   render() {
+    let remainingVouchers = 5
     return (
       <div>
         <GMap google={window.google} />
         <div>
-          <h1>Map</h1>
+          <div className="vouchers">
+            {remainingVouchers}
+          </div>
         </div>
       </div>
     )
