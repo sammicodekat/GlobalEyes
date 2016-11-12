@@ -1,10 +1,20 @@
 const PORT = process.env.PORT || 8000;
 
-const bodyParser = require('body-parser');
-const express = require('express');
 const http = require('http');
-const morgan = require('morgan');
 const path = require('path');
+const morgan = require('morgan');
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+//Mongoose Configy
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/globaleyes'
+
+mongoose.Promise = Promise
+mongoose.connect(MONGODB_URI, err => {
+  console.log(err || `MongoDB connected to ${MONGODB_URI}`)
+})
+
 
 const app = express();
 const server = require('http').createServer(app);
@@ -21,3 +31,4 @@ app.use(express.static(path.join(__dirname, '../public')));
 require('./config/webpack')(app);
 
 app.use('/api', require('./routes/api'));
+

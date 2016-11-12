@@ -23,7 +23,7 @@ router.route('/:id')
   .catch(err => res.status(400).send(err))
 })
 .put((req, res) => {
-  Waypoints.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+  Waypoint.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
   .then(newWaypoint => res.send(newWaypoint))
   .catch(err => res.status(400).send(err))
 })
