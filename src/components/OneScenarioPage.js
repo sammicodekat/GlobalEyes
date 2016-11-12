@@ -19,6 +19,7 @@ class OneScenarioPage extends Component {
 
     render() {
         let {scenario} = this.state
+
         return (
             <div>
               <div>
@@ -30,7 +31,7 @@ class OneScenarioPage extends Component {
     }
 }
 
-export default connect(state => ({scenario: state.scenario}), dispatch => ({
+export default connect(state => ({scenario: state.scenarioReducer}), dispatch => ({
     getScenario(id) {
         dispatch(getScenario(id))
     }
