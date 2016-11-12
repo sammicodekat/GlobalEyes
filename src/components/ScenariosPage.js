@@ -5,7 +5,7 @@ import { getScenarios } from '../actions/scenariosActions'
 
 class ScenariosPage extends Component {
     constructor(props) {
-        super(props);
+        super(props)
     }
     componentWillMount() {
         this.props.getScenarios()
