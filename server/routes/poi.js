@@ -2,7 +2,7 @@ const express = require('express')
 
 const router = express.Router()
 
-const Poi = require('../models/Poi')
+const Poi = require('../models/PointOfInterest')
 
 router.route('/')
 .get((req, res) => {

@@ -2,33 +2,33 @@ const express = require('express')
 
 const router = express.Router()
 
-const Waypoints = require('../models/Waypoints')
+const Waypoint = require('../models/Waypoint')
 
 router.route('/')
 .get((req, res) => {
-  Waypoints.find()
+  Waypoint.find()
   .then((waypointss) => { res.send(waypointss) })
   .catch((err) => { res.status(400).send(err) })
 })
 .post((req, res) => {
-  Waypoints.create(req.body)
+  Waypoint.create(req.body)
   .then((waypoints) => { res.send(waypoints) })
   .catch((err) => { res.status(400).send(err) })
 })
 
 router.route('/:id')
 .get((req, res) => {
-  Waypoints.findById(req.params.id)
-  .then(waypoints => res.send(waypoints))
+  Waypoint.findById(req.params.id)
+  .then(waypoint => res.send(waypoint))
   .catch(err => res.status(400).send(err))
 })
 .put((req, res) => {
   Waypoints.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
-  .then(newWaypoints => res.send(newWaypoints))
+  .then(newWaypoint => res.send(newWaypoint))
   .catch(err => res.status(400).send(err))
 })
 .delete((req, res) => {
-  Waypoints.findByIdAndRemove(req.params.id)
+  Waypoint.findByIdAndRemove(req.params.id)
   .then(() => {
     res.send('removed!');
   })
