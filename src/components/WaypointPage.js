@@ -5,7 +5,7 @@ import { browserHistory } from 'react-router'
 
 import Vouchers from './Vouchers'
 
-class OneScenarioPage extends Component {
+class WaypointPage extends Component {
   constructor(props) {
     super(props)
   }
@@ -16,20 +16,11 @@ class OneScenarioPage extends Component {
 
   render() {
     const { scenario } = this.props
-    const { vouchers } = scenario
-
+    // const { vouchers, waypoints } = scenario
+    // const { waypointName, pointsOfInterest, falseRoute } = waypoints[0];
     return (
       <div>
         <div>
-          <h1>{scenario.scenarioName || ''}</h1>
-          <h4>created by: {scenario.scenarioAuthor || ''}</h4>
-          <div className="greeting">
-            <p>Greetings Traveller,</p>
-            <p>You are about to embark on an amazing adventure.</p>
-            <p>Your journey begins in X.</p>
-            <p>Good Luck!</p>
-            <button onClick={() => browserHistory.push(`/map/`)}>Start Game</button>
-          </div>
           <Vouchers vouchers={vouchers} />
         </div>
       </div>
@@ -41,4 +32,4 @@ export default connect(state => ({ scenario: state.scenario }), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }
-}))(OneScenarioPage)
+}))(WaypointPage)
