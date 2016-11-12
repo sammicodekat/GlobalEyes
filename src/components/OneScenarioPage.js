@@ -3,6 +3,8 @@ import {connect} from 'react-redux'
 import ScenariosList from './ScenariosList'
 import { getScenario } from '../actions/scenarioActions'
 
+import Vouchers from './Vouchers'
+
 class OneScenarioPage extends Component {
     constructor(props) {
         super(props);
@@ -18,13 +20,21 @@ class OneScenarioPage extends Component {
     }
 
     render() {
-        let {scenario} = this.state
+        let { scenario } = this.state
+        let { vouchers } = scenario
 
         return (
             <div>
               <div>
-                <h1>ScenarioHI</h1>
-                <p>{scenario.scenarioName}</p>
+                <h1>{scenario.scenarioName || ''}</h1>
+                <h4>created by: {scenario.scenarioAuthor || ''}</h4>
+                <div className="greeting">
+                  <p>Greetings Traveller,</p>
+                  <p>You are about to embark on an amazing adventure.</p>
+                  <p>Your journey begins in X.</p>
+                  <p>Good Luck!</p>
+                </div>
+                <Vouchers vouchers={vouchers}/>
               </div>
             </div>
         )

@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import GMap from './GMap'
+import { connect } from 'react-redux'
 
-export default class MapView extends Component {
+import GMap from './GMap'
+import Vouchers from './Vouchers'
+
+class MapView extends Component {
   render() {
-    let remainingVouchers = 5
+    let { vouchers } = this.props.scenario
     return (
       <div>
         <GMap google={window.google} />
         <div>
-          <div className="vouchers">
-            {remainingVouchers}
-          </div>
+          <Vouchers vouchers={vouchers}/>
         </div>
       </div>
     )
   }
 }
+
+export default connect(state => ({
+  scenario: state.scenarioReducer
+}))(MapView)
