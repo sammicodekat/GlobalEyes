@@ -19,7 +19,7 @@ router.route('/')
 router.route('/:id')
 .get((req, res) => {
   Scenario.findById(req.params.id)
-  .populate('employees')
+  .populate('waypoints')
   .then(Scenario => res.send(Scenario))
   .catch(err => res.status(400).send(err))
 })

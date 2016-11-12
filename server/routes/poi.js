@@ -2,28 +2,30 @@ const express = require('express')
 
 const router = express.Router()
 
-const Clue = require('../models/Clue')
+const Poi = require('../models/Poi')
 
 router.route('/')
 .get((req, res) => {
-  Clue.find()
-  .then((clues) => { res.send(clues) })
+  Poi.find()
+  .then((pois) => { res.send(pois) })
   .catch((err) => { res.status(400).send(err) })
 })
 .post((req, res) => {
-  Clue.create(req.body)
-  .then((clue) => { res.send(clue) })
+  Poi.create(req.body)
+  .then((poi) => { res.send(poi) })
   .catch((err) => { res.status(400).send(err) })
 })
 
 router.route('/:id')
 .get((req, res) => {
-  Clue.findById(req.params.id)
-  .then(clue => res.send(clue))
+  Poi.findById(req.params.id)
+  .populate('waypoints')
+  .populate('clues')
+  .then(poi => res.send(poi))
   .catch(err => res.status(400).send(err))
 })
 .delete((req, res) => {
-  Clue.findByIdAndRemove(req.params.id)
+  Poi.findByIdAndRemove(req.params.id)
   .then(() => {
     res.send('removed!');
   })
