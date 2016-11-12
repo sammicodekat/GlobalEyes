@@ -31,7 +31,7 @@ class OneScenarioPage extends Component {
     }
 }
 
-export default connect(state => ({scenario: state.scenarioReducer}), dispatch => ({
+export default connect(state => ({scenario: state.scenario}), dispatch => ({
     getScenario(id) {
         dispatch(getScenario(id))
     }

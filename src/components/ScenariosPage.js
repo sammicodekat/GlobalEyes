@@ -5,16 +5,10 @@ import { getScenarios } from '../actions/scenariosActions'
 
 class ScenariosPage extends Component {
     constructor(props) {
-        super(props);
-        this.state = {
-            scenarios: []
-        }
+        super(props)
     }
     componentWillMount() {
         this.props.getScenarios()
-    }
-    componentWillReceiveProps({scenarios}) {
-        this.setState({scenarios});
     }
 
     render() {
@@ -29,15 +23,13 @@ class ScenariosPage extends Component {
             userLoggedIn = <div></div>
         }
 
-        let {scenarios} = this.state
+        let {scenarios} = this.props;
         return (
             <div>
-              <div>
                 <h1>Scenarios</h1>
                 {userLoggedIn}
-                <ScenariosList 
-                    scenarios={scenarios}/>
-                </div>
+                <ScenariosList scenarios={scenarios}/>
+                <button>+</button>
             </div>
         )
     }
