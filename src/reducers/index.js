@@ -1,7 +1,10 @@
-import { combineReducers } from 'redux';
+import {combineReducers} from 'redux'
+import scenarios from './scenarios'
+import scenario from './scenario'
 
-let sampleReducer = (state = 0) => state;
+const rootReducer = combineReducers({
+  scenarios,
+  scenario
+})
 
-export default combineReducers({
-  zero: sampleReducer
-});
+export default rootReducer
