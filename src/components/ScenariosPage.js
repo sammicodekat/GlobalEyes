@@ -6,31 +6,26 @@ import { getScenarios } from '../actions/scenariosActions'
 class ScenariosPage extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            scenarios: []
-        }
     }
     componentWillMount() {
         this.props.getScenarios()
     }
-    componentWillReceiveProps({scenarios}) {
-        this.setState({scenarios});
-    }
 
     render() {
-        let {scenarios} = this.state
+        let {scenarios} = this.props;
         return (
             <div>
               <div>
                 <h1>Scenarios</h1>
                 <ScenariosList scenarios={scenarios}/>
-                </div>
+                <button>+</button>
+              </div>
             </div>
         )
     }
 }
 
-export default connect(state => ({scenarios: state.scenariosReducer }), dispatch => ({
+export default connect(state => ({scenarios: state.scenarios }), dispatch => ({
     getScenarios() {
         dispatch(getScenarios())
     }

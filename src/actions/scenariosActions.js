@@ -10,7 +10,7 @@ export function receiveScenariosFailed(error) {
 }
 
 export function postScenario(scenario) {
-    return {type: types.POST_SCENARIOS_SUCCESS, scenarios}
+    return {type: types.POST_SCENARIOS_SUCCESS, scenario}
 }
 
 export function postScenarioFailed(error) {

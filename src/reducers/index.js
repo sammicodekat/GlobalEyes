@@ -1,13 +1,12 @@
 import { combineReducers } from 'redux'
-import scenariosReducer from './scenariosReducer'
-import scenarioReducer from './scenarioReducer'
+import scenarios from './scenariosReducer'
+import scenario from './scenarioReducer'
 import auth from './auth'
 
 const rootReducer = combineReducers({
   auth,
-  scenariosReducer,
-  scenarioReducer
+  scenarios,
+  scenario
 })
 
 export default rootReducer
-
