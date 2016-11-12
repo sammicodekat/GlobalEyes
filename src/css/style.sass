@@ -2,6 +2,37 @@
 
 @import reset
 
+=respond-to($breakpoint)
+  @if $breakpoint == "xsmall"
+    @media (min-width: 320px)
+      @content
+    }
+  }
+
+  @if $breakpoint == "small" {
+    @media (min-width: 767px) {
+      @content
+    }
+  }
+
+  @else if $breakpoint == "medium" {
+    @media (min-width: 992px) {
+      @content
+    }
+  }
+
+  @else if $breakpoint == "large" {
+    @media (min-width: 1200px) {
+      @content
+    }
+  }
+}
+
+@include respond-to(xsmall) { ... }
+@include respond-to(small) { ... }
+@include respond-to(medium) { ... }
+@include respond-to(large) { ... }
+
 body
   font-family: 'Ubuntu', sans-serif
   background-color: #29abe2
@@ -15,10 +46,18 @@ body
   background-image: url('/images/vouchers.png')
   background-repeat: no-repeat
   background-size: contain
-  color: #29abe2
+  // color: #29abe2
+  color: black
   margin: 2vmin
-  font-size: 2em
-  padding-left: 0.5vmin
   height: 20vmin
+  width: 20vmin
   max-height: 100px
+  max-width: 100px
   min-height: 75px
+  min-height: 75%
+
+  .remaining
+    position: relative
+    left: 10%
+    top: 10%
+    font-size: 100%
