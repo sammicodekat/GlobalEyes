@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { getScenario } from '../actions/scenarioActions'
 // import { browserHistory } from 'react-router'
 import Vouchers from './Vouchers'
+import PoiList from './PoiList'
 
 class WaypointPage extends Component {
   constructor(props) {
@@ -22,13 +23,13 @@ class WaypointPage extends Component {
         <div>{waypointName}</div>
         <img src={links} />
         <p>{text}</p>
-        <div>{pointsOfInterest[0].poiName}</div>
+        <PoiList pois={pointsOfInterest} />
       </div>
     )
   }
 }
 
-export default connect(state => ({ scenario: state.scenario , scenarios: state.scenarios }), dispatch => ({
+export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios }), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }
