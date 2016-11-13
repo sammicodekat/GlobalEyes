@@ -8,6 +8,7 @@ const scenarioSchema = new Schema({
   waypoints: [{ type: Schema.Types.ObjectId, ref: 'Waypoint' }],
   vouchers: { type: Number }
 })
+
 scenarioSchema.plugin(deepPopulate)
 const Scenario = mongoose.model('Scenario', scenarioSchema)
 
