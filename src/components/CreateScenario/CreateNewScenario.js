@@ -1,19 +1,19 @@
 import React from 'react'
-// import TextInput from './TextInput'
-// import DropdownInput from './DropdownInput'
-// import Checkbox from './Checkbox'
-// import NumberInput from './NumberInput'
+import TextInput from './TextInput'
+import DropdownInput from './DropdownInput'
+import Checkbox from './Checkbox'
+import NumberInput from './NumberInput'
 
-const CreateNewScenario = ({profile, allRaces, allEducationLevels, onSave, onChange, loading, errors}) => {
-  return(
+const CreateNewScenario = ({ profile, allRaces, allEducationLevels, onSave, onChange, loading, errors }) => {
+  return (
     <form>
-      {/* <TextInput
+      <TextInput
         name="postiion"
         label="Position"
         value={profile.position}
         onChange={onChange}
         error={errors.position}/>
-        <NumberInput
+      <NumberInput
         name="age"
         label="Age"
         min='13'
@@ -21,7 +21,7 @@ const CreateNewScenario = ({profile, allRaces, allEducationLevels, onSave, onCha
         value={profile.age}
         onChange={onChange}
         error={errors.age}/>
-        <NumberInput
+      <NumberInput
         name="salary"
         label="Salary"
         min='0'
@@ -29,7 +29,7 @@ const CreateNewScenario = ({profile, allRaces, allEducationLevels, onSave, onCha
         value={profile.age}
         onChange={onChange}
         error={errors.age}/>
-        <DropdownInput
+      <DropdownInput
         name="education"
         label="Education"
         value={profile.educaiton}
@@ -37,7 +37,7 @@ const CreateNewScenario = ({profile, allRaces, allEducationLevels, onSave, onCha
         options={allEducationLevels}
         onChange={onChange}
         error={errors.education}/>
-        <DropdownInput
+      <DropdownInput
         name="race"
         label="Race"
         value={profile.race}
@@ -45,25 +45,25 @@ const CreateNewScenario = ({profile, allRaces, allEducationLevels, onSave, onCha
         options={allRaces}
         onChange={onChange}
         error={errors.race}/>
-        <TextInput
+      <TextInput
         name="marital_status"
         label="Marital Status"
         value={profile.marital_status}
         onChange={onChange}
         error={errors.marital_status}/>
-        <Checkbox
+      <Checkbox
         name="male"
         label="Male"
         value={profile.gender}
         onChange={onChange}
         error={errors.gender}/>
-        <Checkbox
+      <Checkbox
         name="female"
         label="Female"
         value={profile.gender}
         onChange={onChange}
         error={errors.gender}/>
-        <Checkbox
+      <Checkbox
         name="hasKids"
         label="Have Kids"
         value={profile.hasKids}
@@ -74,7 +74,7 @@ const CreateNewScenario = ({profile, allRaces, allEducationLevels, onSave, onCha
         disabled={loading}
         value={loading ? 'Saving...' : 'Save'}
         className="someBtnClassName"
-      onClick={onSave}/> */}
+      onClick={onSave}/>
     </form>
   )
 }

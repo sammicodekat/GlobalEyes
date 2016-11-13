@@ -1,13 +1,15 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Provider }  from 'react-redux';
-import MyRouter from './components/MyRouter';
+/* global document */
 
-import store from './store';
+import React from 'react'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import MyRouter from './components/MyRouter'
+
+import store from './store'
 
 render(
   <Provider store={store}>
-    <MyRouter/>
+    <MyRouter />
   </Provider>,
   document.getElementById('root')
-);
+)
