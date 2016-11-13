@@ -23,8 +23,8 @@ export default class GMap extends Component {
       center
     })
 
-    const markers = [{ current: true, visited: true, lat: 41.85, lng: -97.65 }, { current: false, visited: true, lat: 20, lng: -80 }, { current: false, visited: false, lat: 40, lng: -80 }]
-    // var { markers } = this.props
+    const { markers } = this.props
+    console.log('markers: ', markers)
 
     markers.forEach(markerPoint => {
       // let locationObj = markerPoint.geometry.location
