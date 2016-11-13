@@ -11,7 +11,6 @@ import OneScenarioPage from './OneScenarioPage'
 import WaypointPage from './WaypointPage'
 
 export default class MyRouter extends Component {
-
   render() {
     return (
       <Router history={browserHistory}>
