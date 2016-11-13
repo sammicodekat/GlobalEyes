@@ -11,14 +11,13 @@ class OneScenarioPage extends Component {
   }
 
   componentWillMount() {
-    this.props.getScenario(this.props.params.id)
+    // this.props.getScenario(this.props.params.id)
   }
 
   render() {
-    const { scenario } = this.props
+    // const { scenario } = this.props
+    const scenario = this.props.scenarios[this.props.params.id-1]
     const { vouchers } = scenario
-    const scenarioId = this.props.params.id
-
     return (
       <div>
         <div>
@@ -29,7 +28,7 @@ class OneScenarioPage extends Component {
             <p>You are about to embark on an amazing adventure.</p>
             <p>Your journey begins in X.</p>
             <p>Good Luck!</p>
-            <button onClick={() => browserHistory.push(`${scenarioId}/map`)}>Start Game</button>
+            <button onClick={() => browserHistory.push(`${scenario._id}/map`)}>Start Game</button>
           </div>
           <Vouchers vouchers={vouchers} />
         </div>
@@ -38,7 +37,7 @@ class OneScenarioPage extends Component {
   }
 }
 
-export default connect(state => ({ scenario: state.scenario }), dispatch => ({
+export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios }), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }
