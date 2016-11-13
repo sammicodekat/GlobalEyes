@@ -1,7 +1,9 @@
 export default {
     // scenarios: [],
+    auth:{
     authenticated : false,
-    user : {},
+    user : {}
+    },
     //waypoint
     waypoint : {
         waypointName: 'Danielville, Samtucky',
