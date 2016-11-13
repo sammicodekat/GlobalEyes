@@ -3,7 +3,7 @@ import initialState from './initialState'
 
 // creating a template for our data
 
-export default function (state = initialState, { type, payload }) {
+export default function (state = initialState.auth, { type, payload }) {
   switch (type) {
     case types.SIGN_IN_SUCCESS:
       const { uid, displayName, email, photoURL } = payload
@@ -12,7 +12,7 @@ export default function (state = initialState, { type, payload }) {
         user: { uid, displayName, email, photoURL }
       })
     case types.SIGN_OUT_SUCCESS:
-      return initialState
+      return initialState.auth
     default:
       return state
   }
