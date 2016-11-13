@@ -8,18 +8,18 @@ class WaypointPage extends Component {
   constructor(props) {
     super(props)
   }
-
   render() {
+    let id = this.props.params.id
     const { scenario } = this.props
     const { vouchers, waypoints } = scenario
-    const { waypointName, pointsOfInterest, falseRoute } = waypoints[this.params.id];
+    let waypoint = waypoints.filter(x => {
+     return x._id == id
+    })
+    const { waypointName, pointsOfInterest, falseRoute } = waypoint[0];
     return (
       <div>
         <div>{waypointName}</div>
         <div>{pointsOfInterest[0].poiName}</div>
-        <div>
-          <Vouchers vouchers={vouchers} />
-        </div>
       </div>
     )
   }
