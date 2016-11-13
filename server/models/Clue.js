@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+
 const clueSchema = new Schema({
   waypoint: { type: String, required: true },
   poiName: { type: String, required: true },

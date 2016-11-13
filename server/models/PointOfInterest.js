@@ -9,6 +9,7 @@ const pointOfInterestSchema = new Schema({
   text: {type: String}
 })
 
+
 const PointOfInterest = mongoose.model('PointOfInterest', pointOfInterestSchema)
 
 module.exports = PointOfInterest

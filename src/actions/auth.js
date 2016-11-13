@@ -46,7 +46,7 @@ export function signOut(){
   return dispatch => {
     firebaseAuth.signOut()
       .then(() => dispatch(signOutSuccess()))
-      .catch(err => dispatch(signOutErr(err)))
+      .catch(err => dispatch(signOutError(err)))
   }
 }
 
