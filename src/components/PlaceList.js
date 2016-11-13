@@ -1,13 +1,13 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
 
-const renderPlaceList = markers => (markers.map((marker, i) => (
-  <button key={i} onClick={() => browserHistory.push('location/:id')}>A Waypoint Place</button>
+const renderPlaceList = waypoints => (waypoints.map((waypoint, i) => (
+  <button key={i} onClick={() => browserHistory.push(`location/${waypoint._id}`)}>{waypoint.waypointName}</button>
 )))
 
-const PlaceList = ({ markers }) => (
+const PlaceList = ({ waypoints }) => (
   <div>
-    {renderPlaceList(markers || [])}
+    {renderPlaceList(waypoints || [])}
   </div>
 )
 

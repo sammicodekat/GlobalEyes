@@ -10,7 +10,7 @@ class ScenariosPage extends Component {
   }
 
   componentWillMount() {
-    this.props.getScenarios()
+    // this.props.getScenarios()
   }
 
   render() {
