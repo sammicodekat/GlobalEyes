@@ -17,6 +17,7 @@ class OneScenarioPage extends Component {
   render() {
     const { scenario } = this.props
     const { vouchers } = scenario
+    const scenarioId = this.props.params.id
 
     return (
       <div>
@@ -28,7 +29,7 @@ class OneScenarioPage extends Component {
             <p>You are about to embark on an amazing adventure.</p>
             <p>Your journey begins in X.</p>
             <p>Good Luck!</p>
-            <button onClick={() => browserHistory.push(`/map/`)}>Start Game</button>
+            <button onClick={() => browserHistory.push(`${scenarioId}/map`)}>Start Game</button>
           </div>
           <Vouchers vouchers={vouchers} />
         </div>
