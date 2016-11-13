@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import ScenariosList from './ScenariosList'
 import { getScenarios } from '../actions/scenariosActions'
+import { browserHistory } from 'react-router'
 
 class ScenariosPage extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class ScenariosPage extends Component {
         <h1>Scenarios</h1>
         {userLoggedIn}
         <ScenariosList scenarios={scenarios} />
-        <button>+</button>
+        <button onClick={() => browserHistory.push('/create')}>+</button>
       </div>
     )
   }
