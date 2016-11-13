@@ -6,6 +6,7 @@ import Home from './Home'
 import MapPage from './MapPage'
 import ScenariosPage from './ScenariosPage'
 import OneScenarioPage from './OneScenarioPage'
+import WaypointPage from './WaypointPage'
 
 export default class MyRouter extends Component {
 
@@ -16,6 +17,7 @@ export default class MyRouter extends Component {
           <IndexRoute component={Home} />
           <Route path="/map" component={MapPage} />
           <Route path="/scenarios" component={ScenariosPage} />
+          <Route path="/map/waypoints/:id" component={WaypointPage} />
           <Route path="/scenarios/:id" component={OneScenarioPage} />
         </Route>
       </Router>
