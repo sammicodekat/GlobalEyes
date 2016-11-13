@@ -19,7 +19,7 @@ router.route('/')
 router.route('/:id')
 .get((req, res) => {
   Scenario.findById(req.params.id)
-  .populate('waypoints')
+  .deepPopulate('waypoints waypoints.pointsOfInterest')
   .then(scenario => res.send(scenario))
   .catch(err => res.status(400).send(err))
 })
