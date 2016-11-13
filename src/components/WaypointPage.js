@@ -20,8 +20,8 @@ class WaypointPage extends Component {
     const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint[0];
     return (
       <div>
-        <div>{waypointName}</div>
-        <img src={links} />
+        <h1 className="waypointName">{waypointName}</h1>
+        <div className="waypointImage"><img src={links[0]} alt={waypointName} /></div>
         <p>{text}</p>
         <PoiList pois={pointsOfInterest} />
       </div>
