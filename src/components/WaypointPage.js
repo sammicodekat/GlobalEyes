@@ -16,10 +16,12 @@ class WaypointPage extends Component {
     let { waypoint } = this.props
     const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
     return (
-      <div>
+      <div className="waypoint">
         <h1 className="waypointName">{waypointName}</h1>
         <div className="waypointImage"><img src={links[0]} alt={waypointName} /></div>
-        <p>{text}</p>
+        <article>
+          <p>{text}</p>
+        </article>
         <PoiList pois={pointsOfInterest} />
       </div>
     )
