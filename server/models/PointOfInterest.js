@@ -3,7 +3,11 @@ const Schema = mongoose.Schema
 
 const pointOfInterestSchema = new Schema({
   poiName: { type: String, required: true },
-  clues: [{ type: Schema.Types.ObjectId, ref: 'Clue' }],
+  clues: {
+    waypoint: { type: String, required: true },
+    links: { type: Array },
+    text: { type: String }
+  },
   links: { type: Array },
   text: { type: String }
 })
