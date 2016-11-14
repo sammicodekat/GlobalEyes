@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TextInput = ({ name, label, onChange, placeholder, value, error, wrapperClass, fieldClass, inputClass, errorClass }) => {
+const TextInput = ({ name, id, label, onChange, placeholder, value, error, wrapperClass, fieldClass, inputClass, errorClass }) => {
   if (error && error.length > 0) {
     wrapperClass += ' ' + 'has-error'
   }
@@ -10,6 +10,7 @@ const TextInput = ({ name, label, onChange, placeholder, value, error, wrapperCl
       <label htmlFor={name}>{label}</label>
       <div className={fieldClass}>
         <input
+          id={id}
           type="text"
           name={name}
           className={inputClass}

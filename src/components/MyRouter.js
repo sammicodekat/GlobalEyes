@@ -27,7 +27,6 @@ export default class MyRouter extends Component {
               <Route path='/poi/:id' component={pointOfInterestPage} />
             </Route>
           </Route>
-
         </Route>
       </Router>
     )
