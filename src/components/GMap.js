@@ -14,27 +14,21 @@ export default class GMap extends Component {
   initMap() {
     const mapRef = document.getElementById('mapRef')
     const { google } = this.props
-
-    const zoom = 4
-    const center = { lat: 41.85, lng: -97.65 }
+    const { scenario } = this.props
 
     const map = new google.maps.Map(mapRef, {
-      zoom,
-      center
+      zoom: 5,
+      center: scenario.waypoints[0].coords
     })
 
-    const { markers } = this.props
-    console.log('markers: ', markers)
+    scenario.waypoints.forEach(waypoint => {
+      const { lat, lng } = waypoint.coords
 
-    markers.forEach(markerPoint => {
-      // let locationObj = markerPoint.geometry.location
-      const { lat, lng } = markerPoint
+      const icon = '/images/marker_new.png'
 
-      let icon = ''
-
-      if (markerPoint.current) icon = './images/marker_current.png'
-      else if (markerPoint.visited) icon = './images/marker_visited.png'
-      else icon = './images/marker_new.png'
+      // if (i === 1) icon = './images/marker_current.png'
+      // else if (i === 0) icon = './images/marker_visited.png'
+      // else icon = './images/marker_new.png'
 
       const marker = new google.maps.Marker({
         position: { lat, lng },
@@ -42,7 +36,7 @@ export default class GMap extends Component {
         icon
       })
 
-      const contentString = `<h5>${markerPoint.lat}, ${markerPoint.lng}</h5>`
+      const contentString = `<h4>${waypoint.waypointName}</h4>`
 
       const infowindow = new google.maps.InfoWindow({
         content: contentString

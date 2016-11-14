@@ -13,7 +13,7 @@ export default {
             lng: -74.005941
         },
         links: [
-            'https://i.ytimg.com/vi/c7oV1T2j5mc/maxresdefault.jpg', 'http://feelgrafix.com/data/landscape/landscape-1.jpg'
+            'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
         ],
         text: 'Bacon ipsum dolor amet pork loin spare ribs corned beef pork chop drumstick ham hock pancetta ribeye filet mignon. Rump shank tenderloin meatloaf meatball t-bone. Tail boudin porchetta kielbasa. Bresaola corned beef strip steak, bacon sirloin pork belly short loin shankle chuck pork ground round fatback ball tip pork loin tri-tip',
         pointsOfInterest: [
@@ -24,20 +24,20 @@ export default {
                         waypoint: "DanielTown, Richardington",
                         poiName: "Sir Daniel's Iron Hammer",
                         links: [
-                            'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                            'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                         ],
                         text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                     }, {
                         waypoint: "DanielTown, Richardington",
                         poiName: "Sir Daniel's Iron Hammer",
                         links: [
-                            'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                            'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                         ],
                         text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                     }
                 ],
                 links: [
-                    'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                    'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                 ],
                 text: 'Also known as "Daniel the Dictator", the El Danieleo Dictador was the presidential palace where daniel tortured developers and, through shouts and hard labor, killed over 4,000 coders'
             }
@@ -76,20 +76,20 @@ export default {
                 waypoint: "DanielTown, Richardington",
                 poiName: "Sir Daniel's Iron Hammer",
                 links: [
-                    'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                    'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                 ],
                 text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
             }, {
                 waypoint: "DanielTown, Richardington",
                 poiName: "Sir Daniel's Iron Hammer",
                 links: [
-                    'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                    'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                 ],
                 text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
             }
         ],
         links: [
-            'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+            'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
         ],
         text: 'Also known as "Daniel the Dictator", the El Danieleo Dictador was the presidential palace where daniel tortured developers and, through shouts and hard labor, killed over 4,000 coders'
     },
@@ -100,7 +100,7 @@ export default {
         waypoint: "DanielTown, Richardington",
         poiName: "Sir Daniel's Iron Hammer",
         links: [
-            'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+            'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
         ],
         text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
     },
@@ -131,20 +131,20 @@ export default {
                                 waypoint: "DanielTown, Richardington",
                                 poiName: "Sir Daniel's Iron Hammer",
                                 links: [
-                                    'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                    'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                 ],
                                 text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                             }, {
                                 waypoint: "DanielTown, Richardington",
                                 poiName: "Sir Daniel's Iron Hammer",
                                 links: [
-                                    'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                    'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                 ],
                                 text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                             }
                         ],
                         links: [
-                            'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                            'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                         ],
                         text: 'Also known as "Daniel the Dictator", the El Danieleo Dictador was the presidential palace where daniel tortured developers and, through shouts and hard labor, killed over 4,000 coders'
                     }
@@ -203,7 +203,7 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }, {
@@ -211,13 +211,13 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }
                             ],
                             links: [
-                                'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                             ],
                             text: 'Also known as "Daniel the Dictator", the El Danieleo Dictador was the presidential palace where daniel tortured developers and, through shouts and hard labor, killed over 4,000 coders'
                         }
@@ -268,7 +268,7 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }, {
@@ -276,13 +276,13 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }
                             ],
                             links: [
-                                'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                             ],
                             text: 'Also known as "Daniel the Dictator", the El Danieleo Dictador was the presidential palace where daniel tortured developers and, through shouts and hard labor, killed over 4,000 coders'
                         }
@@ -333,7 +333,7 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }, {
@@ -341,13 +341,13 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }
                             ],
                             links: [
-                                'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                             ],
                             text: 'Also known as "Daniel the Dictator", the El Danieleo Dictador was the presidential palace where daniel tortured developers and, through shouts and hard labor, killed over 4,000 coders'
                         }
@@ -406,7 +406,7 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }, {
@@ -414,13 +414,13 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }
                             ],
                             links: [
-                                'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                             ],
                             text: 'Also known as "Daniel the Dictator", the El Danieleo Dictador was the presidential palace where daniel tortured developers and, through shouts and hard labor, killed over 4,000 coders'
                         }
@@ -479,7 +479,7 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }, {
@@ -487,13 +487,13 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }
                             ],
                             links: [
-                                'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                             ],
                             text: 'Also known as "Daniel the Dictator", the El Danieleo Dictador was the presidential palace where daniel tortured developers and, through shouts and hard labor, killed over 4,000 coders'
                         }
@@ -552,7 +552,7 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }, {
@@ -560,13 +560,13 @@ export default {
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [
-                                        'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                                     ],
                                     text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
                                 }
                             ],
                             links: [
-                                'http://feelgrafix.com/data/landscape/landscape-17.jpg', 'http://feelgrafix.com/data/landscape/landscape-3.jpg'
+                                'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
                             ],
                             text: 'Also known as "Daniel the Dictator", the El Danieleo Dictador was the presidential palace where daniel tortured developers and, through shouts and hard labor, killed over 4,000 coders'
                         }

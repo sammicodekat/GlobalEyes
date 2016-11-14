@@ -9,19 +9,16 @@ class WaypointPage extends Component {
   constructor(props) {
     super(props)
   }
+  // componentWillMount(){
+  // this.props.dispatch(getWayPoint(this.props.params.id))
+  // }
   render() {
-    let id = this.props.params.id
-    const scenario = this.props.scenarios[this.props.params.id-1]
-    // const { scenario } = this.props
-    const { vouchers, waypoints } = scenario
-    let waypoint = waypoints.filter(x => {
-     return x._id == id
-    })
-    const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint[0];
+    let { waypoint } = this.props
+    const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
     return (
       <div>
-        <div>{waypointName}</div>
-        <img src={links} />
+        <h1 className="waypointName">{waypointName}</h1>
+        <div className="waypointImage"><img src={links[0]} alt={waypointName} /></div>
         <p>{text}</p>
         <PoiList pois={pointsOfInterest} />
       </div>
@@ -29,8 +26,8 @@ class WaypointPage extends Component {
   }
 }
 
-export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios }), dispatch => ({
-  getScenario(id) {
-    dispatch(getScenario(id))
+export default connect(state => ({ waypoint:state.waypoint }), dispatch => ({
+  getWayPoint(id) {
+    dispatch(getWayPoint(id))
   }
 }))(WaypointPage)
