@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import TextInput  from './createScenario/TextInput'
+// import TextInput from './CreateScenario/TextInput'
 import ScenarioForm from './ScenarioForm'
 
 export default class CreateScenarioPage extends Component {
@@ -12,27 +12,29 @@ export default class CreateScenarioPage extends Component {
 
   setNewScenario = (e) => {
     let field = e.target.name
-    
-    this.state.newScenario[field] = e.target.value
-    return this.setState({author: this.state.author})
+    let newScenario = this.state.newScenario
+    newScenario[field] = e.target.value
+    return this.setState({newScenario: newScenario})
   }
 
   submitNewScenario = (e) => {
     e.preventDefault()
     let newScenarioObj = this.state.newScenario
-    this.setState({newScenario: {}})
+    this.setState({ newScenario: {} })
   }
 
   render() {
     const { newScenario } = this.state
+    console.log('newScenario: ', newScenario)
+
+    const theFormInfo = Object.keys(newScenario) || []
+
+    const theScenario = theFormInfo.map((x, i) => (<h3 key={i}>{x}: {newScenario[x]}</h3>))
+
     return (
       <div>
-      <h3>Start Location: { newScenario.endLocation}</h3>
-      <h3>End Location: {newScenario.startLocation}</h3>
-      <h3>Waypoint: {newScenario.waypoint}</h3>
-      <h3>Point Of Interest: {newScenario.pointOfInterest}</h3>
-      <h3>Clue: {newScenario.clue}</h3>
-      <h3>Clue Link: {newScenario.clueLink}</h3>
+        {theScenario}
+
         <ScenarioForm
           newScenario={this.state.newScenario}
           onChange={this.setNewScenario}
