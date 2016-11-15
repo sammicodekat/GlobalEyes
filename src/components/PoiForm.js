@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Geosuggest from 'react-geosuggest'
 import TextInput from './CreateScenario/TextInput'
+import ClueLinkForm from './ClueLinkForm'
 
 export default class PoiForm extends Component {
   constructor(props) {
@@ -31,7 +32,7 @@ export default class PoiForm extends Component {
       for (let j = 1; j <= poiCount; j += 1) {
         const poiName = `${name}_pointOfInterest${j}`
         const clueName = `${name}_clue${j}`
-        const clueLink = `${name}_link${j}`
+        const clueLink = `${name}_clue${j}_link`
         const newPoi = (<div><Geosuggest key={poiName}
           id={poiName}
           type="text"
@@ -47,12 +48,7 @@ export default class PoiForm extends Component {
             label={clueName}
             value={newScenario[clueName]}
             onChange={onChange} />
-          <TextInput
-            key={clueLink}
-            name={clueLink}
-            label="Link to Clue Resource"
-            value={newScenario[clueLink]}
-            onChange={onChange} />
+          <ClueLinkForm clueLink={clueLink} newScenario={newScenario} onChange={onChange} />
         </div>)
         poiFields = [...poiFields, newPoi]
       }
