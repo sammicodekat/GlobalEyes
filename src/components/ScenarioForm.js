@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-
-import TextInput from './CreateScenario/TextInput'
+import Geosuggest from 'react-geosuggest'
+import PoiForm from './PoiForm'
 
 export default class ScenarioForm extends Component {
   constructor() {
@@ -25,58 +25,56 @@ export default class ScenarioForm extends Component {
   }
 
   render() {
-    const { onChange, newScenario, onClick } = this.props
-    const { fieldCount } = this.state
-
+    const { onChange, newScenario, onClick, onSelect, getLabel } = this.props
+    const { fieldCount, poiCount } = this.state
     let waypointFields = []
-
     for (let i = 1; i <= fieldCount; i += 1) {
       const theName = `waypoint${i}`
-      const newField = <TextInput key={theName} name={theName} label={theName} value={newScenario[theName]} onChange={onChange} />
+      const newField = (<div><Geosuggest
+        id={theName}
+        key={theName}
+        type="text"
+        onKeyPress={onChange}
+        name={theName}
+        value={newScenario[theName]}
+        label={theName}
+        onSuggestSelect={onSelect}
+        getSuggestLabel={getLabel}
+        placeholder="Search Waypoint"
+                             /><PoiForm onChange={onChange} newScenario={newScenario} onClick={onClick} onSelect={onSelect} name={theName}/></div>)
       waypointFields = [...waypointFields, newField]
     }
 
-    console.log('waypointFields: ', waypointFields)
 
     return (
       <form>
-        <TextInput
+        <Geosuggest
+          id='startLocation'
+          type="text"
+          onKeyPress={onChange}
           name="startLocation"
+          value={newScenario.startLocation}
           label="Start Location"
-          id="startLocation"
-          onChange={onChange}
-          value={newScenario.startLocation} />
-
-        {waypointFields.map(field => field)}
-
-        <button type="button" onClick={() => this.addWaypointInput()}>+</button>
-        <button type="button" onClick={() => this.removeWaypointInput()}>-</button>
-
-        <TextInput
+          onSuggestSelect={onSelect}
+          getSuggestLabel={getLabel}
+          placeholder="Search Start Location"
+        />
+        <PoiForm onChange={onChange} newScenario={newScenario} onClick={onClick} onSelect={onSelect} name='startLocation'/>
+        {waypointFields}
+        <Geosuggest
+          id='endLocation'
+          type="text"
+          onKeyPress={onChange}
           name="endLocation"
-          label="End Location "
-          id="endLocation"
           value={newScenario.endLocation}
-          onChange={onChange} />
-
-        <TextInput
-          name="pointOfInterest"
-          label="Point of Interest"
-          value={newScenario.pointOfInterest}
-          onChange={onChange} />
-
-        <TextInput
-          name="clue"
-          label="Clue"
-          value={newScenario.clue}
-          onChange={onChange} />
-
-        <TextInput
-          name="clueLink"
-          label="Link to Clue Resource"
-          value={newScenario.clueLink}
-          onChange={onChange} />
-
+          label="End Location"
+          onSuggestSelect={onSelect}
+          getSuggestLabel={getLabel}
+          placeholder="Search End Location"
+        />
+        <PoiForm onChange={onChange} newScenario={newScenario} onClick={onClick} onSelect={onSelect} name='endLocation'/>
+        <button type="button" onClick={() => this.addWaypointInput()}>Add WayPoint</button>
+        <button type="button" onClick={() => this.removeWaypointInput()}>Delete WayPoint</button>
         <button className="btnClass" type="submit" onClick={onClick}>Submit Scenario</button>
       </form>
     )

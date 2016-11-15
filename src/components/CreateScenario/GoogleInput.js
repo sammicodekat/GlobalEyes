@@ -1,6 +1,7 @@
 import React from 'react'
+import Geosuggest from 'react-geosuggest'
 
-const TextInput = ({ name, id, label, onChange, placeholder, value, error, wrapperClass, fieldClass, inputClass, errorClass }) => {
+const GoogleInput = ({ name, id, label, onChange, placeholder, value, error, wrapperClass, fieldClass, inputClass, errorClass }) => {
   if (error && error.length > 0) {
     wrapperClass += ' ' + 'has-error'
   }
@@ -8,18 +9,17 @@ const TextInput = ({ name, id, label, onChange, placeholder, value, error, wrapp
     <div className={wrapperClass}>
       <label htmlFor={name}>{label}</label>
       <div className={fieldClass}>
-        <input
+        <Geosuggest
           id={id}
           type="text"
+          onChange={onChange}
           name={name}
-          className={inputClass}
-          placeholder={placeholder}
           value={value || ''}
-          onChange={onChange}/>
+        />
         {error && <div className={errorClass}>{error}</div>}
       </div>
     </div>
   )
 }
 
-export default TextInput
+export default GoogleInput
