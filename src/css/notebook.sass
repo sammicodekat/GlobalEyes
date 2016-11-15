@@ -8,10 +8,55 @@ $desktop: "(min-width: 1200px)"
   width: 100vw
   height: 100vh
   top: 0
-  left: 0
-  // left: -100vw
+  left: -100vw
   z-index: 200
+  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.5)
   transition: 0.5s all
+
+  .notebookHeader
+    width: 100vw
+    height: 100px
+    background-color: #29abe2
+    color: white
+    display: flex
+    justify-content: space-between
+
+    h2
+      display: inline-block
+      align-self: center
+      line-height: 0
+      margin-left: 20px
+
+    button
+      position: relative
+      display: inline-block
+      background-color: transparent
+      color: white
+      box-shadow: none
+
+  .notebookEntry
+    margin: 40px 20px 80px 20px
+
+    .notebookClue
+      padding-left: 20px
+      margin-top: -30px
+      border-left: 1px solid #29abe2
+
+    h3
+      color: #29abe2
+      margin-top: -1px
+
+    .foundIn
+      font-size: 0.8em
+
+    .clueLink
+      width: 100%
+      position: relative
+      display: block
+
+      img
+        width: 100%
+        object-fit: contain
 
 #notebook.open
   left: 0

@@ -4,7 +4,9 @@
 @import login
 @import scenarios
 @import form
+@import intro
 @import notebook
+@import map
 @import waypoints
 
 $tablet: "(min-width: 768px)"
@@ -15,47 +17,22 @@ html
   background-color: #29abe2
   color: #333
   font-weight: 300
-  font-size: 2em
 
 .appTitle
   margin-top: 20px
   margin-left: 40px
-  font-size: 1em
+  font-size: 2em
   color: white
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8)
 
-.mapRef
-  width: 100vw
-  height: 100vh
-  background-color: black
 .geosuggest__item--active
   background: #267dc0
   color: #fff
+
 .geosuggest__suggests--hidden
   max-height: 0
   overflow: hidden
   border-width: 0
-.vouchers
-  background-image: url('/images/vouchers.png')
-  background-repeat: no-repeat
-  background-size: contain
-  margin: 2vmin
-  height: 20vmin
-  width: 20vmin
-  max-height: 100px
-  max-width: 100px
-  min-height: 75px
-  min-height: 75%
-  .remaining
-    color: #29abe2
-    font-weight: 700
-    position: relative
-    left: 10%
-    top: 10%
-    position: relative
-    display: inline-block
-    margin-top: 20%
-    font-size: 200%
 
 button
   background-color: rgb(255, 255, 255)
