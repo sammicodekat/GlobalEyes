@@ -15,7 +15,7 @@ const TextInput = ({ name, id, label, onChange, placeholder, value, error, wrapp
           name={name}
           className={inputClass}
           placeholder={placeholder}
-          value={value}
+          value={value || ''}
           onChange={onChange}/>
         {error && <div className={errorClass}>{error}</div>}
       </div>
