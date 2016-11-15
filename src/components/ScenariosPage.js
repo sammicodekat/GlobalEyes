@@ -14,10 +14,15 @@ class ScenariosPage extends Component {
   }
 
   render() {
+    const randomBackground = {
+      backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
+    }
+
     let userLoggedIn
     if (this.props.user.photoURL) {
       userLoggedIn = (
-        <div key={this.props.user.uid}>
+        <div key={this.props.user.uid} className="userProfile">
+          <span>{this.props.user.displayName || 'traveller'}</span>
           <img src={this.props.user.photoURL} alt="" />
         </div>
         )
@@ -28,10 +33,16 @@ class ScenariosPage extends Component {
     const { scenarios } = this.props
     return (
       <div>
-        <h1>Scenarios</h1>
-        {userLoggedIn}
-        <ScenariosList scenarios={scenarios} />
-        <button onClick={() => browserHistory.push('/create')}>+</button>
+        <div className="backgroundImage" style={randomBackground} />
+        <div className="pageContent">
+          {userLoggedIn}
+          <h1 className="appTitle">Globaleyes</h1>
+          <div className="scenarios">
+            <h2>Scenarios</h2>
+            <ScenariosList scenarios={scenarios} />
+            <button onClick={() => browserHistory.push('/create')}>+</button>
+          </div>
+        </div>
       </div>
     )
   }
