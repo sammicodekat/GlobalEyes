@@ -30,31 +30,33 @@ export default class ScenarioForm extends Component {
     let waypointFields = []
     for (let i = 1; i <= fieldCount; i += 1) {
       const theName = `waypoint${i}`
-      const newField = (<div><Geosuggest
-        id={theName}
-        key={theName}
-        type="text"
-        onKeyPress={onChange}
-        name={theName}
-        value={newScenario[theName]}
-        label={theName}
-        onSuggestSelect={onSelect}
-        getSuggestLabel={getLabel}
-        placeholder="Search Waypoint"
-                             /><PoiForm onChange={onChange} newScenario={newScenario} onClick={onClick} onSelect={onSelect} name={theName}/></div>)
+      const newField = (
+        <div key={`${theName}${i}`}><Geosuggest
+          id={theName}
+          type="text"
+          onKeyPress={onChange}
+          name={theName}
+          value={newScenario[theName]}
+          // label={theName}
+          onSuggestSelect={onSelect}
+          getSuggestLabel={getLabel}
+          placeholder="Search Waypoint"
+        />
+          <PoiForm key={`PoiForm${i}`} onChange={onChange} newScenario={newScenario} onClick={onClick} onSelect={onSelect} name={theName} />
+        </div>)
       waypointFields = [...waypointFields, newField]
     }
 
 
     return (
-      <form>
+      <form className="creationForm">
         <Geosuggest
           id='startLocation'
           type="text"
           onKeyPress={onChange}
           name="startLocation"
           value={newScenario.startLocation}
-          label="Start Location"
+          // label="Start Location"
           onSuggestSelect={onSelect}
           getSuggestLabel={getLabel}
           placeholder="Search Start Location"
@@ -67,7 +69,7 @@ export default class ScenarioForm extends Component {
           onKeyPress={onChange}
           name="endLocation"
           value={newScenario.endLocation}
-          label="End Location"
+          // label="End Location"
           onSuggestSelect={onSelect}
           getSuggestLabel={getLabel}
           placeholder="Search End Location"
