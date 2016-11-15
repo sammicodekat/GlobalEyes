@@ -1,20 +1,11 @@
 import { firebaseDb } from '../firebase'
 import * as types from './actionTypes'
+import store from '../store'
 
-const userRef = firebaseDb.ref('user')
+var userVariable = 'user'
 
-//check if userObject exists
-//if it does then fetch it for use in the store
-//if not create one and add in the first data set(waypoint, clue etc...)
+const userRef = firebaseDb.ref(userVariable)
 
-function fetchUserObjects() {
-  let allUsers
-  userRef.off()
-  userRef.on('value', snapshot => {
-    let mySnapShot = snapshot.val()
-    return mySnapShot
-  })
-}
 
 function receiveUser(userObj) {
   return {
@@ -23,12 +14,26 @@ function receiveUser(userObj) {
   }
 }
 
-export function storeUserObj(userObj) {
-  userRef.push(userObj)
+function continuePreviousGame(userId) {
+  return { type: types.WILL_USER_CONTINUE_GAME, userId}
 }
 
-// export function fetchUserObject() {
-// }
+export function storeUserObj(userObj) {
+  userVariable = userObj.uid
+  userRef.once('value', function(snapshot) {
+    let object = snapshot.val()
+    let keys = Object.keys(object)
+    if(keys.includes(userObj.uid)){
+      let userId = userObj.uid
+      return store.dispatch(continuePreviousGame(userId))
+    } else {
+      let myObj = {}
+      myObj[userObj.uid] = userObj;
+      userRef.update(myObj)
+    }
+    
+  })
+}
 
 // export function startListeningForUser() {
 //   return dispatch => {
@@ -39,15 +44,5 @@ export function storeUserObj(userObj) {
 //     }, err => {
 //       console.error(err)
 //     })
-//   }
-// }
-
-
-// export function createNewUserObj(userObj) {
-//   userRef.push(userObj)
-
-//   return {
-//     type: types.USER_CREATED,
-//     payload: userObj
 //   }
 // }

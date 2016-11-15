@@ -4,9 +4,7 @@ import Notebook from './Notebook'
 const Game = (props) => (
   <div>
     {props.children}
-    <div id="notebook">
-      <Notebook />
-    </div>
+    <Notebook />
   </div>
   )
 export default Game
