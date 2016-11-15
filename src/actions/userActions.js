@@ -2,7 +2,10 @@ import { firebaseDb } from '../firebase'
 import * as types from './actionTypes'
 import store from '../store'
 
+var userVariable = 'user'
+
 const userRef = firebaseDb.ref(userVariable)
+
 
 function receiveUser(userObj) {
   return {
