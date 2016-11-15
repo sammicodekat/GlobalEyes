@@ -4,7 +4,7 @@ import scenario from './scenarioReducer'
 import auth from './auth'
 import poi from './poiReducer'
 import waypoint from './wayPointReducer'
-import userReducer from './userReducer'
+import userId from './userReducer'
 
 const rootReducer = combineReducers({
   auth,
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   scenario,
   poi,
   waypoint,
-  userReducer
+  userId
 })
 
 export default rootReducer
