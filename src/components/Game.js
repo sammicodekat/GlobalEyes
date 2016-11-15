@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
+import Notebook from './Notebook'
 
-export default class Game extends Component {
-  render() {
-    return (
-      <div>
-        {this.props.children}
-      </div>
-    )
-  }
-}
+const Game = (props) => (
+  <div>
+    {props.children}
+    <div className="notebook">
+      <Notebook />
+    </div>
+  </div>
+  )
+export default Game

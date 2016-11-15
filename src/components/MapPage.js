@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { browserHistory } from 'react-router'
 import GMap from './GMap'
 import Vouchers from './Vouchers'
 import PlaceList from './PlaceList'
