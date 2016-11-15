@@ -1,11 +1,14 @@
 import React from 'react'
 
 const renderNoteList = clues => (clues.map((clue,i) => (
-  <div key={i}>
+  <div key={i} className="notebookEntry">
+    <span className="foundIn">Found in</span>
     <h3>{clue.waypoint}</h3>
-    <h4>{clue.poiName}</h4>
-    {clue.links.map(link => <img key={`cluelink${i}`} src={clue.links} />)}
-    <p>{clue.text}</p>
+    <div className="notebookClue">
+      <h5>{clue.poiName}</h5>
+      {clue.links.map(link => <span className="clueLink"><img key={`cluelink${i}`} src={clue.links} /></span>)}
+      <p>{clue.text}</p>
+    </div>
   </div>
 )))
 

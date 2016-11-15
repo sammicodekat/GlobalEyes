@@ -1,0 +1,57 @@
+$tablet: "(min-width: 768px)"
+$desktop: "(min-width: 1200px)"
+
+.introPage
+  .pageContent
+    background-color: rgba(41, 171, 226, 0.2)
+
+.intro
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 6)
+  background-color: white
+  padding: 20px
+  display: block
+  position: relative
+  margin: 0 auto
+  height: 90%
+  @media #{$tablet}
+    height: auto
+    width: 70vw
+    margin-top: 10vh
+  @media #{$desktop}
+    margin-top: 20vh
+
+  .greeting
+    @media #{$tablet}
+      margin-bottom: 150px
+    @media #{$desktop}
+      margin-bottom: 170px
+
+  .introVouchers
+    background-color: #29abe2
+    position: fixed
+    bottom: 0
+    left: 0
+    width: 100%
+    display: flex
+    justify-content: space-between
+    @media #{$tablet}
+      position: absolute
+
+  h1
+    color: #29abe2
+    text-align: center
+
+  h4
+    text-align: center
+    padding-bottom: 20px
+    border-bottom: 1px solid #29abe2
+
+  p
+    font-size: 1em
+
+  button
+    font-size: 1.2em
+    height: 50%
+    align-self: center
+    @media #{$tablet}
+      font-size: 1.5em
