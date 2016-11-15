@@ -31,6 +31,7 @@ class ScenariosPage extends Component {
         <div key={this.props.user.uid}>
           <img src={this.props.user.photoURL} alt="" />
           <p>{this.props.user.displayName}</p>
+          <button>Continue: {this.props.userObj}</button>
         </div>
         )
     } else {
@@ -50,8 +51,11 @@ class ScenariosPage extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log('state.auth.user: ', state.auth.user)
-  return { scenarios: state.scenarios, user: state.auth.user }
+  return { 
+    scenarios: state.scenarios, 
+    user: state.auth.user,
+    userObj: state.userObj
+  }
 }
 
 export default connect(mapStateToProps, dispatch => ({
