@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import TextInput from './CreateScenario/TextInput'
 import ScenarioForm from './ScenarioForm'
 
-//USER - pull in user data 
+//USER - pull in user data
 //Associate userName(firebase) with the scenario
 
 export default class CreateScenarioPage extends Component {
@@ -21,8 +21,6 @@ export default class CreateScenarioPage extends Component {
     newScenario[field] = e.target.value
     return this.setState({newScenario: newScenario,field})
   }
-
-
 
   submitNewScenario = (e) => {
     e.preventDefault()
@@ -43,18 +41,21 @@ export default class CreateScenarioPage extends Component {
     console.log('newScenario: ', newScenario)
     const theFormInfo = Object.keys(newScenario) || []
 
-    const theScenario = theFormInfo.map((x, i) => (<h3 key={i}>{x}: {newScenario[x]}</h3>))
+    const randomBackground = {
+      backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
+    }
 
     return (
       <div>
-        {theScenario}
-
-        <ScenarioForm
-          newScenario={this.state.newScenario}
-          onChange={this.setNewScenario}
-          onClick={this.submitNewScenario}
-          onSelect={this.select}
-        />
+        <div className="backgroundImage" style={randomBackground} />
+        <div className="pageContent">
+          <ScenarioForm
+            newScenario={this.state.newScenario}
+            onChange={this.setNewScenario}
+            onClick={this.submitNewScenario}
+            onSelect={this.select}
+          />
+        </div>
       </div>
     )
   }
