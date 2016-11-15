@@ -33,7 +33,7 @@ export default class PoiForm extends Component {
         const poiName = `${name}_pointOfInterest${j}`
         const clueName = `${name}_clue${j}`
         const clueLink = `${name}_clue${j}_link`
-        const newPoi = (<div><Geosuggest key={poiName}
+        const newPoi = (<div key={j}><Geosuggest key={poiName}
           id={poiName}
           type="text"
           onKeyPress={onChange}
