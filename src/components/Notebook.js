@@ -1,7 +1,8 @@
 import React from 'react'
 
 const Notebook = () => {
-  let 
+  
+  //Where is this note info being stored at
   return (
     <div className="notebook">
       <span className="remaining">Notebook</span>

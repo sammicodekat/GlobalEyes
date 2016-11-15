@@ -3,14 +3,25 @@ import { connect } from 'react-redux'
 import ScenariosList from './ScenariosList'
 import { getScenarios } from '../actions/scenariosActions'
 import { browserHistory } from 'react-router'
+import { storeUserObj } from '../actions/userActions'
+
+//USER - bring in user info
 
 class ScenariosPage extends Component {
   constructor(props) {
     super(props)
+
   }
 
-  componentWillMount() {
-    // this.props.getScenarios()
+  componentWillReceiveProps(newProps) {
+    let userObj = { 
+      currentWaypoint: {},
+      noteBook: {},
+      uid: newProps.user.uid,
+      userName: newProps.user.displayName,
+      vouchers: 0 
+    }
+    storeUserObj(userObj)
   }
 
   render() {
@@ -19,6 +30,7 @@ class ScenariosPage extends Component {
       userLoggedIn = (
         <div key={this.props.user.uid}>
           <img src={this.props.user.photoURL} alt="" />
+          <p>{this.props.user.displayName}</p>
         </div>
         )
     } else {
@@ -38,6 +50,7 @@ class ScenariosPage extends Component {
 }
 
 function mapStateToProps(state) {
+  console.log('state.auth.user: ', state.auth.user)
   return { scenarios: state.scenarios, user: state.auth.user }
 }
 
