@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-// import TextInput from './CreateScenario/TextInput'
-import ScenarioForm from './ScenarioForm'
 import { connect } from 'react-redux'
+
+import ScenarioForm from './CreateScenario/ScenarioForm'
 import { createNewScenario } from '../actions/scenariosActions'
 import { browserHistory } from 'react-router'
 //USER - pull in user data
@@ -42,10 +42,8 @@ class CreateScenarioPage extends Component {
 
   render() {
     const { newScenario } = this.state
-    const theFormInfo = Object.keys(newScenario) || []
-
     const randomBackground = {
-      backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
+      backgroundImage: `url(/images/background1.jpg)`
     }
 
     return (
@@ -53,7 +51,7 @@ class CreateScenarioPage extends Component {
         <div className="backgroundImage" style={randomBackground} />
         <div className="pageContent">
           <ScenarioForm
-            newScenario={this.state.newScenario}
+            newScenario={newScenario}
             onChange={this.setNewScenario}
             onClick={this.submitNewScenario}
             onSelect={this.select}

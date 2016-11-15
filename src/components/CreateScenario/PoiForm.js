@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import Geosuggest from 'react-geosuggest'
-import TextInput from './CreateScenario/TextInput'
+import TextInput from './TextInput'
 import ClueLinkForm from './ClueLinkForm'
+import ClueForm from './ClueForm'
 
 export default class PoiForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      poiCount:1
+      poiCount:0
     }
   }
 
@@ -29,11 +30,12 @@ export default class PoiForm extends Component {
     const { onChange, newScenario, onClick, onSelect, name } = this.props
     const { poiCount } = this.state
     let poiFields = []
+    const deleteButton = poiCount ? (<button type="button" onClick={() => this.removePoiInput()}>Delete Point of Interest</button>) : ''
       for (let j = 1; j <= poiCount; j += 1) {
         const poiName = `${name}_pointOfInterest${j}`
         const clueName = `${name}_clue${j}`
         const clueLink = `${name}_clue${j}_link`
-        const newPoi = (<div key={j}><Geosuggest key={poiName}
+        const newPoi = (<div key={j} className='poiForm'><Geosuggest key={poiName}
           id={poiName}
           type="text"
           onKeyPress={onChange}
@@ -49,15 +51,17 @@ export default class PoiForm extends Component {
             value={newScenario[clueName]}
             onChange={onChange} />
           <ClueLinkForm clueLink={clueLink} newScenario={newScenario} onChange={onChange} />
+          <ClueForm {...this.props} />
         </div>)
         poiFields = [...poiFields, newPoi]
       }
 
     return (
-        <div>
+        <div >
           {poiFields}
           <button type="button" onClick={() => this.addPoiInput()}>Add Point of Interest</button>
-          <button type="button" onClick={() => this.removePoiInput()}>Delete Point of Interest</button>
+          {deleteButton}
+          <button className="btnClass" type="submit" onClick={onClick}>Confirm Point Of Interest</button>
         </div>
     )
   }
