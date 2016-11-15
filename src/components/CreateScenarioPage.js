@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
 // import TextInput from './CreateScenario/TextInput'
 import ScenarioForm from './ScenarioForm'
-
+import { connect } from 'react-redux'
+import { createNewScenario } from '../actions/scenariosActions'
+import { browserHistory } from 'react-router'
 //USER - pull in user data
 //Associate userName(firebase) with the scenario
 
-export default class CreateScenarioPage extends Component {
-  constructor() {
-    super()
+class CreateScenarioPage extends Component {
+  constructor(props) {
+    super(props)
     this.state = {
       newScenario: {},
       field: ''
@@ -15,7 +17,6 @@ export default class CreateScenarioPage extends Component {
   }
 
   setNewScenario = (e) => {
-    console.log(e)
     let field = e.target.name
     let newScenario = this.state.newScenario
     newScenario[field] = e.target.value
@@ -25,7 +26,10 @@ export default class CreateScenarioPage extends Component {
   submitNewScenario = (e) => {
     e.preventDefault()
     let newScenarioObj = this.state.newScenario
-    this.setState({ newScenario: {} })
+    console.log('newObj',newScenarioObj)
+    // this.props.createNewScenario(scenario)
+    // this.setState({ newScenario: {} })
+    // browserHistory.push(`${scenario._id}/map`)
   }
   select = (suggest) => {
     const { field } = this.state
@@ -38,7 +42,6 @@ export default class CreateScenarioPage extends Component {
 
   render() {
     const { newScenario } = this.state
-    console.log('newScenario: ', newScenario)
     const theFormInfo = Object.keys(newScenario) || []
 
     const randomBackground = {
@@ -60,3 +63,8 @@ export default class CreateScenarioPage extends Component {
     )
   }
 }
+export default connect(state => ({ scenarios: state.scenarios }), dispatch => ({
+  createNewScenario(scenario) {
+    dispatch(createNewScenario(scenario))
+  }
+}))(CreateScenarioPage)
