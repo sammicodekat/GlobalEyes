@@ -4,7 +4,7 @@ import Notebook from './Notebook'
 const Game = (props) => (
   <div>
     {props.children}
-    <div className="notebook">
+    <div id="notebook">
       <Notebook />
     </div>
   </div>

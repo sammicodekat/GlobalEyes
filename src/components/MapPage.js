@@ -6,6 +6,8 @@ import GMap from './GMap'
 import Vouchers from './Vouchers'
 import PlaceList from './PlaceList'
 
+//USER - bring in the currentWaypoint & vouchers
+
 class MapPage extends Component {
   render() {
     const scenario = this.props.scenarios[this.props.params.id - 1]

@@ -4,6 +4,8 @@ import { browserHistory } from 'react-router'
 
 import { signInWithGoogle, signOut } from '../actions/auth'
 
+//USER - Set or fetch the user object 
+
 @connect(state => ({
   loggedIn: state.auth.authenticated,
   user: state.auth.user
@@ -18,8 +20,8 @@ import { signInWithGoogle, signOut } from '../actions/auth'
 
 export default class LogIn extends Component {
   _logIn = () => {
-    this.props.logIn()
-    browserHistory.push('/scenarios')
+  this.props.logIn()
+  browserHistory.push('/scenarios')
   }
 
   _logOut = () => {
@@ -28,10 +30,10 @@ export default class LogIn extends Component {
 
   render() {
     const { loggedIn } = this.props
-    const logInButton = <button onClick={this._logIn} className="logIn">Sign In</button>
+    const logInButton = <button onClick={this._logIn} className="logIn">Sign Up / Log in</button>
     const logOutButton = <button onClick={this._logOut} className="logOut">Sign Out</button>
     return (
-      <div>
+      <div className="loginBtn">
         {loggedIn ? logOutButton : logInButton}
       </div>
     )

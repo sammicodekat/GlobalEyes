@@ -5,6 +5,8 @@ import { browserHistory } from 'react-router'
 
 import Vouchers from './Vouchers'
 
+//USER - pull user name or use anon(will have a UID???)
+
 class OneScenarioPage extends Component {
   constructor(props) {
     super(props)

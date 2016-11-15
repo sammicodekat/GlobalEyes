@@ -1,7 +1,7 @@
 import React from 'react'
 import NoteList from './NoteList'
 
-const clues = [{waypoint:'hahahah',links:'kakaka',text:'lalallaaal'},{waypoint:'meowmeowmeow',links:'kakaka',text:'lalallaaal'}]
+const clues = [{waypoint:'hahahah',links:['http://i.imgur.com/tffVyEo.jpg'],text:'lalallaaal'},{waypoint:'meowmeowmeow',links:['http://i.imgur.com/tffVyEo.jpg'],text:'lalallaaal'}]
 
 const Notebook = (props) => (
     <div className="notebook">

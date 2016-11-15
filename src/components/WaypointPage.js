@@ -5,9 +5,15 @@ import { getScenario } from '../actions/scenarioActions'
 import Vouchers from './Vouchers'
 import PoiList from './PoiList'
 
+//USER - set the waypoint for the user and read visited POI's 
+
 class WaypointPage extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount() {
+    
   }
   // componentWillMount(){
   // this.props.dispatch(getWayPoint(this.props.params.id))

@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 // import TextInput from './CreateScenario/TextInput'
 import ScenarioForm from './ScenarioForm'
 
+//USER - pull in user data 
+//Associate userName(firebase) with the scenario
+
 export default class CreateScenarioPage extends Component {
   constructor() {
     super()
@@ -18,6 +21,8 @@ export default class CreateScenarioPage extends Component {
     newScenario[field] = e.target.value
     return this.setState({newScenario: newScenario,field})
   }
+
+
 
   submitNewScenario = (e) => {
     e.preventDefault()
