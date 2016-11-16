@@ -2,34 +2,34 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getScenario } from '../actions/scenarioActions'
 import { browserHistory } from 'react-router'
-import { updateUserObject } from '../actions/userActions'
+import { getUserObj } from '../actions/userActions'
 
-import Vouchers from './Vouchers'
 
 //USER - pull user name or use anon(will have a UID???)
 
-class OneScenarioPage extends Component {
+class ContinueScenarioPage extends Component {
   constructor(props) {
     super(props)
   }
 
-  // componentWillMount() {
-  //   // this.props.getScenario(this.props.params.id)
-  // }
-
-  beginAdventure = () => {
-    const scenario = this.props.scenarios[this.props.params.id-1]
-    let updatedGameObj = this.props.gameObj
-    updatedGameObj['scenarioId'] = scenario._id
-    updatedGameObj['currentWaypoint'] = scenario.waypoints[0]._id
-    updatedGameObj['visitedWaypoints'] = []
-    updatedGameObj['visitedFalsepoints'] = []
-    updatedGameObj['pointsOfInterest'] = [],
-    updatedGameObj['notebook'] = {},
-    updatedGameObj['vouchers'] = scenario.vouchers
-    console.log(updatedGameObj)
-    // updateUserObject()
-    // browserHistory.push(`${scenario._id}/map`)
+  componentWillMount() {
+    // this.props.getScenario(this.props.params.id)
+    // if(this.props.gameObj.currentWayPoint) {
+    //   getWayPoint(this.props.gameObj.currentWayPoint)
+    // } else {
+    //   let updatedGameObj = this.props.gameObj
+    //   updatedGameObj[currentWayPoint] = this.props.waypoint._id
+    //   console.log('WaypointPage - updatedGameObj: ', updatedGameObj)
+      //   scenarioId: 'scenarioId',
+      //   currentWaypoint: 'waypointId',
+      //   visitedWaypoints: [],
+      //   visitedFalsepoints: [],
+      //   pointsOfInterest: [],
+      //   notebook: {},
+      //   vouchers: 0
+      // }
+      // updateGameObj(userObj)
+    // }
   }
 
   render() {
@@ -40,7 +40,7 @@ class OneScenarioPage extends Component {
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
-    //delete to here
+
     return (
       <div className="introPage">
         <div className="backgroundImage" style={randomBackground} />
@@ -57,7 +57,7 @@ class OneScenarioPage extends Component {
             </div>
             <div className="introVouchers">
               <Vouchers vouchers={vouchers} />
-              <button onClick={this.beginAdventure}>Begin Adventure!</button>
+              <button onClick={() => browserHistory.push(`${scenario._id}/map`)}>Begin Adventure!</button>
             </div>
           </div>
         </div>
@@ -66,8 +66,12 @@ class OneScenarioPage extends Component {
   }
 }
 
-export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios, gameObj: state.gameObj }), dispatch => ({
-  getScenario(id) {
-    dispatch(getScenario(id))
-  }
-}))(OneScenarioPage)
+export default connect(state => ({ 
+  scenario: state.scenario, 
+  scenarios: state.scenarios, 
+  gameObj: state.gameObj }), 
+  dispatch => ({
+    getScenario(id) {
+      dispatch(getScenario(id))
+    }
+}))(ContinueScenarioPage)

@@ -5,15 +5,15 @@ import { getScenario } from '../actions/scenarioActions'
 import Vouchers from './Vouchers'
 import PoiList from './PoiList'
 
-//USER - set the waypoint ID instead of name  for the user and read visited POI's 
+//USER - set the waypoint ID instead of name  for the user and read visited POI's. Add a field for
+//scenario id. On componentWillMount, add the waypoint, false waypoint or poi into their
+//respecitive arrays. Then map through and see if the waypoint has been visited.
+//????? componentWillReceiveProps(nextProps) ??????
+
 
 class WaypointPage extends Component {
   constructor(props) {
     super(props)
-  }
-
-  componentDidMount() {
-    
   }
 
   render() {
