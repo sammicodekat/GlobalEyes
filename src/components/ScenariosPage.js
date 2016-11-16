@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import ScenariosList from './ScenariosList'
 import { getScenarios } from '../actions/scenariosActions'
 import { browserHistory } from 'react-router'
-import { storeUserObj } from '../actions/userActions'
+import { storeUserObj, getUserObj } from '../actions/userActions'
+
 
 //USER - bring in user info
 
@@ -22,6 +23,11 @@ class ScenariosPage extends Component {
       vouchers: 0
     }
     storeUserObj(userObj)
+  }
+
+  continue = () => {
+    getUserObj(this.props.userObj)
+    browserHistory.push('/continue')
   }
 
   render() {
@@ -50,7 +56,7 @@ class ScenariosPage extends Component {
           <h1 className="appTitle">Globaleyes</h1>
           <div className="scenarios">
             <h2>Scenarios</h2>
-            <button id={this.props.userId}>Continue</button>
+            <button id={this.props.userObj} onClick={this.continue}>Continue</button>
             <ScenariosList scenarios={scenarios} />
             <button onClick={() => browserHistory.push('/create')}>+</button>
           </div>
@@ -61,11 +67,10 @@ class ScenariosPage extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log("I am state in mapStateToProps: ", state)
   return { 
     scenarios: state.scenarios, 
     user: state.auth.user,
-    userId: state.userId
+    userObj: state.userObj
   }
 }
 
