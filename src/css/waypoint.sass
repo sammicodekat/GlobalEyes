@@ -1,0 +1,23 @@
+$tablet: "(min-width: 768px)"
+$desktop: "(min-width: 1200px)"
+
+.waypoint
+
+.waypointName
+  color: white
+  text-shadow: 0 1px 2px rgba(0 ,0, 0, 0.6)
+  position: absolute
+  top: 2vmin
+  left: 2vmin
+  @media #{$tablet}
+    font-size: 3em
+
+.waypointImage
+  height: 100vh
+  width: 100vw
+
+  img
+    height: 100vh
+    width: 100vw
+    object-fit: cover
+    object-position: center
