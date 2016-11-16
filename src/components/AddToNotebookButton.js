@@ -19,8 +19,8 @@ const AddToNotebookButton = ( props, poiName, clues ) => {
   }
 
   return(
-    <div>
-      <button onClick={saveClue}>Save To Notebook</button>
+    <div className="addClue">
+      <button onClick={saveClue}><img src="/images/saveClueBtn.png" alt="save clue" /> <span>Save To Notebook</span></button>
     </div>
   )
 }

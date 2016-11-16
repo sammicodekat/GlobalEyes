@@ -18,22 +18,34 @@ class PointOfInterestPage extends Component {
   // componentWillMount(){
   //  this.props.dispatch(getPoi(this.props.params.id))
   // }
+
+  openNotebook() {
+    document.getElementById('notebook').className = 'open'
+  }
+
   render() {
     let { poi, user } = this.props
     let { uid } = this.props
     //Clue needs to be changed to a single clue. I've renamed it but haven't reduced
     //the number of clues it holds
     let { poiName, clues, links, text } = poi
+
     return (
-      //JM - made a dummy key to rid my screen of the error. A better key will need to be made
-      <div key={`${poiName} += ${text}`}>
-        <h5>{poiName}</h5>
-        <p>{text}</p>
-        <img src={links[0]} />
-        <img src={links[1]} />
-        <h4>Clues</h4>
-        <ClueList clues={clues} />
-        <AddToNotebookButton poiName={poiName} clues={clues[0]}/>
+      <div className="poiPage">
+        <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
+        <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
+        <div className="waypointSplash">
+          <img src={links[1]} alt={poiName} />
+        </div>
+        <div className="waypointBody">
+          <h1 className="waypointName">{poiName}</h1>
+          <article className="infoBlock">
+            <h3>About this Point of Interest</h3>
+            <p>{text}</p>
+          </article>
+          <ClueList clues={clues} />
+          <AddToNotebookButton poiName={poiName} clues={clues[0]} />
+        </div>
       </div>
     )
   }
