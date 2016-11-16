@@ -1,2 +1,37 @@
 $tablet: "(min-width: 768px)"
 $desktop: "(min-width: 1200px)"
+
+.clueList
+  background-color: #29ABE2
+  color: white
+  padding: 20px
+  display: block
+  @media #{$tablet}
+    width: 30%
+  img
+    width: 100%
+
+.addClue
+  background-color: #29ABE2
+  padding: 20px
+  display: block
+
+  button
+    margin: 0 auto
+    text-align: left
+    width: 190px
+    background-color: transparent
+    color: white
+    font-size: 1.2em
+    // box-shadow: none
+    display: flex
+    flex-direction: row
+
+    img
+      object-fit: contain
+      height: 50px
+      margin-right: 20px
+      align-self: center
+
+    span
+      align-self: center
