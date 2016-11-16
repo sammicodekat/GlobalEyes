@@ -30,7 +30,7 @@ class MapPage extends Component {
             <Vouchers vouchers={vouchers} />
           </div>
           <div className="waypointButtons">
-            <PlaceList waypoints={waypoints} />
+            <PlaceList waypoints={waypoints} scenarioId={scenario._id} />
           </div>
         </div>
       </div>

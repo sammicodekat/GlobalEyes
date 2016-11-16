@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import scenarios from './scenariosReducer'
-import scenario from './scenarioReducer'
+import scenarios from './ScenariosReducer'
+import scenario from './ScenarioReducer'
 import auth from './auth'
 import poi from './poiReducer'
 import waypoint from './wayPointReducer'

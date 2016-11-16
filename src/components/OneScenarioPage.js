@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getScenario } from '../actions/scenarioActions'
 import { browserHistory } from 'react-router'
+import { getScenario } from '../actions/scenarioActions'
 import { updateUserObject } from '../actions/userActions'
 
 import Vouchers from './Vouchers'
@@ -19,7 +19,6 @@ class OneScenarioPage extends Component {
 
   beginAdventure = () => {
     const scenario = this.props.scenarios[this.props.params.id-1]
-    console.log(this.props.gameObj)
     let updatedGameObj = this.props.gameObj
     updatedGameObj['uid'] = this.props.userObj
     updatedGameObj['scenarioId'] = scenario._id
@@ -30,7 +29,7 @@ class OneScenarioPage extends Component {
     updatedGameObj['notebook'] = {},
     updatedGameObj['vouchers'] = scenario.vouchers
     updateUserObject(updatedGameObj)
-    browserHistory.push(`${scenario._id}/map`)
+    browserHistory.replace(`/${scenario._id}/map`)
   }
 
   render() {
