@@ -44,8 +44,8 @@ export function storeUserObj(userObj) {
       myObj[userObj.uid] = userObj;
       userRef.update(myObj)
     }
-    
   })
+  receiveUser(userVariable)
 }
 
 // export function userObjectToStore(userId) {

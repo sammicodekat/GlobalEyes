@@ -5,6 +5,7 @@ import { getScenario } from '../actions/scenarioActions'
 import { updateUserObject } from '../actions/userActions'
 
 import Vouchers from './Vouchers'
+var userIdFromProps;
 
 //USER - pull user name or use anon(will have a UID???)
 
@@ -13,14 +14,10 @@ class OneScenarioPage extends Component {
     super(props)
   }
 
-  // componentWillMount() {
-  //   // this.props.getScenario(this.props.params.id)
-  // }
-
   beginAdventure = () => {
     const scenario = this.props.scenarios[this.props.params.id-1]
     let updatedGameObj = this.props.gameObj
-    updatedGameObj['uid'] = this.props.userObj
+    updatedGameObj['uid'] = this.props.user.uid
     updatedGameObj['scenarioId'] = scenario._id
     updatedGameObj['currentWaypoint'] = scenario.waypoints[0]._id
     updatedGameObj['visitedWaypoints'] = []
@@ -70,7 +67,8 @@ export default connect(state => ({
   scenario: state.scenario, 
   scenarios: state.scenarios, 
   gameObj: state.gameObj, 
-  userObj: state.userObj 
+  userObj: state.userObj, 
+  user: state.auth.user
 }), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
