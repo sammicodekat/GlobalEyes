@@ -29,7 +29,7 @@ class OneScenarioPage extends Component {
     updatedGameObj['vouchers'] = scenario.vouchers
     console.log(updatedGameObj)
     // updateUserObject()
-    // browserHistory.push(`${scenario._id}/map`)
+    browserHistory.push(`${scenario._id}/map`)
   }
 
   render() {
