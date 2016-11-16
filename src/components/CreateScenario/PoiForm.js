@@ -50,8 +50,8 @@ export default class PoiForm extends Component {
   }
 
   render() {
-    const { onChange, newPointOfInterest, onClick, onSelect, name } = this.props
-    const { poiCount } = this.state
+    const { name } = this.props
+    const { poiCount, newPointOfInterest  } = this.state
     let poiFields = []
     const deleteButton = poiCount ? (<button type="button" onClick={() => this.removePoiInput()}>Delete Point of Interest</button>) : ''
       for (let j = 1; j <= poiCount; j += 1) {
@@ -68,7 +68,7 @@ export default class PoiForm extends Component {
           onSuggestSelect={onSelect}
                           placeHolder="Search Point of Interests"/>
           <TextInput
-            key={clueName}
+            key=
             name={clueName}
             label={clueName}
             value={newPointOfInterest[clueName]}
