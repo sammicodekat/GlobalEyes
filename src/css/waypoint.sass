@@ -1,0 +1,77 @@
+$tablet: "(min-width: 768px)"
+$desktop: "(min-width: 1200px)"
+
+.waypointName
+  color: white
+  text-shadow: 0 1px 2px rgba(0 ,0, 0, 0.6)
+  position: absolute
+  bottom: 0
+  left: 2vmin
+  @media #{$tablet}
+    font-size: 3em
+    top: -150px
+    bottom: auto
+
+.waypointSplash
+  height: 100vh
+  width: 100vw
+  @media #{$tablet}
+    height: 70vh
+
+  img
+    height: 100vh
+    width: 100vw
+    object-fit: cover
+    object-position: center
+    @media #{$tablet}
+      height: 70vh
+
+.waypointBody
+  background-color: white
+  box-shadow: 0 -1px 2px rgba(0, 0, 0, 0.5)
+  @media #{$tablet}
+    display: flex
+    // z-index: 400
+    position: relative
+    min-height: 30vh
+
+  .infoBlock
+    height: 100%
+    padding: 10px 20px 20px 20px
+    position: relative
+    @media #{$tablet}
+      width: 70%
+    @media #{$desktop}
+      width: 75%
+
+  .poiList
+    color: white
+    background-color: #29ABE2
+    padding: 10px 20px 20px 20px
+    @media #{$tablet}
+      width: 30%
+    @media #{$desktop}
+      width: 25%
+
+    .poiItems
+      border-left: 1px solid white
+
+    button
+      background-color: transparent
+      box-shadow: none
+      color: white
+      font-size: 1em
+      display: flex
+      flex-direction: row
+      align-items: center
+      text-align: left
+      margin: 0
+
+      img
+        height: 30px
+        object-fit: contain
+        margin-right: 20px
+        align-self: center
+
+      span
+        align-self: center

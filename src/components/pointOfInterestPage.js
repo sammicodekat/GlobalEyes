@@ -24,7 +24,6 @@ class PointOfInterestPage extends Component {
     //Clue needs to be changed to a single clue. I've renamed it but haven't reduced
     //the number of clues it holds
     let { poiName, clues, links, text } = poi
-    console.log('user: ', user)
     return (
       //JM - made a dummy key to rid my screen of the error. A better key will need to be made
       <div key={`${poiName} += ${text}`}>

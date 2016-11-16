@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getScenario } from '../actions/scenarioActions'
 import { browserHistory } from 'react-router'
+import { getScenario } from '../actions/scenarioActions'
 import { updateUserObject } from '../actions/userActions'
 
 import Vouchers from './Vouchers'
+var userIdFromProps;
 
 //USER - pull user name or use anon(will have a UID???)
 
@@ -13,23 +14,19 @@ class OneScenarioPage extends Component {
     super(props)
   }
 
-  // componentWillMount() {
-  //   // this.props.getScenario(this.props.params.id)
-  // }
-
   beginAdventure = () => {
     const scenario = this.props.scenarios[this.props.params.id-1]
     let updatedGameObj = this.props.gameObj
+    updatedGameObj['uid'] = this.props.user.uid
     updatedGameObj['scenarioId'] = scenario._id
     updatedGameObj['currentWaypoint'] = scenario.waypoints[0]._id
     updatedGameObj['visitedWaypoints'] = []
     updatedGameObj['visitedFalsepoints'] = []
     updatedGameObj['pointsOfInterest'] = [],
-    updatedGameObj['notebook'] = {},
+    updatedGameObj['notebook'] = {note: 'Sorry, you do not have any notes yet.'},
     updatedGameObj['vouchers'] = scenario.vouchers
-    console.log(updatedGameObj)
-    // updateUserObject()
-    browserHistory.push(`${scenario._id}/map`)
+    updateUserObject(updatedGameObj)
+    browserHistory.replace(`/${scenario._id}/map`)
   }
 
   render() {
@@ -66,7 +63,13 @@ class OneScenarioPage extends Component {
   }
 }
 
-export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios, gameObj: state.gameObj }), dispatch => ({
+export default connect(state => ({ 
+  scenario: state.scenario, 
+  scenarios: state.scenarios, 
+  gameObj: state.gameObj, 
+  userObj: state.userObj, 
+  user: state.auth.user
+}), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getScenario } from '../actions/scenarioActions'
-// import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import Vouchers from './Vouchers'
 import PoiList from './PoiList'
 
@@ -26,15 +26,22 @@ class WaypointPage extends Component {
   render() {
     let { waypoint } = this.props
     const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
+
     return (
       <div className="waypoint">
-        <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="" /></button>
-        <h1 className="waypointName">{waypointName}</h1>
-        <div className="waypointImage"><img src={links[0]} alt={waypointName} /></div>
-        <article>
-          <p>{text}</p>
-        </article>
-        <PoiList pois={pointsOfInterest} />
+        <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
+        <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
+        <div className="waypointSplash">
+          <img src={links[0]} alt={waypointName} />
+        </div>
+        <div className="waypointBody">
+          <h1 className="waypointName">{waypointName}</h1>
+          <article className="infoBlock">
+            <h3>About this Location</h3>
+            <p>{text}</p>
+          </article>
+          <PoiList pois={pointsOfInterest} />
+        </div>
       </div>
     )
   }
