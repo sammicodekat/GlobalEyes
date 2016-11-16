@@ -46,6 +46,7 @@ export function storeUserObj(userObj) {
     }
   })
   receiveUser(userVariable)
+  getUserObj(userVariable)
 }
 
 // export function userObjectToStore(userId) {

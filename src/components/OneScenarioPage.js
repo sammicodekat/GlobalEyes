@@ -23,7 +23,7 @@ class OneScenarioPage extends Component {
     updatedGameObj['visitedWaypoints'] = []
     updatedGameObj['visitedFalsepoints'] = []
     updatedGameObj['pointsOfInterest'] = [],
-    updatedGameObj['notebook'] = {},
+    updatedGameObj['notebook'] = {note: 'Sorry, you do not have any notes yet.'},
     updatedGameObj['vouchers'] = scenario.vouchers
     updateUserObject(updatedGameObj)
     browserHistory.replace(`/${scenario._id}/map`)
