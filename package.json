@@ -4,7 +4,7 @@
   "description": "GlobalEyes is a globetrotting game that teaches geography",
   "main": "server/app.js",
   "scripts": {
-    "start": "nodemon server/app.js"
+    "start": "server/app.js"
   },
   "engines": {
     "node": "6"
