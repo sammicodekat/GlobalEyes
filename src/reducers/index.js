@@ -6,6 +6,8 @@ import poi from './poiReducer'
 import waypoint from './wayPointReducer'
 import userObj from './userReducer'
 import gameObj from './gameReducer'
+import poiId from './poiId'
+import wayPointId from './wayPointId'
 
 const rootReducer = combineReducers({
   auth,
@@ -14,7 +16,9 @@ const rootReducer = combineReducers({
   poi,
   waypoint,
   userObj,
-  gameObj
+  gameObj,
+  poiId,
+  wayPointId
 })
 
 export default rootReducer

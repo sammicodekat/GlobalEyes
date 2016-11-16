@@ -4,13 +4,12 @@ const Schema = mongoose.Schema
 const pointOfInterestSchema = new Schema({
   poiName: { type: String, required: true },
   clues: {
-    links: { type: Array },
+    links: { type: String },
     text: { type: String }
   },
-  links: { type: Array },
+  links: { type: String },
   text: { type: String }
 })
-
 
 const PointOfInterest = mongoose.model('PointOfInterest', pointOfInterestSchema)
 
