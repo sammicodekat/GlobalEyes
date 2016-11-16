@@ -21,7 +21,10 @@ class MapPage extends Component {
     return (
       <div className="mapPage">
         <GMap google={window.google} scenario={scenario} />
-        <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="" /></button>
+        <button className="notebookBtn" 
+          onClick={() => this.openNotebook()}>
+          <img src="/images/notebookBtn.png" alt="" />
+        </button>
         <div className="travelMenu">
           <div className="voucherBar">
             <Vouchers vouchers={vouchers} />

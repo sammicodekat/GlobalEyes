@@ -1,18 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 //USER - store the clue on the userObj
 
-const AddToNotebookButton = ( { clues, poiName } ) => {
+const AddToNotebookButton = ( props, poiName, clues ) => {
 
-  function saveClue(event) {
+  function saveClue(e) {
+    let updatedGameObj = props.gameObj
     let note = {
-      name: poiName,
-      waypoint: clues.waypoint,
-      links: clues.links || [],
-      text: clues.text || ''
+      name: props.poiName,
+      waypoint: props.clues.waypoint,
+      links: props.clues.links || [],
+      text: props.clues.text || ''
     }
-    console.log('I am note', note)
-    //Store in Firebase
+    updatedGameObj['notebook'] = [...updatedGameObj['notebook'], note]
+    // addToNoteBook(note)
   }
 
   return(
@@ -22,4 +24,10 @@ const AddToNotebookButton = ( { clues, poiName } ) => {
   )
 }
 
-export default AddToNotebookButton
+function mapStateToProps(state){
+  return {
+    gameObj: state.gameObj,
+  }
+}
+
+export default connect(mapStateToProps, null)(AddToNotebookButton)

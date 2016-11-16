@@ -19,7 +19,9 @@ class OneScenarioPage extends Component {
 
   beginAdventure = () => {
     const scenario = this.props.scenarios[this.props.params.id-1]
+    console.log(this.props.gameObj)
     let updatedGameObj = this.props.gameObj
+    updatedGameObj['uid'] = this.props.userObj
     updatedGameObj['scenarioId'] = scenario._id
     updatedGameObj['currentWaypoint'] = scenario.waypoints[0]._id
     updatedGameObj['visitedWaypoints'] = []
@@ -27,8 +29,7 @@ class OneScenarioPage extends Component {
     updatedGameObj['pointsOfInterest'] = [],
     updatedGameObj['notebook'] = {},
     updatedGameObj['vouchers'] = scenario.vouchers
-    console.log(updatedGameObj)
-    // updateUserObject()
+    updateUserObject(updatedGameObj)
     browserHistory.push(`${scenario._id}/map`)
   }
 
@@ -66,7 +67,12 @@ class OneScenarioPage extends Component {
   }
 }
 
-export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios, gameObj: state.gameObj }), dispatch => ({
+export default connect(state => ({ 
+  scenario: state.scenario, 
+  scenarios: state.scenarios, 
+  gameObj: state.gameObj, 
+  userObj: state.userObj 
+}), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }
