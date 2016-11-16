@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getScenario } from '../actions/scenarioActions'
+// import { getScenario } from '../actions/scenarioActions'
 import { browserHistory } from 'react-router'
 import { getUserObj } from '../actions/userActions'
 

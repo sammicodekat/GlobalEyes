@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
-import { getScenario } from '../actions/scenarioActions'
+// import { getScenario } from '../actions/scenarioActions'
 import { updateUserObject } from '../actions/userActions'
 
 import Vouchers from './Vouchers'
@@ -63,11 +63,11 @@ class OneScenarioPage extends Component {
   }
 }
 
-export default connect(state => ({ 
-  scenario: state.scenario, 
-  scenarios: state.scenarios, 
-  gameObj: state.gameObj, 
-  userObj: state.userObj, 
+export default connect(state => ({
+  scenario: state.scenario,
+  scenarios: state.scenarios,
+  gameObj: state.gameObj,
+  userObj: state.userObj,
   user: state.auth.user
 }), dispatch => ({
   getScenario(id) {
