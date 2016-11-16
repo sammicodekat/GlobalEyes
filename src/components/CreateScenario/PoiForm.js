@@ -8,7 +8,9 @@ export default class PoiForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      poiCount:0
+      poiCount: 0,
+      newPointOfInterest: {},
+      field: ''
     }
   }
 
@@ -26,8 +28,29 @@ export default class PoiForm extends Component {
     }
   }
 
+  setNewPoi = (e) => {
+    let field = e.target.name
+    let newPointOfInterest = this.state.newPointOfInterest
+    newPointOfInterest[field] = e.target.value
+    return this.setState({newPointOfInterest: newPointOfInterest,field})
+  }
+
+  submitNewPoi = (e) => {
+    e.preventDefault()
+    let newPointOfInterestObj = this.state.newPointOfInterest
+    console.log('newObj',newPointOfInterestObj)
+    // this.props.createNewScenario(scenario)
+    // this.setState({ newPointOfInterest: {} })
+    // browserHistory.push(`${scenario._id}/map`)
+  }
+  select = (suggest) => {
+    let { newPointOfInterest, field } = this.state
+    newPointOfInterest.poiName = suggest.label
+    return this.setState({newPointOfInterest: newPointOfInterest})
+  }
+
   render() {
-    const { onChange, newScenario, onClick, onSelect, name } = this.props
+    const { onChange, newPointOfInterest, onClick, onSelect, name } = this.props
     const { poiCount } = this.state
     let poiFields = []
     const deleteButton = poiCount ? (<button type="button" onClick={() => this.removePoiInput()}>Delete Point of Interest</button>) : ''
@@ -40,7 +63,7 @@ export default class PoiForm extends Component {
           type="text"
           onKeyPress={onChange}
           name={poiName}
-          value={newScenario[poiName]}
+          value={newPointOfInterest[poiName]}
           label={poiName}
           onSuggestSelect={onSelect}
                           placeHolder="Search Point of Interests"/>
@@ -48,9 +71,9 @@ export default class PoiForm extends Component {
             key={clueName}
             name={clueName}
             label={clueName}
-            value={newScenario[clueName]}
+            value={newPointOfInterest[clueName]}
             onChange={onChange} />
-          <ClueLinkForm clueLink={clueLink} newScenario={newScenario} onChange={onChange} />
+          <ClueLinkForm clueLink={clueLink} newPointOfInterest={newPointOfInterest} onChange={onChange} />
           <ClueForm {...this.props} />
         </div>)
         poiFields = [...poiFields, newPoi]
