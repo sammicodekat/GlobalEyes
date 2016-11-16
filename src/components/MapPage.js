@@ -1,4 +1,4 @@
-/* global window */
+/* global window document */
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -9,16 +9,26 @@ import PlaceList from './PlaceList'
 //USER - bring in the currentWaypoint & vouchers
 
 class MapPage extends Component {
+
+  openNotebook = () => {
+    document.getElementById('notebook').className = 'open'
+  }
+
   render() {
     const scenario = this.props.scenarios[this.props.params.id - 1]
     const { vouchers, waypoints } = scenario
 
     return (
-      <div>
+      <div className="mapPage">
         <GMap google={window.google} scenario={scenario} />
-        <div>
-          <Vouchers vouchers={vouchers} />
-          <PlaceList waypoints={waypoints} />
+        <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="" /></button>
+        <div className="travelMenu">
+          <div className="voucherBar">
+            <Vouchers vouchers={vouchers} />
+          </div>
+          <div className="waypointButtons">
+            <PlaceList waypoints={waypoints} />
+          </div>
         </div>
       </div>
     )

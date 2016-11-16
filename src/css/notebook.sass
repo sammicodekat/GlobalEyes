@@ -8,20 +8,22 @@ $desktop: "(min-width: 1200px)"
   width: 100vw
   height: 100vh
   top: 0
-  left: -100vw
+  left: 110vw
   z-index: 200
-  box-shadow: 1px 0 2px rgba(0, 0, 0, 0.5)
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)
   transition: 0.5s all
+  @media #{$tablet}
+    width: 40vw
 
   .notebookHeader
-    width: 100vw
-    height: 100px
+    width: 100%
+    height: 60px
     background-color: #29abe2
     color: white
     display: flex
     justify-content: space-between
 
-    h2
+    h1
       display: inline-block
       align-self: center
       line-height: 0
@@ -33,21 +35,22 @@ $desktop: "(min-width: 1200px)"
       background-color: transparent
       color: white
       box-shadow: none
+      font-size: 1em
 
   .notebookEntry
     margin: 40px 20px 80px 20px
 
     .notebookClue
       padding-left: 20px
-      margin-top: -30px
+      margin-top: -10px
       border-left: 1px solid #29abe2
 
-    h3
+    h2
       color: #29abe2
       margin-top: -1px
 
     .foundIn
-      font-size: 0.8em
+      font-size: 1em
 
     .clueLink
       width: 100%
@@ -60,3 +63,25 @@ $desktop: "(min-width: 1200px)"
 
 #notebook.open
   left: 0
+  @media #{$tablet}
+    left: 60vw
+
+
+.notebookBtn
+  position: fixed
+  top: 8px
+  right: 8px
+  z-index: 100
+  background-color: transparent
+  box-shadow: none
+  padding: 0
+  margin: 0
+  height: 50px
+
+  img
+    object-fit: contain
+    height: 50px
+
+.notebookBtn:hover
+  background-color: transparent
+  box-shadow: none

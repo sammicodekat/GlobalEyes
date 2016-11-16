@@ -2,7 +2,7 @@
 import React from 'react'
 import NoteList from './NoteList'
 
-const clues = [{ waypoint: 'hahahah', poiName: 'An Interesting Point', links: ['http://i.imgur.com/tffVyEo.jpg'], text: 'lalallaaal' }, { waypoint: 'meowmeowmeow', poiName: 'An Interesting Point', links: ['http://i.imgur.com/tffVyEo.jpg'], text: 'lalallaaal' }]
+const clues = [{ waypoint: 'hahahah', poiName: 'Interesting Place', links: ['http://i.imgur.com/tffVyEo.jpg'], text: 'lalallaaal' }, { waypoint: 'meowmeowmeow', poiName: 'Interesting Place', links: ['http://i.imgur.com/tffVyEo.jpg'], text: 'lalallaaal' }]
 
 const closeNotebook = () => {
   document.getElementById('notebook').className = ''
@@ -11,7 +11,7 @@ const closeNotebook = () => {
 const Notebook = (props) => (
   <div id="notebook">
     <div className="notebookHeader">
-      <h2>Notebook</h2>
+      <h1>Notebook</h1>
       <button className="closeButton" onClick={() => closeNotebook()}>X</button>
     </div>
     <NoteList clues={clues} />

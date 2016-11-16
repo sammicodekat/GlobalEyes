@@ -5,7 +5,7 @@ import { getScenario } from '../actions/scenarioActions'
 import Vouchers from './Vouchers'
 import PoiList from './PoiList'
 
-//USER - set the waypoint ID instead of name  for the user and read visited POI's 
+//USER - set the waypoint ID instead of name  for the user and read visited POI's
 
 class WaypointPage extends Component {
   constructor(props) {
@@ -13,7 +13,11 @@ class WaypointPage extends Component {
   }
 
   componentDidMount() {
-    
+
+  }
+
+  openNotebook() {
+    document.getElementById('notebook').className = 'open'
   }
 
   render() {
@@ -21,6 +25,7 @@ class WaypointPage extends Component {
     const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
     return (
       <div className="waypoint">
+        <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="" /></button>
         <h1 className="waypointName">{waypointName}</h1>
         <div className="waypointImage"><img src={links[0]} alt={waypointName} /></div>
         <article>
