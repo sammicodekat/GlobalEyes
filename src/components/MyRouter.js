@@ -24,8 +24,8 @@ export default class MyRouter extends Component {
           <Route path=":id" component={Game}>
             <IndexRoute component={OneScenarioPage} />
             <Route path="map" component={MapPage} />
-            <Route path="/location/:id" component={WaypointPage} />
-            <Route path='/poi/:id' component={PointOfInterestPage} />
+            <Route path="/:id/location/:waypointId" component={WaypointPage} />
+            <Route path="/poi/:poiId" component={PointOfInterestPage} />
           </Route>
         </Route>
       </Router>
