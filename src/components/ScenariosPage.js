@@ -56,7 +56,7 @@ class ScenariosPage extends Component {
           <h1 className="appTitle">Globaleyes</h1>
           <div className="scenarios">
             <h2>Scenarios</h2>
-            <button id={this.props.userObj} onClick={this.continue}>Continue</button>
+            <button id={this.props.userId} className="continue">Continue Last Scenario</button>
             <ScenariosList scenarios={scenarios} />
             <button onClick={() => browserHistory.push('/create')}>+</button>
           </div>
@@ -67,8 +67,8 @@ class ScenariosPage extends Component {
 }
 
 function mapStateToProps(state) {
-  return { 
-    scenarios: state.scenarios, 
+  return {
+    scenarios: state.scenarios,
     user: state.auth.user,
     userObj: state.userObj
   }

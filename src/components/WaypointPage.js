@@ -10,10 +10,17 @@ import PoiList from './PoiList'
 //respecitive arrays. Then map through and see if the waypoint has been visited.
 //????? componentWillReceiveProps(nextProps) ??????
 
-
 class WaypointPage extends Component {
   constructor(props) {
     super(props)
+  }
+
+  componentDidMount() {
+
+  }
+
+  openNotebook() {
+    document.getElementById('notebook').className = 'open'
   }
 
   render() {
@@ -21,6 +28,7 @@ class WaypointPage extends Component {
     const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
     return (
       <div className="waypoint">
+        <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="" /></button>
         <h1 className="waypointName">{waypointName}</h1>
         <div className="waypointImage"><img src={links[0]} alt={waypointName} /></div>
         <article>

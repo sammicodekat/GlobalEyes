@@ -4,31 +4,75 @@ $desktop: "(min-width: 1200px)"
 .mapRef
   width: 100vw
   height: 85vh
-  background-color: black
+  top: 0
+  left: 0
+  background-color: #29ABE2
+  z-index: 10
+  position: relative
   @media #{$tablet}
     height: 100vh
+    position: fixed
+
+.travelMenu
+  position: relative
+  height: 60%
+  margin: 10px
+
+  @media #{$tablet}
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5)
+    position: fixed
+    overflow-y: scroll
+    width: 25vw
+    top: 0
+    left: 0
+    z-index: 20
+
+  @media #{$desktop}
+    width: 20vw
+
+  .waypointButtons
+    background-color: white
+    width: 100%
+    height: 100%
+    padding: 20px 0
+    position: relative
+    margin: 0
+    top: 0
+
+    button
+      font-size: 1em
+      box-shadow: none
+
+
+  .voucherBar
+    width: 100%
+    height: 100px
+    position: relative
+    background-color: #29ABE2
+    @media #{$tablet}
+      height: 80px
 
 .vouchers
   background-image: url('/images/vouchers.png')
   background-repeat: no-repeat
   background-size: contain
-  margin: 2vmin
-  height: 20vmin
-  width: 20vmin
-  max-height: 100px
-  max-width: 100px
-  min-height: 75px
-  min-height: 75%
+  height: 80px
+  width: 80px
+  margin-bottom: 10px
+  position: relative
+  @media #{$tablet}
+    margin-left: 10px
+    top: 10px
+    height: 60px
 
   .remaining
     color: #29abe2
     font-weight: 700
     position: relative
     left: 7%
-    top: 10%
+    top: 30%
     position: relative
     display: inline-block
-    margin-top: 20%
-    font-size: 200%
+    font-size: 2em
     @media #{$tablet}
-      left: 10%
+      font-size: 1.4em
