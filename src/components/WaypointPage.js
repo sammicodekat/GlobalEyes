@@ -33,10 +33,13 @@ class WaypointPage extends Component {
         <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
         <h1 className="waypointName">{waypointName}</h1>
         <div className="waypointImage"><img src={links[0]} alt={waypointName} /></div>
-        <article className="wpInfo">
-          <p>{text}</p>
-        </article>
-        <PoiList pois={pointsOfInterest} />
+        <div className="waypointBody">
+          <article className="infoBlock">
+            <h3>About this Location</h3>
+            <p>{text}</p>
+          </article>
+          <PoiList pois={pointsOfInterest} />
+        </div>
       </div>
     )
   }
