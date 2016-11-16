@@ -26,7 +26,7 @@ class CreateScenarioPage extends Component {
   submitNewScenario = (e) => {
     e.preventDefault()
     let newScenarioObj = this.state.newScenario
-    console.log('newObj',newScenarioObj)
+    console.log('newScenarioObj',newScenarioObj)
     // this.props.createNewScenario(scenario)
     // this.setState({ newScenario: {} })
     // browserHistory.push(`${scenario._id}/map`)
