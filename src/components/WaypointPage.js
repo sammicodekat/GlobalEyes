@@ -31,9 +31,11 @@ class WaypointPage extends Component {
       <div className="waypoint">
         <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
         <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
-        <h1 className="waypointName">{waypointName}</h1>
-        <div className="waypointImage"><img src={links[0]} alt={waypointName} /></div>
+        <div className="waypointSplash">
+          <img src={links[0]} alt={waypointName} />
+        </div>
         <div className="waypointBody">
+          <h1 className="waypointName">{waypointName}</h1>
           <article className="infoBlock">
             <h3>About this Location</h3>
             <p>{text}</p>
