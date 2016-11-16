@@ -15,8 +15,9 @@ export default class WayPointForm extends Component {
     const { onChange, newScenario, onClick, onSelect, getLabel, waypointCount } = this.props
     let waypointFields = []
     for (let i = 1; i <= waypointCount; i ++ ) {
-      const theName = `waypoint${i}`
       const Label = i === 1? `Start Location` : `Way Point ${i}`
+      const theName = `${Label}${i}`
+      const storeName =`waypoint_${i}_waypointName`
       const newField = (
         <div key={`${theName}${i}`} className='waypointForm'>
           <h3>{Label}</h3>
@@ -28,7 +29,6 @@ export default class WayPointForm extends Component {
             value={newScenario[theName]}
             // label={theName}
             onSuggestSelect={onSelect}
-            getSuggestLabel={getLabel}
             placeholder="Search Waypoint"
           />
           <TextInput
