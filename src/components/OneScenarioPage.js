@@ -20,6 +20,7 @@ class OneScenarioPage extends Component {
 }
   beginAdventure = () => {
     const { scenario } = this.props
+    console.log('scenario',scenario)
     let updatedUserObj = this.props.userObj
     updatedUserObj['uid'] = this.props.user.uid
     updatedUserObj['scenarioId'] = scenario._id
