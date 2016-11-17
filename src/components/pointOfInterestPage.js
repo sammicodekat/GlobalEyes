@@ -15,10 +15,9 @@ class PointOfInterestPage extends Component {
   constructor(props) {
     super(props)
   }
-  componentWillMount(){
-   console.log('this.props',this.props)
-   this.props.getPoi(this.props.params.poiId)
-  }
+  // componentWillMount(){
+  //  this.props.getPoi(this.props.params.poiId)
+  // }
 
   openNotebook() {
     document.getElementById('notebook').className = 'open'

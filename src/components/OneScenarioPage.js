@@ -12,11 +12,10 @@ class OneScenarioPage extends Component {
   constructor(props) {
     super(props)
   }
-  componentWillMount() {
-    this.props.getScenario(this.props.params.id)
-  }
-  componentWillReceiveProps(nextProps){
-}
+  // componentWillMount() {
+  //   this.props.getScenario(this.props.params.id)
+  // }
+
   beginAdventure = () => {
     const { scenario } = this.props
     let updatedUserObj = this.props.userObj

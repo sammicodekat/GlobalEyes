@@ -16,9 +16,9 @@ class WaypointPage extends Component {
     super(props)
   }
 
-  componentWillMount() {
-    this.props.getWayPoint(this.props.params.waypointId)
-  }
+  // componentWillMount() {
+  //   this.props.getWayPoint(this.props.params.waypointId)
+  // }
 
   openNotebook() {
     document.getElementById('notebook').className = 'open'
