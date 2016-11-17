@@ -12,7 +12,7 @@ const Notebook = (props) => (
       <h1>Notebook</h1>
       <button className="closeButton" onClick={() => closeNotebook()}>X</button>
     </div>
-    <NoteList clues={props.clues} />
+    <NoteList />
   </div>
   )
 
