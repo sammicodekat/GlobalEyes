@@ -13,14 +13,14 @@ const AddToNotebookButton = ( props, poiName, clues ) => {
       updatedUserObj.notebook.forEach(note => {
         if(note.name === props.poiName){
           return notHasNote = false
-        } 
+        }
       })
     }
     if(notHasNote) {
       let note = {
         name: props.poiName,
         waypoint: props.clues.waypoint,
-        links: props.clues.links[0] || '',
+        links: props.clues.links || '',
         text: props.clues.text || '',
         noteId: uuid()
       }
