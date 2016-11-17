@@ -6,7 +6,6 @@ import uuid from 'uuid'
 //USER - store the clue on the userObj
 
 const AddToNotebookButton = ( props, poiName, clues ) => {
-
   function saveClue(e) {
     let updatedUserObj = props.userObj
     let notHasNote = true
