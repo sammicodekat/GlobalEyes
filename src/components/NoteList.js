@@ -15,11 +15,9 @@ import { connect } from 'react-redux'
 //   </div>
 // )))
 
-
-
-
 const NoteList = ( props ) => {
   let clueDisplay
+  console.log( 'props.userObj' , props.userObj)
   if(!props.userObj.notebook.note){
     clueDisplay = props.userObj.notebook.map((clue, i) => {
       return (
@@ -39,7 +37,7 @@ const NoteList = ( props ) => {
   }
   return (
     <div>
-      {clueDisplay} 
+      {clueDisplay}
     </div>
   )
 }
@@ -51,5 +49,3 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps, null)(NoteList)
-
-
