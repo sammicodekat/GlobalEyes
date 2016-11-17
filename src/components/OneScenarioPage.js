@@ -12,9 +12,15 @@ class OneScenarioPage extends Component {
   constructor(props) {
     super(props)
   }
-
+  componentWillMount() {
+    this.props.getScenario(this.props.params.id)
+  }
+  componentWillReceiveProps(nextProps){
+  console.log('nextProps',nextProps)
+}
   beginAdventure = () => {
-    const scenario = this.props.scenarios[this.props.params.id-1]
+    const { scenario } = this.props
+    console.log('scenario',scenario)
     let updatedUserObj = this.props.userObj
     updatedUserObj['uid'] = this.props.user.uid
     updatedUserObj['scenarioId'] = scenario._id
@@ -29,10 +35,9 @@ class OneScenarioPage extends Component {
   }
 
   render() {
-    // const { scenario } = this.props
-    const scenario = this.props.scenarios[this.props.params.id-1]
+    const { scenario } = this.props
+    console.log('scenario',scenario)
     const { vouchers } = scenario
-
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }

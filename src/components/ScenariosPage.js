@@ -11,7 +11,9 @@ import { getUserObj } from '../actions/auth'
 class ScenariosPage extends Component {
   constructor(props) {
     super(props)
-
+  }
+  componentWillMount() {
+    this.props.getScenarios()
   }
 
   // componentWillReceiveProps(newProps) {
@@ -79,5 +81,3 @@ export default connect(mapStateToProps, dispatch => ({
     dispatch(getScenarios())
   }
 }))(ScenariosPage)
-
-
