@@ -18,12 +18,20 @@ export default {
         "falseRoute": [
             {
                 "name": "Berlin, Germany",
-                "lat": 52.52000659999999,
-                "lng": 13.404953999999975
+                "coords":{
+                    "lat": 52.52000659999999,
+                    "lng": 13.404953999999975
+                         },
+           "text": 'This is Berlin',
+                "link":'http://www.planetware.com/photos-large/D/east-berlin-former-0.jpg'
             }, {
                 "name": "Barcelona, Spain",
-                "lat": 41.3850639,
-                "lng": 2.1734034999999494
+                "coords":{
+                     "lat": 41.3850639,
+                     "lng": 2.1734034999999494
+                         },
+                "text":'This is Barcelona',
+                "link":'http://www.planetware.com/photos-large/D/east-berlin-former-0.jpg'
             }
         ],
         "pointsOfInterest": [
