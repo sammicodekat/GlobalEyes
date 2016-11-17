@@ -1,13 +1,13 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
 
-const renderScenariosList = scenarios => (scenarios.map(scenario => (
-  <button key={scenario._id} onClick={() => browserHistory.push(`/${scenario._id}`)}>{scenario.scenarioName}</button>
+const renderScenariosList = (scenarios, setVouchers) => (scenarios.map(scenario => (
+  <button key={scenario._id} onClick={() => (browserHistory.push(`/${scenario._id}`), setVouchers(scenario.vouchers))}>{scenario.scenarioName}</button>
 )))
 
-const ScenariosList = ({ scenarios }) => (
+const ScenariosList = ({ scenarios, setVouchers }) => (
   <div>
-    {renderScenariosList(scenarios || [])}
+    {renderScenariosList(scenarios || [], setVouchers)}
   </div>
 )
 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import ScenariosList from './ScenariosList'
 import { getScenarios } from '../actions/scenariosActions'
 import { browserHistory } from 'react-router'
-import { getUserObj } from '../actions/auth'
+import { getUserObj, updateUserObject } from '../actions/auth'
 
 
 //USER - bring in user info
@@ -26,6 +26,13 @@ class ScenariosPage extends Component {
   //   }
   //   storeUserObj(userObj)
   // }
+  
+  //Adds vouchers to the Firebase userObj
+  setVouchers = (vouchers) => {
+    let updatedUserObj =  this.props.userObj
+    updatedUserObj.vouchers = vouchers
+    updateUserObject(updatedUserObj)
+  }
 
   continue = () => {
     // getUserObj(this.props.userObj)
@@ -59,7 +66,7 @@ class ScenariosPage extends Component {
           <div className="scenarios">
             <h2>Scenarios</h2>
             <button id={this.props.userId} className="continue" onClick={() => browserHistory.push('/continue')}>Continue Last Scenario</button>
-            <ScenariosList scenarios={scenarios} />
+            <ScenariosList setVouchers={this.setVouchers} scenarios={scenarios} />
             <button onClick={() => browserHistory.push('/create')}>+</button>
           </div>
         </div>

@@ -31,7 +31,7 @@ class MapPage extends Component {
         </button>
         <div className="travelMenu">
           <div className="voucherBar">
-            <Vouchers vouchers={vouchers} />
+            <Vouchers vouchers={this.props.userObj.vouchers} />
           </div>
           <div className="waypointButtons">
             <PlaceList waypoints={waypoints} scenarioId={scenario._id} />
@@ -42,7 +42,7 @@ class MapPage extends Component {
   }
 }
 
-export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios }), dispatch => ({
+export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios, userObj: state.userObj }), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }
