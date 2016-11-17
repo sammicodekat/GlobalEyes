@@ -6,8 +6,11 @@ import uuid from 'uuid'
 //USER - store the clue on the userObj
 
 const AddToNotebookButton = ( props, poiName, clues ) => {
+  console.log( 'props' , props )
+
   function saveClue(e) {
     let updatedUserObj = props.userObj
+    console.log( 'updatedUserObj' , updatedUserObj )
     let notHasNote = true
     if(updatedUserObj.notebook.length > 0) {
       updatedUserObj.notebook.forEach(note => {
@@ -24,6 +27,7 @@ const AddToNotebookButton = ( props, poiName, clues ) => {
         text: props.clues.text || '',
         noteId: uuid()
       }
+      console.log( 'note' , note )
       updatedUserObj['notebook'] = [...updatedUserObj['notebook'], note]
       updateUserObject(updatedUserObj)
       notHasNote = false
