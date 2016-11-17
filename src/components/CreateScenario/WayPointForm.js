@@ -34,8 +34,8 @@ class WayPointForm extends Component {
     const { newWayPoint, poiArr } = this.state
     let newWP = {}
     let falseroutes = []
-    falseroutes.push(newWayPoint,falseRoute1)
-    falseroutes.push(newWayPoint,falseRoute2)
+    falseroutes.push(newWayPoint.falseRoute1)
+    falseroutes.push(newWayPoint.falseRoute2)
     let coords = {lat: newWayPoint.lat,lng:newWayPoint.lng}
     newWP.waypointName = newWayPoint.waypointName
     newWP.links = newWayPoint.links
