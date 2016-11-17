@@ -18,16 +18,10 @@ export default {
         text: 'Bacon ipsum dolor amet pork loin spare ribs corned beef pork chop drumstick ham hock pancetta ribeye filet mignon. Rump shank tenderloin meatloaf meatball t-bone. Tail boudin porchetta kielbasa. Bresaola corned beef strip steak, bacon sirloin pork belly short loin shankle chuck pork ground round fatback ball tip pork loin tri-tip',
         pointsOfInterest: [
             {
+                _id: '1234567890',
                 poiName: 'El Danieleo Dictador',
                 clues: [
                     {
-                        waypoint: "DanielTown, Richardington",
-                        poiName: "Sir Daniel's Iron Hammer",
-                        links: [
-                            'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
-                        ],
-                        text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
-                    }, {
                         waypoint: "DanielTown, Richardington",
                         poiName: "Sir Daniel's Iron Hammer",
                         links: [
@@ -70,16 +64,10 @@ export default {
 
     //pointOfInterest
     pointOfInterest : {
+        _id: '1234567890',
         poiName: 'El Danieleo Dictador',
         clues: [
             {
-                waypoint: "DanielTown, Richardington",
-                poiName: "Sir Daniel's Iron Hammer",
-                links: [
-                    'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
-                ],
-                text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
-            }, {
                 waypoint: "DanielTown, Richardington",
                 poiName: "Sir Daniel's Iron Hammer",
                 links: [
@@ -125,16 +113,10 @@ export default {
                 text: 'Bacon ipsum dolor amet pork loin spare ribs corned beef pork chop drumstick ham hock pancetta ribeye filet mignon. Rump shank tenderloin meatloaf meatball t-bone. Tail boudin porchetta kielbasa. Bresaola corned beef strip steak, bacon sirloin pork belly short loin shankle chuck pork ground round fatback ball tip pork loin tri-tip',
                 pointsOfInterest: [
                     {
+                        _id: '1234567890',
                         poiName: 'El Danieleo Dictador',
                         clues: [
                             {
-                                waypoint: "DanielTown, Richardington",
-                                poiName: "Sir Daniel's Iron Hammer",
-                                links: [
-                                    'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
-                                ],
-                                text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
-                            }, {
                                 waypoint: "DanielTown, Richardington",
                                 poiName: "Sir Daniel's Iron Hammer",
                                 links: [
@@ -200,14 +182,6 @@ export default {
                             clues: [
                                 {
                                     _id: '1',
-                                    waypoint: "DanielTown, Richardington",
-                                    poiName: "Sir Daniel's Iron Hammer",
-                                    links: [
-                                        'http://i.imgur.com/5tj6S7O.jpg', 'http://i.imgur.com/a7fJPfn.jpg'
-                                    ],
-                                    text: 'Here marks the spot where the communist Daniel struck a developer for misplacing a semi-colon. With the infamous words "Work harder, Work Better or feel the hammer", Daniel built his first public facing App starting a long nightmarish reign'
-                                }, {
-                                    _id: '2',
                                     waypoint: "DanielTown, Richardington",
                                     poiName: "Sir Daniel's Iron Hammer",
                                     links: [

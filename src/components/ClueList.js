@@ -1,20 +1,15 @@
 import React from 'react'
 
-const renderClueList = clues => (clues.map((clue,i) => (
-  <div key={i}>
-    <h3>{clue.waypoint}</h3>
-    <h4>{clue.poiName}</h4>
-    <img src={clue.links[0]} />
-    <img src={clue.links[1]} />
-    <p>{clue.text}</p>
-    <button>Add to Notebook</button>
+const renderClueList = clues => (
+  <div className="clueList">
+    <h3>A clue perhaps?</h3>
+    <img src={clues[0].links[0]} />
+    <p>{clues[0].text}</p>
   </div>
-)))
+)
 
 const ClueList = ({ clues }) => (
-  <div>
-    {renderClueList( clues || [])}
-  </div>
+    renderClueList(clues || [])
 )
 
 export default ClueList

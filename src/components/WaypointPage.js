@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getScenario } from '../actions/scenarioActions'
+// import { getScenario } from '../actions/scenarioActions'
+// import * as beautifulJoshua from '../actions/wayPointActions'
 import { browserHistory } from 'react-router'
 import Vouchers from './Vouchers'
 import PoiList from './PoiList'
@@ -37,10 +38,10 @@ class WaypointPage extends Component {
         <div className="waypointBody">
           <h1 className="waypointName">{waypointName}</h1>
           <article className="infoBlock">
-            <h3>About this Location</h3>
+            <h3>About this Location:</h3>
             <p>{text}</p>
           </article>
-          <PoiList pois={pointsOfInterest} />
+          <PoiList pois={pointsOfInterest} params={this.props.params}/>
         </div>
       </div>
     )
