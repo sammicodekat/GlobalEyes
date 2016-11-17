@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getPoi } from '../actions/poiActions'
 import { browserHistory } from 'react-router'
+import { getPoi } from '../actions/poiActions'
 import Vouchers from './Vouchers'
 import ClueList from './ClueList'
 import AddToNotebookButton from './AddToNotebookButton'

@@ -18,7 +18,7 @@ export default {
         text: 'Bacon ipsum dolor amet pork loin spare ribs corned beef pork chop drumstick ham hock pancetta ribeye filet mignon. Rump shank tenderloin meatloaf meatball t-bone. Tail boudin porchetta kielbasa. Bresaola corned beef strip steak, bacon sirloin pork belly short loin shankle chuck pork ground round fatback ball tip pork loin tri-tip',
         pointsOfInterest: [
             {
-                _id: 1234567890,
+                _id: '1234567890',
                 poiName: 'El Danieleo Dictador',
                 clues: [
                     {
@@ -64,7 +64,7 @@ export default {
 
     //pointOfInterest
     pointOfInterest : {
-        _id: 1234567890,
+        _id: '1234567890',
         poiName: 'El Danieleo Dictador',
         clues: [
             {
@@ -113,7 +113,7 @@ export default {
                 text: 'Bacon ipsum dolor amet pork loin spare ribs corned beef pork chop drumstick ham hock pancetta ribeye filet mignon. Rump shank tenderloin meatloaf meatball t-bone. Tail boudin porchetta kielbasa. Bresaola corned beef strip steak, bacon sirloin pork belly short loin shankle chuck pork ground round fatback ball tip pork loin tri-tip',
                 pointsOfInterest: [
                     {
-                        _id: 1234567890,
+                        _id: '1234567890',
                         poiName: 'El Danieleo Dictador',
                         clues: [
                             {

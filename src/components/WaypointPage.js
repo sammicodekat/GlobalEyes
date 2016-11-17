@@ -27,6 +27,7 @@ class WaypointPage extends Component {
   render() {
     let { waypoint } = this.props
     const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
+    console.log('pointsOfInterest: ', pointsOfInterest)
 
     return (
       <div className="waypoint">
@@ -41,7 +42,7 @@ class WaypointPage extends Component {
             <h3>About this Location</h3>
             <p>{text}</p>
           </article>
-          <PoiList pois={pointsOfInterest} />
+          <PoiList pois={pointsOfInterest} params={this.props.params}/>
         </div>
       </div>
     )
