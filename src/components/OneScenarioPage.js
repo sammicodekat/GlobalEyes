@@ -12,7 +12,9 @@ class OneScenarioPage extends Component {
   constructor(props) {
     super(props)
   }
-
+  componentWillMount() {
+    this.props.getScenario(this.props.params.id)
+  }
   beginAdventure = () => {
     const scenario = this.props.scenarios[this.props.params.id-1]
     let updatedUserObj = this.props.userObj
@@ -29,8 +31,7 @@ class OneScenarioPage extends Component {
   }
 
   render() {
-    // const { scenario } = this.props
-    const scenario = this.props.scenarios[this.props.params.id-1]
+    const { scenario } = this.props
     const { vouchers } = scenario
 
     const randomBackground = {
@@ -62,15 +63,13 @@ class OneScenarioPage extends Component {
   }
 }
 
-export default connect(state => ({ 
-  scenario: state.scenario, 
-  scenarios: state.scenarios, 
-  userObj: state.userObj, 
+export default connect(state => ({
+  scenario: state.scenario,
+  scenarios: state.scenarios,
+  userObj: state.userObj,
   user: state.auth.user
 }), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }
 }))(OneScenarioPage)
-
-

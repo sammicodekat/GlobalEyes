@@ -11,7 +11,9 @@ import { getUserObj } from '../actions/auth'
 class ScenariosPage extends Component {
   constructor(props) {
     super(props)
-
+  }
+  componentWillMount() {
+    this.props.getScenarios()
   }
 
   // componentWillReceiveProps(newProps) {
@@ -66,17 +68,10 @@ class ScenariosPage extends Component {
   }
 }
 
-function mapStateToProps(state) {
-  return {
-    scenarios: state.scenarios,
-    user: state.auth.user,
-  }
-}
 
-export default connect(mapStateToProps, dispatch => ({
+export default connect(state => ({ scenarios: state.scenarios,
+  user: state.auth.user }), dispatch => ({
   getScenarios() {
     dispatch(getScenarios())
   }
 }))(ScenariosPage)
-
-
