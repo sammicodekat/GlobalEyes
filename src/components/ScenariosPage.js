@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import ScenariosList from './ScenariosList'
 import { getScenarios } from '../actions/scenariosActions'
 import { browserHistory } from 'react-router'
-import { storeUserObj, getUserObj } from '../actions/userActions'
+import { getUserObj } from '../actions/auth'
 
 
 //USER - bring in user info
@@ -14,19 +14,19 @@ class ScenariosPage extends Component {
 
   }
 
-  componentWillReceiveProps(newProps) {
-    let userObj = {
-      currentWaypoint: {},
-      noteBook: {},
-      uid: newProps.user.uid,
-      userName: newProps.user.displayName,
-      vouchers: 0
-    }
-    storeUserObj(userObj)
-  }
+  // componentWillReceiveProps(newProps) {
+  //   let userObj = {
+  //     // currentWaypoint: {},
+  //     // noteBook: {note: 'Sorry, you do not have any notes yet.'},
+  //     uid: newProps.user.uid,
+  //     userName: newProps.user.displayName,
+  //     // vouchers: 0
+  //   }
+  //   storeUserObj(userObj)
+  // }
 
   continue = () => {
-    getUserObj(this.props.userObj)
+    // getUserObj(this.props.userObj)
     browserHistory.push('/continue')
   }
 
@@ -70,7 +70,6 @@ function mapStateToProps(state) {
   return {
     scenarios: state.scenarios,
     user: state.auth.user,
-    userObj: state.userObj
   }
 }
 
@@ -79,3 +78,5 @@ export default connect(mapStateToProps, dispatch => ({
     dispatch(getScenarios())
   }
 }))(ScenariosPage)
+
+

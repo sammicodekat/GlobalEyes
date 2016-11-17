@@ -22,3 +22,5 @@ const PoiList = ({ pois }) => (
 )
 
 export default PoiList
+
+

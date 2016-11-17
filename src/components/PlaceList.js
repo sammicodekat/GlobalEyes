@@ -12,3 +12,5 @@ const PlaceList = ({ scenarioId, waypoints }) => (
 )
 
 export default PlaceList
+
+

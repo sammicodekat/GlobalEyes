@@ -39,3 +39,4 @@ class MapPage extends Component {
 }
 
 export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios }))(MapPage)
+

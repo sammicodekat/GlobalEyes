@@ -52,3 +52,5 @@ export default connect(state => ({ waypoint:state.waypoint }), dispatch => ({
     dispatch(getWayPoint(id))
   }
 }))(WaypointPage)
+
+

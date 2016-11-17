@@ -44,3 +44,5 @@ export default connect(state => ({ poi: state.poi, user: state.auth.user }), dis
     dispatch(getPoi(id))
   }
 }))(PointOfInterestPage)
+
+

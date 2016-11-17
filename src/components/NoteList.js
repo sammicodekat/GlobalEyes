@@ -19,11 +19,9 @@ import { connect } from 'react-redux'
 
 
 const NoteList = ( props ) => {
-  console.log('in NoteList', props.gameObj.notebook)
   let clueDisplay
-  if(props.gameObj.notebook[0]){
-    console.log(props.gameObj.notebook)
-    clueDisplay = props.gameObj.notebook.map((clue, i) => {
+  if(!props.userObj.notebook.note){
+    clueDisplay = props.userObj.notebook.map((clue, i) => {
       return (
         <div key={`${clue.waypoint}+${i}`} className="notebookEntry">
           <span className="foundIn">Found in</span>
@@ -37,7 +35,7 @@ const NoteList = ( props ) => {
       )
     })
   } else {
-    clueDisplay = <div className="notebookEntry"><h2>{props.gameObj.notebook.note}</h2></div>
+    clueDisplay = <div className="notebookEntry"><h2>{props.userObj.notebook.note}</h2></div>
   }
   return (
     <div>
@@ -48,8 +46,10 @@ const NoteList = ( props ) => {
 
 function mapStateToProps(state){
   return {
-    gameObj: state.gameObj
+    userObj: state.userObj
   }
 }
 
 export default connect(mapStateToProps, null)(NoteList)
+
+

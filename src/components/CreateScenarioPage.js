@@ -66,3 +66,6 @@ export default connect(state => ({ scenarios: state.scenarios }), dispatch => ({
     dispatch(createNewScenario(scenario))
   }
 }))(CreateScenarioPage)
+
+
+

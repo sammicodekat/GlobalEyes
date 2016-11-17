@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getScenario } from '../actions/scenarioActions'
 import { browserHistory } from 'react-router'
-import { getUserObj } from '../actions/userActions'
+import { getUserObj } from '../actions/auth'
 
 
 //USER - pull user name or use anon(will have a UID???)
@@ -69,9 +69,11 @@ class ContinueScenarioPage extends Component {
 export default connect(state => ({ 
   scenario: state.scenario, 
   scenarios: state.scenarios, 
-  gameObj: state.gameObj }), 
+  userObj: state.userObj }), 
   dispatch => ({
     getScenario(id) {
       dispatch(getScenario(id))
     }
 }))(ContinueScenarioPage)
+
+

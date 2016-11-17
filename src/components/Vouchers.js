@@ -9,3 +9,4 @@ const Vouchers = ({ vouchers }) => {
 }
 
 export default Vouchers
+
