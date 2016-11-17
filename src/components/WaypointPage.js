@@ -18,7 +18,7 @@ class WaypointPage extends Component {
 
   componentWillMount() {
     console.log('this.props',this.props)
-    this.props.dispatch(getWayPoint(this.props.params.waypointId))
+    this.props.getWayPoint(this.props.params.waypointId)
   }
 
   openNotebook() {
