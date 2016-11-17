@@ -39,7 +39,7 @@ class WaypointPage extends Component {
         <div className="waypointBody">
           <h1 className="waypointName">{waypointName}</h1>
           <article className="infoBlock">
-            <h3>About this Location</h3>
+            <h3>About this Location:</h3>
             <p>{text}</p>
           </article>
           <PoiList pois={pointsOfInterest} params={this.props.params}/>
