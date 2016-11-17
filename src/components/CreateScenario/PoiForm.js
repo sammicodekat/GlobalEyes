@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import Geosuggest from 'react-geosuggest'
 import TextInput from './TextInput'
+import TextArea from './TextArea'
 import { createNewPoi } from '../../actions/poiActions'
-import { connect } from 'react-redux'
 
 class PoiForm extends Component {
   constructor(props) {
@@ -68,41 +69,47 @@ class PoiForm extends Component {
         const text = `${name}_pointOfInterest${j}_text`
         const clink = `${name}_pointOfInterest${j}_clue_link`
         const ctext = `${name}_pointOfInterest${j}_clue_text`
-        const newPoi = (<div key={j} className='poiForm'><Geosuggest key={pName}
-          id={pName}
-          type="text"
-          onKeyPress={this.setNewPoi}
-          name={pName}
-          value={newPointOfInterest.poiName}
-          label={pLabel}
-          onSuggestSelect={this.select}
-                          placeHolder="Search Point of Interests"/>
-          <TextInput
+        const newPoi = (<div key={j} className="poiForm">
+          <Geosuggest
+            key={pName}
+            id={pName}
+            type="text"
+            onKeyPress={this.setNewPoi}
+            name={pName}
+            value={newPointOfInterest.poiName}
+            placeholder="Enter Point of Interest"
+            onSuggestSelect={this.select}
+          />
+          <TextArea
             key={text}
-            name='text'
-            label={text}
+            name="text"
+            placeholder="Point of Interest Description"
             value={newPointOfInterest.text}
-            onChange={this.setNewPoi} />
+            onChange={this.setNewPoi}
+          />
           <TextInput
             key={link}
-            name='links'
-            label={link}
+            name="links"
+            placeholder="Enter Photo URL"
             value={newPointOfInterest.links}
-            onChange={this.setNewPoi} />
+            onChange={this.setNewPoi}
+          />
           <h3>Clue</h3>
           <TextInput
             key={ctext}
-            name='cluetext'
-            label={ctext}
+            name="cluetext"
+            placeholder={ctext}
             value={newPointOfInterest.cluetext}
-            onChange={this.setNewPoi} />
+            onChange={this.setNewPoi}
+          />
           <TextInput
             key={clink}
-            name='cluelink'
-            label={clink}
+            name="cluelink"
+            placeholder={clink}
             value={newPointOfInterest.cluelink}
-            onChange={this.setNewPoi} />
-          <button className="btnClass" type="submit" onClick={this.submitNewPoi}>Confirm Point Of Interest</button>
+            onChange={this.setNewPoi}
+          />
+          <button className="btnClass" type="submit" onClick={this.submitNewPoi}>save point of interest</button>
         </div>)
         poiFields = [...poiFields, newPoi]
       }
@@ -110,7 +117,7 @@ class PoiForm extends Component {
     return (
         <div >
           {poiFields}
-          <button type="button" onClick={() => this.addPoiInput()}>Add Point of Interest</button>
+          <button className="addWaypointBtn" type="button" onClick={() => this.addPoiInput()}><span>+</span>add point of interest</button>
           {deleteButton}
         </div>
     )

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+// import { browserHistory } from 'react-router'
 
 import ScenarioForm from './CreateScenario/ScenarioForm'
 import { createNewScenario } from '../actions/scenariosActions'
-import { browserHistory } from 'react-router'
 //USER - pull in user data
 //Associate userName(firebase) with the scenario
 
