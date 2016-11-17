@@ -6,7 +6,7 @@ const closeNotebook = () => {
   document.getElementById('notebook').className = ''
 }
 
-const Notebook = (props) => (
+const Notebook = () => (
   <div id="notebook">
     <div className="notebookHeader">
       <h1>Notebook</h1>

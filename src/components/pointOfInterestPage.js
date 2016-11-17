@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { getPoi } from '../actions/poiActions'
+import { getWayPoint } from '../actions/wayPointsActions'
 import Vouchers from './Vouchers'
 import ClueList from './ClueList'
 import AddToNotebookButton from './AddToNotebookButton'
@@ -17,6 +18,7 @@ class PointOfInterestPage extends Component {
   }
   // componentWillMount(){
   //  this.props.getPoi(this.props.params.poiId)
+      // this.props.getWayPoint(this.props.params.waypointId)
   // }
 
   openNotebook() {
@@ -24,9 +26,12 @@ class PointOfInterestPage extends Component {
   }
 
   render() {
+    console.log('this.props',this.props)
     let { poi, user, waypoint } = this.props
     let { uid } = this.props
-    let { waypointName } = waypoint
+    const  waypointName = waypoint.waypointName
+    console.log( 'waypointName' , waypointName )
+
     //Clue needs to be changed to a single clue. I've renamed it but haven't reduced
     //the number of clues it holds
     let { poiName, clues, links, text } = poi
@@ -55,5 +60,8 @@ class PointOfInterestPage extends Component {
 export default connect(state => ({ poi: state.poi, user: state.auth.user, waypoint: state.waypoint }), dispatch => ({
   getPoi(id) {
     dispatch(getPoi(id))
-  }
+  },
+  getWayPoint(id) {
+    dispatch(getWayPoint(id))
+ }
 }))(PointOfInterestPage)
