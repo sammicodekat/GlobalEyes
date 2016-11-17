@@ -33,7 +33,7 @@ class WaypointPage extends Component {
         <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
         <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
         <div className="waypointSplash">
-          <img src={links[0]} alt={waypointName} />
+          <img src={links} alt={waypointName} />
         </div>
         <div className="waypointBody">
           <h1 className="waypointName">{waypointName}</h1>
