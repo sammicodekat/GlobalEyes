@@ -27,7 +27,7 @@ const NoteList = ( props ) => {
           <span className="foundIn">Found in</span>
           <h2>{clue.waypoint}</h2>
           <div className="notebookClue">
-            <h4>{clue.name}</h4>
+            {/* <h4>{clue.name}</h4> */}
             <span className="clueLink"><img src={clue.links} /></span>
             <p>{clue.text}</p>
           </div>
@@ -39,7 +39,7 @@ const NoteList = ( props ) => {
   }
   return (
     <div>
-      {clueDisplay} 
+      {clueDisplay}
     </div>
   )
 }
@@ -51,5 +51,3 @@ function mapStateToProps(state){
 }
 
 export default connect(mapStateToProps, null)(NoteList)
-
-
