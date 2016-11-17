@@ -15,20 +15,20 @@ class PoiForm extends Component {
     }
   }
 
-  // removePoiInput() {
-  //   let { poiCount } = this.state
-  //   if (poiCount > 0) {
-  //     poiCount -= 1
-  //     this.setState({ poiCount })
-  //   }
-  // }
-
   setNewPoi = (e) => {
     const field = e.target.name
     const newPointOfInterest = this.state.newPointOfInterest
     newPointOfInterest[field] = e.target.value
 
     return this.setState({ newPointOfInterest, field })
+  }
+
+  removePoiInput() {
+    let { poiCount } = this.state
+    if (poiCount > 0) {
+      poiCount -= 1
+      this.setState({ poiCount })
+    }
   }
 
   addPoiInput() {
@@ -118,6 +118,7 @@ class PoiForm extends Component {
           onChange={this.setNewPoi}
         />
         <button className="btnClass" type="submit" onClick={this.submitNewPoi}>save point of interest</button>
+        <button className="btnClass" type="button" onClick={() => this.removePoiInput()}>cancel</button>
       </div>)
       poiFields = [...poiFields, newPoi]
     }
@@ -126,7 +127,7 @@ class PoiForm extends Component {
       <div>
         {poiFields}
         { !poiCount ?
-          <button className="addWaypointBtn" type="button" onClick={() => this.addPoiInput()}><span>+</span>add point of interest</button>
+          <button className="addWaypointBtn" type="button" onClick={e => this.addPoiInput(e)}><span>+</span>add point of interest</button>
         : null}
         {/* {deleteButton} */}
       </div>
