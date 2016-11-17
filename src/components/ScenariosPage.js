@@ -68,9 +68,15 @@ class ScenariosPage extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    scenarios: state.scenarios,
+    user: state.auth.user,
+    userObj: state.userObj
+  }
+}
 
-export default connect(state => ({ scenarios: state.scenarios,
-  user: state.auth.user }), dispatch => ({
+export default connect(mapStateToProps, dispatch => ({
   getScenarios() {
     dispatch(getScenarios())
   }
