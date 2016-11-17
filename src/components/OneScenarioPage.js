@@ -35,7 +35,6 @@ class OneScenarioPage extends Component {
   render() {
     const { scenario } = this.props
     const { vouchers } = scenario
-    const name = scenario.waypoints[0] ? scenario.waypoints[0].waypointName : ''
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
@@ -51,7 +50,7 @@ class OneScenarioPage extends Component {
               <p>Greetings Traveller,</p>
               <p>You are about to embark on an amazing adventure.</p>
               <p>I have given you <b>{vouchers}</b> <i>travel vouchers</i> for your journey, use them wisely.</p>
-              <p>Your journey begins in <b>{name}</b>.</p>
+              <p>Your journey begins in <b>{scenario.waypoints[0].waypointName || ''}</b>.</p>
               <p>Good Luck!</p>
             </div>
             <div className="introVouchers">
