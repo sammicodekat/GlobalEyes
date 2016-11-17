@@ -19,7 +19,6 @@ router.route('/')
 router.route('/:id')
 .get((req, res) => {
   Poi.findById(req.params.id)
-  .populate('clues')
   .then(poi => res.send(poi))
   .catch(err => res.status(400).send(err))
 })
