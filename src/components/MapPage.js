@@ -19,7 +19,7 @@ class MapPage extends Component {
   }
 
   render() {
-    const scenario = this.props
+    const { scenario } = this.props
     const { vouchers, waypoints } = scenario
 
     return (
