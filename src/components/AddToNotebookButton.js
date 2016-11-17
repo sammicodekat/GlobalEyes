@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { updateUserObject } from '../actions/auth'
+import uuid from 'uuid'
 
 //USER - store the clue on the userObj
 
@@ -8,14 +9,26 @@ const AddToNotebookButton = ( props, poiName, clues ) => {
 
   function saveClue(e) {
     let updatedUserObj = props.userObj
-    let note = {
-      name: props.poiName,
-      waypoint: props.clues.waypoint,
-      links: props.clues.links[0] || '',
-      text: props.clues.text || ''
+    let notHasNote = true
+    if(updatedUserObj.notebook.length > 0) {
+      updatedUserObj.notebook.forEach(note => {
+        if(note.name === props.poiName){
+          return notHasNote = false
+        } 
+      })
     }
-    updatedUserObj['notebook'] = [...updatedUserObj['notebook'], note]
-    updateUserObject(updatedUserObj)
+    if(notHasNote) {
+      let note = {
+        name: props.poiName,
+        waypoint: props.clues.waypoint,
+        links: props.clues.links[0] || '',
+        text: props.clues.text || '',
+        noteId: uuid()
+      }
+      updatedUserObj['notebook'] = [...updatedUserObj['notebook'], note]
+      updateUserObject(updatedUserObj)
+      notHasNote = false
+    }
   }
 
   return(
