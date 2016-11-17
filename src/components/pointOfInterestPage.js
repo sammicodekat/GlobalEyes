@@ -26,16 +26,13 @@ class PointOfInterestPage extends Component {
   }
 
   render() {
-    console.log('this.props',this.props)
     let { poi, user, waypoint } = this.props
     let { uid } = this.props
     const  waypointName = waypoint.waypointName
-    console.log( 'waypointName' , waypointName )
 
     //Clue needs to be changed to a single clue. I've renamed it but haven't reduced
     //the number of clues it holds
     let { poiName, clues, links, text } = poi
-    console.log( 'clues' , clues )
     return (
       <div className="poiPage">
         <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
