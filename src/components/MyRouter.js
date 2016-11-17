@@ -20,7 +20,7 @@ export default class MyRouter extends Component {
           <IndexRoute component={Home} />
           <Route path="/create" component={CreateScenarioPage} />
           <Route path="/scenarios" component={ScenariosPage} />
-          <Route path=":id" component={Game}>
+          <Route path="/:id" component={Game}>
             <IndexRoute component={OneScenarioPage} />
             <Route path="/continue" component={ContinueScenarioPage} />
             <Route path="/:id/map" component={MapPage} />

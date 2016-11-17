@@ -27,7 +27,6 @@ class WaypointPage extends Component {
   render() {
     let { waypoint } = this.props
     const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
-    console.log('pointsOfInterest: ', pointsOfInterest)
 
     return (
       <div className="waypoint">
