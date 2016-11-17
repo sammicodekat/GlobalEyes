@@ -70,6 +70,7 @@ function mapStateToProps(state) {
   return {
     scenarios: state.scenarios,
     user: state.auth.user,
+    userObj: state.userObj
   }
 }
 

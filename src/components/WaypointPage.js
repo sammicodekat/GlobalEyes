@@ -48,7 +48,7 @@ class WaypointPage extends Component {
   }
 }
 
-export default connect(state => ({ waypoint:state.waypoint }), dispatch => ({
+export default connect(state => ({ waypoint: state.waypoint, userObj: state.userObj }), dispatch => ({
   getWayPoint(id) {
     dispatch(getWayPoint(id))
   }
