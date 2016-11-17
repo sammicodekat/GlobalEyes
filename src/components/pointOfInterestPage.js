@@ -15,9 +15,10 @@ class PointOfInterestPage extends Component {
   constructor(props) {
     super(props)
   }
-  // componentWillMount(){
-  //  this.props.dispatch(getPoi(this.props.params.id))
-  // }
+  componentWillMount(){
+   console.log('this.props',this.props)
+   this.props.dispatch(getPoi(this.props.params.id))
+  }
 
   openNotebook() {
     document.getElementById('notebook').className = 'open'
@@ -56,5 +57,3 @@ export default connect(state => ({ poi: state.poi, user: state.auth.user }), dis
     dispatch(getPoi(id))
   }
 }))(PointOfInterestPage)
-
-
