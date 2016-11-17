@@ -17,7 +17,6 @@ export default class GMap extends Component {
     const mapRef = document.getElementById('mapRef')
     const { google } = this.props
     const { scenario } = this.props
-    console.log('scenario',scenario)
     const map = new google.maps.Map(mapRef, {
       zoom: 5,
       center: scenario.waypoints[0].coords
