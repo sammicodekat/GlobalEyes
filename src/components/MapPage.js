@@ -42,7 +42,7 @@ class MapPage extends Component {
   }
 }
 
-export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios }),, dispatch => ({
+export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios }), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }
