@@ -31,7 +31,7 @@ export default class ScenarioForm extends Component {
     // const deleteButton = waypointCount ? (<button type="button" onClick={() => this.removeWaypointInput()}>Delete WayPoint</button>) : ''
     return (
       <form className="creationForm">
-        <TextInput id="scenarioName" name="scenarioName" value={newScenario.scenarioName} onChange={onChange} type="text" placeholder="Scenario Name" />
+        <TextInput id="scenarioName" name="scenarioName" value={newScenario.scenarioName} onChange={onChange} type="text" placeholder="Enter Scenario Name" />
         {/* {deleteButton} */}
         <WayPointForm {...this.props} waypointCount={waypointCount} />
         <button className="btnClass" type="submit" onClick={onClick}>Submit Scenario</button>

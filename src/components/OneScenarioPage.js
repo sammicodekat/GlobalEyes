@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
-import { getScenario } from '../actions/scenarioActions'
+import { getScenario } from '../actions/ScenarioActions'
 import { updateUserObject } from '../actions/auth'
 
 import Vouchers from './Vouchers'
