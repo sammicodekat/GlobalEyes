@@ -26,7 +26,7 @@ export default class GMap extends Component {
     // else if (i === 0) icon = './images/marker_visited.png'
     // else icon = './images/marker_new.png'
     scenario.waypoints[0].falseRoute.forEach((route) => {
-      const { lat, lng } = route.coords
+      const { lat, lng } = route
       const marker = new google.maps.Marker({
         position: { lat, lng },
         map,
