@@ -22,7 +22,7 @@ const AddToNotebookButton = ( props ) => {
     if(notHasNote) {
       let note = {
         name: props.poiName,
-        waypoint: props.waypointName,
+        // waypoint: props.waypointName,
         links: props.clues.links || '',
         text: props.clues.text || '',
         noteId: uuid()
