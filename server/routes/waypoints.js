@@ -19,6 +19,7 @@ router.route('/')
 router.route('/:id')
 .get((req, res) => {
   Waypoint.findById(req.params.id)
+  .populate('pointsOfInterest')
   .then(waypoint => res.send(waypoint))
   .catch(err => res.status(400).send(err))
 })
