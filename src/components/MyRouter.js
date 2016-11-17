@@ -10,7 +10,7 @@ import Game from './Game'
 import OneScenarioPage from './OneScenarioPage'
 import ContinueScenarioPage from './ContinueScenarioPage'
 import WaypointPage from './WaypointPage'
-import PointOfInterestPage from './PointOfInterestPage'
+import PointOfInterestPage from './pointOfInterestPage'
 
 export default class MyRouter extends Component {
   render() {
