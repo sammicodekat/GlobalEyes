@@ -8,7 +8,7 @@ const pointOfInterestSchema = new Schema({
     text: { type: String }
   },
   links: { type: String },
-  text: { type: String }
+  text: { type: String },
 })
 
 const PointOfInterest = mongoose.model('PointOfInterest', pointOfInterestSchema)

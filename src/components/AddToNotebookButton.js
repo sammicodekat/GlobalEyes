@@ -5,7 +5,7 @@ import uuid from 'uuid'
 
 //USER - store the clue on the userObj
 
-const AddToNotebookButton = ( props, poiName, clues ) => {
+const AddToNotebookButton = ( props ) => {
   console.log( 'props' , props )
 
   function saveClue(e) {
@@ -22,7 +22,7 @@ const AddToNotebookButton = ( props, poiName, clues ) => {
     if(notHasNote) {
       let note = {
         name: props.poiName,
-        waypoint: props.clues.waypoint,
+        waypoint: props.waypointName,
         links: props.clues.links || '',
         text: props.clues.text || '',
         noteId: uuid()
