@@ -6,9 +6,9 @@ $desktop: "(min-width: 1200px)"
   color: white
   text-align: left
   width: 100vw
-  padding: 20px
+  padding: 10px
   box-sizing: border-box
-  margin: 20px auto
+  margin: 10px auto
   @media #{$tablet}
     width: 80vw
 
@@ -38,9 +38,14 @@ $desktop: "(min-width: 1200px)"
 
 h2
   margin-bottom: 0
-  border-top: 1px solid rgba(255, 255, 255, 0.5)
+  border-top: 1px solid white
   padding-top: 20px
   margin-top: 20px
+
+h2:first-of-type
+  border: none
+  padding-top: 0
+  margin-top: 0
 
 .waypointForm
   background-color: #29ABE2
@@ -81,8 +86,16 @@ h2
       text-shadow: 0 0 0 rgba(0, 0, 0, 0)
 
   .poiForm
-    margin: 20px 0
-    padding: 20px 0
+    // margin: 20px 0
+    // padding: 20px 0
+
+  .enteredPoi
+    border-left: 1px solid rgba(255, 255, 255, 0.4)
+    padding: 0 10px
+    width: 25%
+    margin-top: 10px
+    box-sizing: border-box
+    display: inline-block
 
 //GoogleMap AutoSuggest Class
 .geosuggest__item

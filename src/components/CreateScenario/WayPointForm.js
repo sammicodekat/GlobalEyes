@@ -33,11 +33,11 @@ class WayPointForm extends Component {
   submitNewWayPoint = (e) => {
     e.preventDefault()
     const { newWayPoint, poiArr } = this.state
-    let newWP = {}
-    let falseroutes = []
+    const newWP = {}
+    const falseroutes = []
     falseroutes.push(newWayPoint.falseRoute1)
     falseroutes.push(newWayPoint.falseRoute2)
-    let coords = {lat: newWayPoint.lat,lng:newWayPoint.lng}
+    const coords = { lat: newWayPoint.lat, lng: newWayPoint.lng }
     newWP.waypointName = newWayPoint.waypointName
     newWP.links = newWayPoint.links
     newWP.text = newWayPoint.text
@@ -46,8 +46,8 @@ class WayPointForm extends Component {
     newWP.falseRoute = falseroutes
     this.props.createNewWayPoint(newWP)
     this.setState({ newPointOfInterest: {}, poiArr: [] })
-    // browserHistory.push(`${scenario._id}/map`)
   }
+
   select = (suggest) => {
     const { newWayPoint } = this.state
     newWayPoint.waypointName = suggest.label
@@ -55,6 +55,7 @@ class WayPointForm extends Component {
     newWayPoint.lng = suggest.location.lng
     return this.setState({ newWayPoint })
   }
+
   selectF = (suggest) => {
     const { newWayPoint, field } = this.state
     const falseRoute = { name: suggest.label,
@@ -64,61 +65,76 @@ class WayPointForm extends Component {
     return this.setState({ newWayPoint })
   }
 
+  renderEnteredPois = (poiArr) => (
+    poiArr.map((poi, i) => (
+      <div key={`enteredPoi${i}`} className="enteredPoi">
+        <h4>{poi.poiName}</h4>
+        <p>{`${poi.text.substring(0, 60)}...`}</p>
+        <p>{poi.clues ? 'Clue: Yes' : 'Clue: No'}</p>
+      </div>
+    ))
+  )
+
   render() {
-    const { newWayPoint } = this.state
-    const { waypointCount } = this.props
+    const { newWayPoint, poiArr } = this.state
+    const { waypointCount, poiId } = this.props
     let waypointFields = []
+    console.log('poiArr: ', poiArr)
     for (let i = 1; i <= waypointCount; i += 1) {
-      // const Label = i === 1? `Start Location` : `Way Point ${i}`
       const theName = `waypoint${i}`
       const text = `waypoint$${i}text`
       const link = `waypoint$${i}link`
-      const storeName =`waypoint_${i}_waypointName`
+
       const newField = (
-        <div key={`${theName}${i}`} className='waypointForm'>
-          <h2>{Label}</h2>
+        <div className="waypointForm">
+          <h2>WayPoint</h2>
           <Geosuggest
             id={theName}
             type="text"
             onKeyPress={this.setNewWayPoint}
-            name='waypointName'
+            name="waypointName"
             value={newWayPoint.waypointName}
             onSuggestSelect={this.select}
             placeholder="Search Waypoint"
           />
           <TextArea
             key={text}
-            name='text'
+            name="text"
             label={text}
             value={newWayPoint.text}
-            onChange={this.setNewWayPoint} />
+            onChange={this.setNewWayPoint}
+          />
           <TextInput
             key={link}
-            name='links'
+            name="links"
             label={link}
             value={newWayPoint.links}
-            onChange={this.setNewWayPoint} />
+            onChange={this.setNewWayPoint}
+          />
           <h2>False Route</h2>
-          <Geosuggest key='falseRoute1'
+          <Geosuggest
             type="text"
             onKeyPress={this.setNewWayPoint}
-            name='falseRoute1'
+            name="falseRoute1"
             value={newWayPoint.falseRoute1}
-            label='False Route 1'
+            label="False Route 1"
             onSuggestSelect={this.selectF}
-            placeHolder="Search False Point"/>
-          <Geosuggest key='falseRoute2'
+            placeHolder="Search False Point"
+          />
+          <Geosuggest
             type="text"
             onKeyPress={this.setNewWayPoint}
-            name='falseRoute2'
+            name="falseRoute2"
             value={newWayPoint.falseRoute2}
-            label='False Route 2'
+            label="False Route 2"
             onSuggestSelect={this.selectF}
-            placeHolder="Search False Point"/>
+            placeHolder="Search False Point"
+          />
           <PoiForm key={`PoiForm${i}`} name={theName} />
         </div>)
       waypointFields = [...waypointFields, newField]
     }
+
     return (
       <div>
         <div className="waypointForm">
@@ -145,6 +161,7 @@ class WayPointForm extends Component {
             onChange={this.setNewWayPoint}
           />
           <h2>Points of Interest</h2>
+          {this.renderEnteredPois(poiArr)}
           <PoiForm name="startLocation" />
           <h2>False Routes</h2>
           <Geosuggest
