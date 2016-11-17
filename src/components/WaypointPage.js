@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 // import { getScenario } from '../actions/scenarioActions'
-import * as beautifulJoshua from '../actions/wayPointsActions'
+import { getWayPoint } from '../actions/wayPointsActions'
 import { browserHistory } from 'react-router'
 import Vouchers from './Vouchers'
 import PoiList from './PoiList'
@@ -18,7 +18,7 @@ class WaypointPage extends Component {
 
   componentWillMount() {
     console.log('this.props',this.props)
-    this.props.dispatch(getWayPoint(this.props.params.id))
+    this.props.dispatch(getWayPoint(this.props.params.waypointId))
   }
 
   openNotebook() {
