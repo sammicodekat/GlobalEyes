@@ -19,7 +19,7 @@ export function postPoiFailed(error) {
 
 export function getPoi(id) {
   return dispatch => {
-    get(`/api/pois/${id}`).then(res => res.data).then((poi) => {
+    get(`/api/poi/${id}`).then(res => res.data).then((poi) => {
       dispatch(receivePoi(poi))
     }).catch(error => {
       dispatch(receivePoiFailed(error))
