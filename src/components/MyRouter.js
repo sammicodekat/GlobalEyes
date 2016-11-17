@@ -10,7 +10,7 @@ import Game from './Game'
 import OneScenarioPage from './OneScenarioPage'
 import ContinueScenarioPage from './ContinueScenarioPage'
 import WaypointPage from './WaypointPage'
-// import PointOfInterestPage from './PointOfInterestPage'
+import PointOfInterestPage from './PointOfInterestPage'
 
 export default class MyRouter extends Component {
   render() {
@@ -25,7 +25,7 @@ export default class MyRouter extends Component {
             <Route path="/continue" component={ContinueScenarioPage} />
             <Route path="/:id/map" component={MapPage} />
             <Route path="/:id/location/:waypointId" component={WaypointPage} />
-            {/* <Route path="/:id/location/:waypointId/poi/:poiId" component={PointOfInterestPage} /> */}
+            <Route path="/:id/location/:waypointId/poi/:poiId" component={PointOfInterestPage} />
           </Route>
         </Route>
       </Router>
