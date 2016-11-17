@@ -15,22 +15,22 @@ class PointOfInterestPage extends Component {
   constructor(props) {
     super(props)
   }
-  componentWillMount(){
-   console.log('this.props',this.props)
-   this.props.getPoi(this.props.params.poiId)
-  }
+  // componentWillMount(){
+  //  this.props.getPoi(this.props.params.poiId)
+  // }
 
   openNotebook() {
     document.getElementById('notebook').className = 'open'
   }
 
   render() {
-    let { poi, user } = this.props
+    let { poi, user, waypoint } = this.props
     let { uid } = this.props
+    let { waypointName } = waypoint
     //Clue needs to be changed to a single clue. I've renamed it but haven't reduced
     //the number of clues it holds
     let { poiName, clues, links, text } = poi
-
+    console.log( 'clues' , clues )
     return (
       <div className="poiPage">
         <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
@@ -44,15 +44,15 @@ class PointOfInterestPage extends Component {
             <h3>About this Point of Interest</h3>
             <p>{text}</p>
           </article>
-          <ClueList clues={clues} />
-          <AddToNotebookButton poiName={poiName} clues={clues} />
+          <ClueList clues={clues} waypointName={waypointName}/>
+          <AddToNotebookButton poiName={poiName} clues={clues} waypointName={waypointName}/>
         </div>
       </div>
     )
   }
 }
 
-export default connect(state => ({ poi: state.poi, user: state.auth.user }), dispatch => ({
+export default connect(state => ({ poi: state.poi, user: state.auth.user, waypoint: state.waypoint }), dispatch => ({
   getPoi(id) {
     dispatch(getPoi(id))
   }

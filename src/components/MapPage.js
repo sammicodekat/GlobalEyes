@@ -14,9 +14,9 @@ class MapPage extends Component {
   openNotebook = () => {
     document.getElementById('notebook').className = 'open'
   }
-  componentWillMount() {
-    this.props.getScenario(this.props.params.id)
-  }
+  // componentWillMount() {
+  //   this.props.getScenario(this.props.params.id)
+  // }
 
   render() {
     const { scenario } = this.props
