@@ -21,35 +21,26 @@ export default class GMap extends Component {
       zoom: 5,
       center: scenario.waypoints[0].coords
     })
-    scenario.waypoints[0].falseRoute.forEach((route)=> {
+    const icon = '/images/marker_new.png'
+    // if (i === 1) icon = './images/marker_current.png'
+    // else if (i === 0) icon = './images/marker_visited.png'
+    // else icon = './images/marker_new.png'
+    scenario.waypoints[0].falseRoute.forEach((route) => {
       const { lat, lng } = route.coords
-
-      let icon = '/images/marker_new.png'
-      // if (i === 1) icon = './images/marker_current.png'
-      // else if (i === 0) icon = './images/marker_visited.png'
-      // else icon = './images/marker_new.png'
-
       const marker = new google.maps.Marker({
         position: { lat, lng },
         map,
         animation: google.maps.Animation.DROP,
         icon
-      })
+      })})
     scenario.waypoints.forEach((waypoint)=> {
       const { lat, lng } = waypoint.coords
-
-      let icon = '/images/marker_new.png'
-      // if (i === 1) icon = './images/marker_current.png'
-      // else if (i === 0) icon = './images/marker_visited.png'
-      // else icon = './images/marker_new.png'
-
       const marker = new google.maps.Marker({
         position: { lat, lng },
         map,
         animation: google.maps.Animation.DROP,
         icon
       })
-      const goToPlace = () => (browserHistory.push(`location/${waypoint._id}`))
 
       const contentString ='<button>'+waypoint.waypointName+'</button>'
       const infowindow = new google.maps.InfoWindow({
@@ -59,7 +50,7 @@ export default class GMap extends Component {
       let prevInfoWindow = false;
 
       marker.addListener('click', () => {
-      browserHistory.push(`location/${waypoint._id}`)
+      browserHistory.push(`/location/${waypoint._id}`)
       })
       marker.addListener('mouseover', () => {
           if (prevInfoWindow) {
