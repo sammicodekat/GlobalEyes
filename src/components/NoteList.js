@@ -15,11 +15,9 @@ import { connect } from 'react-redux'
 //   </div>
 // )))
 
-
-
-
 const NoteList = ( props ) => {
   let clueDisplay
+  console.log( 'props.userObj.notebook' , props.userObj.notebook )
   if(!props.userObj.notebook.note){
     clueDisplay = props.userObj.notebook.map((clue, i) => {
       return (
