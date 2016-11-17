@@ -36,7 +36,7 @@ class PointOfInterestPage extends Component {
         <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
         <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
         <div className="waypointSplash">
-          <img src={links[1]} alt={poiName} />
+          <img src={links} alt={poiName} />
         </div>
         <div className="waypointBody">
           <h1 className="waypointName">{poiName}</h1>
@@ -45,7 +45,7 @@ class PointOfInterestPage extends Component {
             <p>{text}</p>
           </article>
           <ClueList clues={clues} />
-          <AddToNotebookButton poiName={poiName} clues={clues[0]} />
+          <AddToNotebookButton poiName={poiName} clues={clues} />
         </div>
       </div>
     )
