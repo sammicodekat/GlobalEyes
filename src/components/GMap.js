@@ -30,28 +30,25 @@ export default class GMap extends Component {
     // else if (i === 0) icon = './images/marker_visited.png'
     // else icon = './images/marker_new.png'
     scenario.waypoints[0].falseRoute.forEach((route) => {
-      const { lat, lng } = route
+     console.log('route', route)
       const marker = new google.maps.Marker({
-        position: { lat, lng },
+        position: route.coords,
         map,
         animation: google.maps.Animation.DROP,
         icon
       })})
     scenario.waypoints.forEach((waypoint)=> {
-      const { lat, lng } = waypoint.coords
       const marker = new google.maps.Marker({
-        position: { lat, lng },
+        position: waypoint.coords,
         map,
         animation: google.maps.Animation.DROP,
         icon
       })
-      const rlat = scenario.waypoints[0].falseRoute[0].lat
-      const rlng = scenario.waypoints[0].falseRoute[0].lng
-      const rrlat = scenario.waypoints[0].falseRoute[1].lat
-      const rrlng = scenario.waypoints[0].falseRoute[1].lng
+      const coords1 = scenario.waypoints[0].falseRoute[0].coords
+      const coords2 = scenario.waypoints[0].falseRoute[1].coords
 
       const line = new google.maps.Polyline({
-        path: [scenario.waypoints[0].coords, {lat:rlat, lng:rlng }],
+        path: [scenario.waypoints[0].coords, coords1],
         strokeOpacity: 0,
           icons: [{
             icon: lineSymbol,
@@ -61,7 +58,7 @@ export default class GMap extends Component {
         map
       })
       const line2 = new google.maps.Polyline({
-        path: [{lat:rlat, lng:rlng },{lat:rrlat, lng:rrlng }],
+        path: [coords1, coords2],
         strokeOpacity: 0,
           icons: [{
             icon: lineSymbol,
