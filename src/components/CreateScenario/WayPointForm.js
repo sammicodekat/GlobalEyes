@@ -33,12 +33,16 @@ class WayPointForm extends Component {
     e.preventDefault()
     const { newWayPoint, poiArr } = this.state
     let newWP = {}
+    let falseroutes = []
+    falseroutes.push(newWayPoint,falseRoute1)
+    falseroutes.push(newWayPoint,falseRoute2)
     let coords = {lat: newWayPoint.lat,lng:newWayPoint.lng}
     newWP.waypointName = newWayPoint.waypointName
     newWP.links = newWayPoint.links
     newWP.text = newWayPoint.text
     newWP.coords = coords
     newWP.pointsOfInterest = poiArr
+    newWP.falseRoute = falseroutes
     this.props.createNewWayPoint(newWP)
     this.setState({ newPointOfInterest: {}, poiArr: [] })
     // browserHistory.push(`${scenario._id}/map`)
