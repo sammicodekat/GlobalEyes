@@ -2,7 +2,7 @@ import { get, put, post } from 'axios'
 import * as types from './actionTypes'
 
 export function receiveWayPoint(waypoint) {
-  return { type: types.RECEIVE_WAYPOINT_SUCCESS, waypoints }
+  return { type: types.RECEIVE_WAYPOINT_SUCCESS, waypoint }
 }
 
 export function receiveWayPointFailed(error) {

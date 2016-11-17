@@ -17,7 +17,6 @@ class WaypointPage extends Component {
   }
 
   componentWillMount() {
-    console.log('this.props',this.props)
     this.props.getWayPoint(this.props.params.waypointId)
   }
 
