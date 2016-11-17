@@ -16,8 +16,9 @@ class WaypointPage extends Component {
     super(props)
   }
 
-  componentDidMount() {
-
+  componentWillMount() {
+    console.log('this.props',this.props)
+    this.props.dispatch(getWayPoint(this.props.params.id))
   }
 
   openNotebook() {
@@ -53,5 +54,3 @@ export default connect(state => ({ waypoint:state.waypoint }), dispatch => ({
     dispatch(getWayPoint(id))
   }
 }))(WaypointPage)
-
-
