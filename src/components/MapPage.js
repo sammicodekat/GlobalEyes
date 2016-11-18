@@ -38,9 +38,7 @@ class MapPage extends Component {
     const { waypoints } = scenario
     const id = userObj.currentWaypoint
     const index = waypoints.findIndex(elem => elem._id == id)
-    const visited = userObj.visitedWaypoints.map( wayPid => {
-          return waypoints.filter( waypoint => waypoint._id == wayPid)
-})
+    const visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
     console.log('visited',visited)
     const rest = waypoints.slice(index)
     const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)

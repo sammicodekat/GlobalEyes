@@ -76,7 +76,7 @@ export default class GMap extends Component {
         //   }
         const routes = coordsList.length
         let i = 0
-        while (i + 1 <= routes) {
+        while (i + 1 < routes) {
             const line = new google.maps.Polyline({
                 path: [
                     coordsList[i],
