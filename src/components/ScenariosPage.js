@@ -18,6 +18,7 @@ class ScenariosPage extends Component {
   setVouchers = (vouchers) => {
     let updatedUserObj =  this.props.userObj
     updatedUserObj.vouchers = vouchers
+    updatedUserObj.visitedWaypoints = []
     updateUserObject(updatedUserObj)
   }
 

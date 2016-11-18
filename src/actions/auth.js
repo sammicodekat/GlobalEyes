@@ -78,7 +78,7 @@ export function authenticate(provider) {
       .then(result => {
         let userObj = {
           currentWaypoint: {},
-          visitedWaypoints: [],
+          visitedWaypoints: 'no waypoint one',
           uid: result.user.uid,
           userName: result.user.displayName,
           notebook: {note: "Sorry, You don't yet have any notes"},
