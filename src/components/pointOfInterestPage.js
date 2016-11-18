@@ -62,3 +62,5 @@ export default connect(state => ({ poi: state.poi, user: state.auth.user, waypoi
     dispatch(getWayPoint(id))
  }
 }))(PointOfInterestPage)
+
+

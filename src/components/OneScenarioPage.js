@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { getScenario } from '../actions/ScenarioActions'
 import { updateUserObject } from '../actions/auth'
-
 import Vouchers from './Vouchers'
 
 //USER - pull user name or use anon(will have a UID???)
@@ -22,22 +21,29 @@ class OneScenarioPage extends Component {
     updatedUserObj['uid'] = this.props.user.uid
     updatedUserObj['scenarioId'] = scenario._id
     updatedUserObj['currentWaypoint'] = scenario.waypoints[0]._id
-    updatedUserObj['visitedWaypoints'] = [scenario.waypoints[0]._id]
+    updatedUserObj['meowCoords'] = [scenario.waypoints[0].coords]
+    let visitedWaypoints = updatedUserObj.visitedWaypoints || []
+    visitedWaypoints = visitedWaypoints.filter(wp => {
+      if(wp == scenario.waypoints[0]._id) return
+      else return wp
+    })
+    visitedWaypoints = [...visitedWaypoints, scenario.waypoints[0]._id]
+    updatedUserObj['visitedWaypoints'] = visitedWaypoints
     updatedUserObj['visitedFalsepoints'] = []
     updatedUserObj['pointsOfInterest'] = [],
     updatedUserObj['notebook'] = {note: 'Sorry, you do not have any notes yet.'},
+    updatedUserObj['vouchers']--
     updateUserObject(updatedUserObj)
     browserHistory.replace(`/${scenario._id}/map`)
   }
 
   render() {
-    const { scenario } = this.props
+    const { scenario, userObj } = this.props
     const { vouchers } = scenario
     const name = scenario.waypoints ? scenario.waypoints[0].waypointName : ''
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
-    //delete to here
     return (
       <div className="introPage">
         <div className="backgroundImage" style={randomBackground} />
@@ -53,7 +59,7 @@ class OneScenarioPage extends Component {
               <p>Good Luck!</p>
             </div>
             <div className="introVouchers">
-              <Vouchers vouchers={this.props.userObj.vouchers} />
+              <Vouchers vouchers={userObj.vouchers} />
               <button onClick={this.beginAdventure}>Begin Adventure!</button>
             </div>
           </div>

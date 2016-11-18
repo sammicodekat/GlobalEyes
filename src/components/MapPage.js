@@ -1,13 +1,10 @@
-/* global window document */
-
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import GMap from './GMap'
 import Vouchers from './Vouchers'
 import PlaceList from './PlaceList'
 import { getScenario } from '../actions/ScenarioActions'
-
-//USER - bring in the currentWaypoint & vouchers
+import { updateUserObject } from '../actions/auth'
 
 class MapPage extends Component {
 
@@ -18,15 +15,36 @@ class MapPage extends Component {
   //   this.props.getScenario(this.props.params.id)
   // }
 
+  updateUsersWaypoint = (newWaypoint, coords) => {
+    let updatedUserObj = this.props.userObj
+    if(updatedUserObj.currentWaypoint !== newWaypoint) {
+      updatedUserObj.vouchers--
+    }
+    updatedUserObj.currentWaypoint = newWaypoint
+    updatedUserObj.meowCoords = [...updatedUserObj.meowCoords, coords]
+    let visitedWaypoints = [...updatedUserObj.visitedWaypoints] || []
+    visitedWaypoints = visitedWaypoints.filter(wp => {
+      if(wp == newWaypoint) return
+      else return wp
+    })
+    visitedWaypoints = [...visitedWaypoints, newWaypoint]
+    updatedUserObj['visitedWaypoints'] = visitedWaypoints
+    updateUserObject(updatedUserObj)
+    }
+  findFirstWayPoint = (elem) => (elem.pointsOfInterest != [])
+
   render() {
     const { scenario, userObj } = this.props
     const { waypoints } = scenario
     const id = userObj.currentWaypoint
     const index = waypoints.findIndex(elem => elem._id == id)
     const visited = userObj.visitedWaypoints
+    const rest = waypoints.slice(index)
+    const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
+    const nextplaces = waypoints.slice(index, nextWayPointIndex)
     return (
       <div className="mapPage">
-        <GMap google={window.google} scenario={scenario} index={index} coordsList={userObj.meowCoords} visited={visited}/>
+        <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints}/>
         <button className="notebookBtn"
           onClick={() => this.openNotebook()}>
           <img src="/images/notebookBtn.png" alt="" />
@@ -36,7 +54,7 @@ class MapPage extends Component {
             <Vouchers vouchers={this.props.userObj.vouchers} />
           </div>
           <div className="waypointButtons">
-            <PlaceList waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} />
+            <PlaceList updateUsersWaypoint={this.updateUsersWaypoint} waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} nextplaces={nextplaces} />
           </div>
         </div>
       </div>

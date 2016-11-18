@@ -1,25 +1,18 @@
 import React from 'react'
 import { browserHistory } from 'react-router'
 
-const findFirstWayPoint = (elem) => {
-if(!elem.pointsOfInterest){
-return elem
-}
-}
+const renderPlaceList = (scenarioId, visited, nextplaces, updateUsersWaypoint ) => {
+  visited.map((waypoint, i) => (
+  <button className='visited' key={i} onClick={() => {browserHistory.replace(`/${scenarioId}/location/${waypoint._id}`), updateUsersWaypoint(waypoint._id, waypoint.coords) }}>{waypoint.waypointName}</button>
+))
+  nextplaces.map((waypoint, i) => (
+  <button className='nextPlaces' key={i+20} onClick={() => {browserHistory.replace(`/${scenarioId}/location/${waypoint._id}`), updateUsersWaypoint(waypoint._id, waypoint.coords) } }>{waypoint.waypointName}</button>
+))
+ }
 
-const renderPlaceList = (scenarioId, waypoints, user) => {
-  const number = user.visitedWaypoints.length
-  const rest = waypoints.slice(number)
-  const nextWayPointIndex = rest.findIndex(findFirstWayPoint)
-  const visited = waypoints.slice(0, number)
-waypoint[PointOfInterest]
-  return visited.map((waypoint, i) => (
-  <button key={i} onClick={() => browserHistory.replace(`/${scenarioId}/location/${waypoint._id}`)}>{waypoint.waypointName}</button>
-)) }
-
-const PlaceList = ({ scenarioId, waypoints, user }) => (
+const PlaceList = ({ scenarioId, visited, nextplaces, updateUsersWaypoint }) => (
   <div>
-    {renderPlaceList(scenarioId, waypoints, user || [])}
+    {renderPlaceList(scenarioId, visited, nextplaces || [], updateUsersWaypoint)}
   </div>
 )
 
