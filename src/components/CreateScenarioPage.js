@@ -22,8 +22,6 @@ class CreateScenarioPage extends Component {
        wayPointArr.push(newProps.wayPointId)
      }
      this.setState({ wayPointArr })
-     console.log('wayPointArr', wayPointArr)
-     console.log("create scenario", newProps)
    }
 
   setNewScenario = (e) => {
@@ -39,7 +37,9 @@ class CreateScenarioPage extends Component {
     const { wayPointArr } = this.state
     newSce.scenarioName = this.state.newScenario.scenarioName
     newSce.waypoints = wayPointArr
-    newSce.scenarioAuthor = 'Sammi'
+    newSce.scenarioAuthor = this.props.userObj.displayName
+    const filtered = wayPointArr.filter(waypoint => waypoint)
+    console.log('filtered: ', filtered)
     newSce.vouchers = Math.ceil(wayPointArr.length * 1.5)
     this.props.createNewScenario(newSce)
     this.setState({ newScenario: {}, wayPointArr: [] })
@@ -49,7 +49,7 @@ class CreateScenarioPage extends Component {
   render() {
     const { newScenario } = this.state
     const randomBackground = {
-      backgroundImage: `url(/images/background1.jpg)`
+      backgroundImage: 'url(/images/background1.jpg)'
     }
 
     return (
@@ -66,11 +66,8 @@ class CreateScenarioPage extends Component {
     )
   }
 }
-export default connect(state => ({ wayPointId: state.wayPointId }), dispatch => ({
+export default connect(state => ({ wayPointId: state.wayPointId, user: state.userObj }), dispatch => ({
   createNewScenario(scenario) {
     dispatch(createNewScenario(scenario))
   }
 }))(CreateScenarioPage)
-
-
-
