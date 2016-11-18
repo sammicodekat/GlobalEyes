@@ -42,9 +42,21 @@ export default class ScenarioForm extends Component {
 
     for (let i = 0; i < waypointCount; i += 1) {
       const visiblePane = 'pane visiblePane'
-      const newForm = <div key={`WayPointForm${i}`} className={(i === currTab) ? visiblePane : 'pane hiddenPane'}><WayPointForm {...this.props} waypointCount={waypointCount} /></div>
-      const newTab = <li key={`WayPointTab${i}`}><button type="button" onClick={() => this.switchTab(i)}>waypoint</button></li>
+      const waypointTitle = `Waypoint ${i}`
+      const newForm = (
+        <div key={`WayPointForm${i}`} className={(i === currTab) ? visiblePane : 'pane hiddenPane'}>
+          <WayPointForm {...this.props} waypointCount={waypointCount} waypointNum={i} waypointTitle={waypointTitle} />
+        </div>
+      )
+      const newTab = (
+        <li key={`WayPointTab${i}`}>
+          <button type="button" className={i === 0 ? 'tabBtn startLocBtn' : 'tabBtn waypointLocBtn'} onClick={() => this.switchTab(i)}>
+            {i === 0 ? 'Start Location' : waypointTitle}
+          </button>
+        </li>
+      )
       waypointForms = [...waypointForms, newForm]
+      // waypointForms = [...waypointForms, newForm]
       tabControls = [...tabControls, newTab]
     }
 
@@ -52,16 +64,16 @@ export default class ScenarioForm extends Component {
       <form className="creationForm">
         <TextInput id="scenarioName" name="scenarioName" value={newScenario.scenarioName} onChange={onChange} type="text" placeholder="Enter Scenario Name" />
         {/* {deleteButton} */}
-        <ul>
+        <ul className="tabControls">
           {tabControls}
-          <li>
-            <button className="addWaypointBtn" type="button" onClick={() => this.addWaypointInput()}><span>+</span>Add WayPoint</button>
-          </li>
         </ul>
         <div className="formPanes">
           {waypointForms}
         </div>
-        <button className="btnClass" type="submit" onClick={onClick}>Submit Scenario</button>
+        <div className="formControls">
+          <button className="addWaypointBtn" type="button" onClick={() => this.addWaypointInput()}><span>+</span>add new waypoint</button>
+          <button className="btnClass" type="submit" onClick={onClick}>Submit Scenario</button>
+        </div>
       </form>
     )
   }

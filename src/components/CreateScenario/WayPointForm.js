@@ -4,6 +4,7 @@ import Geosuggest from 'react-geosuggest'
 import TextInput from './TextInput'
 import TextArea from './TextArea'
 import PoiForm from './PoiForm'
+// import FalseRouteForm from './FalseRouteForm'
 import { createNewWayPoint } from '../../actions/wayPointsActions'
 
 class WayPointForm extends Component {
@@ -77,11 +78,11 @@ class WayPointForm extends Component {
 
   render() {
     const { newWayPoint, poiArr } = this.state
-    // const { poiId } = this.props
+    const { waypointNum, waypointTitle } = this.props
 
     return (
       <div className="waypointForm">
-        <h2>WayPoint Location</h2>
+        <h2>{waypointNum === 0 ? 'Start Location' : waypointTitle}</h2>
         <Geosuggest
           id="waypointLocation"
           type="text"
@@ -89,7 +90,7 @@ class WayPointForm extends Component {
           name="waypointName"
           value={newWayPoint.waypointName}
           onSuggestSelect={this.select}
-          placeholder="Enter Waypoint Location"
+          placeholder="Enter Location Name"
         />
         <TextArea
           name="text"
@@ -103,11 +104,14 @@ class WayPointForm extends Component {
           value={newWayPoint.links}
           onChange={this.setNewWayPoint}
         />
-        <h2>Points of Interest</h2>
-        {this.renderEnteredPois(poiArr)}
-        <PoiForm name="waypointLocation" />
-        <h2>False Routes</h2>
-        <Geosuggest
+        <div className="poiFormBlock">
+          <h2>Points of Interest</h2>
+          {this.renderEnteredPois(poiArr)}
+          <PoiForm name="waypointLocation" />
+        </div>
+        {/* <h2>False Routes</h2>
+        <FalseRouteForm /> */}
+        {/* <Geosuggest
           type="text"
           onKeyPress={this.setNewWayPoint}
           name="falseRoute1"
@@ -122,7 +126,7 @@ class WayPointForm extends Component {
           value={newWayPoint.falseRoute2}
           onSuggestSelect={this.selectF}
           placeHolder="Enter False Waypoint"
-        />
+        /> */}
         <button className="btnClass" type="submit" onClick={this.submitNewWayPoint}>Commit WayPoint</button>
       </div>
     )

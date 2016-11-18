@@ -60,6 +60,7 @@ class PoiForm extends Component {
 
     this.setState({ newPointOfInterest: {} })
   }
+
   select = (suggest) => {
     const { newPointOfInterest } = this.state
     newPointOfInterest.poiName = suggest.label

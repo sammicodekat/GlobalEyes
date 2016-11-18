@@ -38,15 +38,7 @@ $desktop: "(min-width: 1200px)"
 
 h2
   margin-bottom: 0
-  border-top: 1px solid white
-  padding-top: 20px
-  margin-top: 20px
   font-weight: 500
-
-h2:first-of-type
-  border: none
-  padding-top: 0
-  margin-top: 0
 
 .addWaypointBtn
   background-color: transparent
@@ -83,12 +75,37 @@ h2:first-of-type
 
 .formPanes
   position: relative
-  
+
   .hiddenPane
     display: none
 
   .visiblePane
     display: block
+
+.tabControls
+  width: 100%
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+  flex-wrap: wrap
+  .tabBtn
+    color: white
+    display: inline-flex
+    flex-direction: column
+    align-items: center
+    font-size: 0.8em
+    width: auto
+  .startLocBtn
+    color: #02FC83
+  .waypointLocBtn
+    color: #333
+  li
+    list-style: none
+    display: inline-block
+
+.formControls
+  display: flex
+  justify-content: space-between
 
 .waypointForm
   background-color: #29ABE2
@@ -97,6 +114,12 @@ h2:first-of-type
   width: 100%
   box-sizing: border-box
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5)
+
+  .poiFormBlock
+    border-top: 1px solid white
+    border-bottom: 1px solid white
+    padding: 10px 0
+    margin: 20px 0
 
   .poiForm
     button

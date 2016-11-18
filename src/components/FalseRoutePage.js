@@ -1,42 +1,37 @@
+/* global document */
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { browserHistory } from 'react-router'
 // import { getScenario } from '../actions/scenarioActions'
 import { getWayPoint } from '../actions/wayPointsActions'
-import { browserHistory } from 'react-router'
-import Vouchers from './Vouchers'
-import PoiList from './PoiList'
 
 class FalseRoutePage extends Component {
   constructor(props) {
     super(props)
   }
 
-  // componentWillMount() {
-  //   this.props.getWayPoint(this.props.params.waypointId)
-  // }
-
   openNotebook() {
     document.getElementById('notebook').className = 'open'
   }
 
   render() {
-    let { waypoint } = this.props
-    const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
+    const { waypoint } = this.props
+    const { id, falseRouteIndex } = this.props.params
+    const { name, link, text } = waypoint.falseRoutes[falseRouteIndex]
 
     return (
       <div className="waypoint">
         <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
-        <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
+        <button className="mapBtn" onClick={() => browserHistory.replace(`/${id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
         <div className="waypointSplash">
-          <img src={links} alt={waypointName} />
+          <img src={link} alt={name} />
         </div>
         <div className="waypointBody">
-          <h1 className="waypointName">{waypointName}</h1>
+          <h1 className="waypointName">{name}</h1>
           <article className="infoBlock">
             <h3>About this Location:</h3>
             <p>{text}</p>
           </article>
-          <PoiList pois={pointsOfInterest} params={this.props.params}/>
         </div>
       </div>
     )
