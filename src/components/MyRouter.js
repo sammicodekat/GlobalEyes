@@ -25,9 +25,9 @@ export default class MyRouter extends Component {
             <IndexRoute component={OneScenarioPage} />
             <Route path="/continue" component={ContinueScenarioPage} />
             <Route path="/:id/map" component={MapPage} />
-            <Route path="/:id/location/:waypointId" component={WaypointPage} />
-            <Route path="/:id/location/:waypointId/:falseRouteIndex" component={FalseRoutePage} />
             <Route path="/:id/location/:waypointId/poi/:poiId" component={PointOfInterestPage} />
+            <Route path="/:id/location/:waypointId/:falseRouteIndex" component={FalseRoutePage} />
+            <Route path="/:id/location/:waypointId" component={WaypointPage} />
           </Route>
         </Route>
       </Router>

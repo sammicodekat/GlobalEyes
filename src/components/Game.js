@@ -31,5 +31,3 @@ const Game = (props) => (
   </div>
   )
 export default Game
-
-
