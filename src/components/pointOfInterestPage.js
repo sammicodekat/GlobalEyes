@@ -11,10 +11,10 @@ class PointOfInterestPage extends Component {
   constructor(props) {
     super(props)
   }
-  // componentWillMount(){
-  //  this.props.getPoi(this.props.params.poiId)
-      // this.props.getWayPoint(this.props.params.waypointId)
-  // }
+  componentWillMount(){
+   this.props.getPoi(this.props.params.poiId)
+  this.props.getWayPoint(this.props.params.waypointId)
+  }
 
   openNotebook() {
     document.getElementById('notebook').className = 'open'
@@ -55,5 +55,3 @@ export default connect(state => ({ poi: state.poi, user: state.auth.user, waypoi
     dispatch(getWayPoint(id))
  }
 }))(PointOfInterestPage)
-
-

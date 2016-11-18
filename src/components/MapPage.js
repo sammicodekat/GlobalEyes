@@ -8,12 +8,12 @@ import { updateUserObject } from '../actions/auth'
 
 class MapPage extends Component {
 
+  componentWillMount() {
+    this.props.getScenario(this.props.params.id)
+  }
   openNotebook = () => {
     document.getElementById('notebook').className = 'open'
   }
-  // componentWillMount() {
-  //   this.props.getScenario(this.props.params.id)
-  // }
 
   updateUsersWaypoint = (newWaypoint, coords) => {
     let updatedUserObj = this.props.userObj
