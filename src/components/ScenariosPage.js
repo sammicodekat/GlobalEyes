@@ -5,9 +5,6 @@ import { getScenarios } from '../actions/scenariosActions'
 import { browserHistory } from 'react-router'
 import { getUserObj, updateUserObject } from '../actions/auth'
 
-
-//USER - bring in user info
-
 class ScenariosPage extends Component {
   constructor(props) {
     super(props)
@@ -16,16 +13,6 @@ class ScenariosPage extends Component {
   //   this.props.getScenarios()
   // }
 
-  // componentWillReceiveProps(newProps) {
-  //   let userObj = {
-  //     // currentWaypoint: {},
-  //     // noteBook: {note: 'Sorry, you do not have any notes yet.'},
-  //     uid: newProps.user.uid,
-  //     userName: newProps.user.displayName,
-  //     // vouchers: 0
-  //   }
-  //   storeUserObj(userObj)
-  // }
   
   //Adds vouchers to the Firebase userObj
   setVouchers = (vouchers) => {

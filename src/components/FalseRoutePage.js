@@ -6,11 +6,6 @@ import { browserHistory } from 'react-router'
 import Vouchers from './Vouchers'
 import PoiList from './PoiList'
 
-//USER - set the waypoint ID instead of name  for the user and read visited POI's. Add a field for
-//scenario id. On componentWillMount, add the waypoint, false waypoint or poi into their
-//respecitive arrays. Then map through and see if the waypoint has been visited.
-//????? componentWillReceiveProps(nextProps) ??????
-
 class FalseRoutePage extends Component {
   constructor(props) {
     super(props)

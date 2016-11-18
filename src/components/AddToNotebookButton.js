@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { updateUserObject } from '../actions/auth'
 import uuid from 'uuid'
 
-//USER - store the clue on the userObj
-
 const AddToNotebookButton = ( props ) => {
   console.log( 'props' , props )
 
