@@ -80,52 +80,50 @@ class WayPointForm extends Component {
     // const { poiId } = this.props
 
     return (
-      <div>
-        <div className="waypointForm">
-          <h2>WayPoint Location</h2>
-          <Geosuggest
-            id="waypointLocation"
-            type="text"
-            onKeyPress={this.setNewWayPoint}
-            name="waypointName"
-            value={newWayPoint.waypointName}
-            onSuggestSelect={this.select}
-            placeholder="Enter Waypoint Location"
-          />
-          <TextArea
-            name="text"
-            placeholder="Enter Location Description"
-            value={newWayPoint.text}
-            onChange={this.setNewWayPoint}
-          />
-          <TextInput
-            name="links"
-            placeholder="Enter Photo URL"
-            value={newWayPoint.links}
-            onChange={this.setNewWayPoint}
-          />
-          <h2>Points of Interest</h2>
-          {this.renderEnteredPois(poiArr)}
-          <PoiForm name="waypointLocation" />
-          <h2>False Routes</h2>
-          <Geosuggest
-            type="text"
-            onKeyPress={this.setNewWayPoint}
-            name="falseRoute1"
-            value={newWayPoint.falseRoute1}
-            onSuggestSelect={this.selectF}
-            placeHolder="Enter False Waypoint"
-          />
-          <Geosuggest
-            type="text"
-            onKeyPress={this.setNewWayPoint}
-            name="falseRoute2"
-            value={newWayPoint.falseRoute2}
-            onSuggestSelect={this.selectF}
-            placeHolder="Enter False Waypoint"
-          />
-        </div>
-        <button className="btnClass" type="submit" onClick={this.submitNewWayPoint}>Confirm WayPoint</button>
+      <div className="waypointForm">
+        <h2>WayPoint Location</h2>
+        <Geosuggest
+          id="waypointLocation"
+          type="text"
+          onKeyPress={this.setNewWayPoint}
+          name="waypointName"
+          value={newWayPoint.waypointName}
+          onSuggestSelect={this.select}
+          placeholder="Enter Waypoint Location"
+        />
+        <TextArea
+          name="text"
+          placeholder="Enter Location Description"
+          value={newWayPoint.text}
+          onChange={this.setNewWayPoint}
+        />
+        <TextInput
+          name="links"
+          placeholder="Enter Photo URL"
+          value={newWayPoint.links}
+          onChange={this.setNewWayPoint}
+        />
+        <h2>Points of Interest</h2>
+        {this.renderEnteredPois(poiArr)}
+        <PoiForm name="waypointLocation" />
+        <h2>False Routes</h2>
+        <Geosuggest
+          type="text"
+          onKeyPress={this.setNewWayPoint}
+          name="falseRoute1"
+          value={newWayPoint.falseRoute1}
+          onSuggestSelect={this.selectF}
+          placeHolder="Enter False Waypoint"
+        />
+        <Geosuggest
+          type="text"
+          onKeyPress={this.setNewWayPoint}
+          name="falseRoute2"
+          value={newWayPoint.falseRoute2}
+          onSuggestSelect={this.selectF}
+          placeHolder="Enter False Waypoint"
+        />
+        <button className="btnClass" type="submit" onClick={this.submitNewWayPoint}>Commit WayPoint</button>
       </div>
     )
   }

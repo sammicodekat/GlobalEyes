@@ -20,27 +20,53 @@ export default class GMap extends Component {
       zoom: 5,
       center: scenario.waypoints[0].coords
     })
+    const lineSymbol = {
+          path: 'M 0,-1 0,1',
+          strokeOpacity: 1,
+          scale: 4
+        };
     const icon = '/images/marker_new.png'
     // if (i === 1) icon = './images/marker_current.png'
     // else if (i === 0) icon = './images/marker_visited.png'
     // else icon = './images/marker_new.png'
     scenario.waypoints[0].falseRoute.forEach((route) => {
-      const { lat, lng } = route
+     console.log('route', route)
       const marker = new google.maps.Marker({
-        position: { lat, lng },
+        position: route.coords,
         map,
         animation: google.maps.Animation.DROP,
         icon
       })})
     scenario.waypoints.forEach((waypoint)=> {
-      const { lat, lng } = waypoint.coords
       const marker = new google.maps.Marker({
-        position: { lat, lng },
+        position: waypoint.coords,
         map,
         animation: google.maps.Animation.DROP,
         icon
       })
+      const coords1 = scenario.waypoints[0].falseRoute[0].coords
+      const coords2 = scenario.waypoints[0].falseRoute[1].coords
 
+      const line = new google.maps.Polyline({
+        path: [scenario.waypoints[0].coords, coords1],
+        strokeOpacity: 0,
+          icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+        map
+      })
+      const line2 = new google.maps.Polyline({
+        path: [coords1, coords2],
+        strokeOpacity: 0,
+          icons: [{
+            icon: lineSymbol,
+            offset: '0',
+            repeat: '20px'
+          }],
+        map
+      })
       const contentString ='<button>'+waypoint.waypointName+'</button>'
       const infowindow = new google.maps.InfoWindow({
         content: contentString
@@ -49,7 +75,7 @@ export default class GMap extends Component {
       let prevInfoWindow = false;
 
       marker.addListener('click', () => {
-      browserHistory.push(`/location/${waypoint._id}`)
+       browserHistory.replace(`/${scenario._id}/location/${waypoint._id}`)
       })
       marker.addListener('mouseover', () => {
           if (prevInfoWindow) {

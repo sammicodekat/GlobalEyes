@@ -18,12 +18,20 @@ export default {
         "falseRoute": [
             {
                 "name": "Berlin, Germany",
-                "lat": 52.52000659999999,
-                "lng": 13.404953999999975
+                "coords": {
+                    "lat": 52.52000659999999,
+                    "lng": 13.404953999999975
+                },
+                "text": 'This is Berlin',
+                "link": 'http://www.planetware.com/photos-large/D/east-berlin-former-0.jpg'
             }, {
                 "name": "Barcelona, Spain",
-                "lat": 41.3850639,
-                "lng": 2.1734034999999494
+                "coords": {
+                    "lat": 41.3850639,
+                    "lng": 2.1734034999999494
+                },
+                "text": 'This is Barcelona',
+                "link": 'http://www.planetware.com/photos-large/D/east-berlin-former-0.jpg'
             }
         ],
         "pointsOfInterest": [
@@ -185,12 +193,20 @@ export default {
                 "falseRoute": [
                     {
                         "name": "Berlin, Germany",
-                        "lat": 52.52000659999999,
-                        "lng": 13.404953999999975
+                        "coords": {
+                            "lat": 52.52000659999999,
+                            "lng": 13.404953999999975
+                        },
+                        "text": 'This is Berlin',
+                        "link": 'http://www.planetware.com/photos-large/D/east-berlin-former-0.jpg'
                     }, {
                         "name": "Barcelona, Spain",
-                        "lat": 41.3850639,
-                        "lng": 2.1734034999999494
+                        "coords": {
+                            "lat": 41.3850639,
+                            "lng": 2.1734034999999494
+                        },
+                        "text": 'This is Barcelona',
+                        "link": 'http://www.planetware.com/photos-large/D/east-berlin-former-0.jpg'
                     }
                 ],
                 "pointsOfInterest": [
@@ -222,15 +238,24 @@ export default {
                     "lng": -89.59258569999997
                 },
                 "__v": 0,
+
                 "falseRoute": [
                     {
                         "name": "San Juan, San José Province, Costa Rica",
-                        "lat": 9.964000000000002,
-                        "lng": -84.07752010000002
+                        "coords": {
+                            "lat": 9.964000000000002,
+                            "lng": -84.07752010000002
+                        },
+                        "text": 'This is Berlin',
+                        "link": 'http://www.planetware.com/photos-large/D/east-berlin-former-0.jpg'
                     }, {
                         "name": "San José, Toa Baja, Puerto Rico",
-                        "lat": 18.403563,
-                        "lng": -66.25159229999997
+                        "coords": {
+                            "lat": 18.403563,
+                            "lng": -66.25159229999997
+                        },
+                        "text": 'This is Barcelona',
+                        "link": 'http://www.planetware.com/photos-large/D/east-berlin-former-0.jpg'
                     }
                 ],
                 "pointsOfInterest": [
@@ -264,12 +289,16 @@ export default {
                 "falseRoute": [
                     {
                         "name": "Bangkok Thailand",
-                        "lat": 13.7563309,
-                        "lng": 100.50176510000006
+                        "coords": {
+                            "lat": 13.7563309,
+                            "lng": 100.50176510000006
+                        }
                     }, {
                         "name": "Korea, Seoul, South Korea",
-                        "lat": 37.566535,
-                        "lng": 126.97796919999996
+                        "coords": {
+                            "lat": 37.566535,
+                            "lng": 126.97796919999996
+                        }
                     }
                 ],
                 "pointsOfInterest": [
@@ -297,12 +326,16 @@ export default {
                 "falseRoute": [
                     {
                         "name": "Istanbul, İstanbul, Turkey",
-                        "lat": 41.0082376,
-                        "lng": 28.97835889999999
+                        "coords": {
+                            "lat": 41.0082376,
+                            "lng": 28.97835889999999
+                        }
                     }, {
                         "name": "Libiąż, Poland",
-                        "lat": 50.1037928,
-                        "lng": 19.315677400000027
+                        "coords": {
+                            "lat": 50.1037928,
+                            "lng": 19.315677400000027
+                        }
                     }
                 ],
                 "pointsOfInterest": [
