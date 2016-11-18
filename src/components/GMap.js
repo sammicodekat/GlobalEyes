@@ -21,6 +21,7 @@ export default class GMap extends Component {
             waypoints,
             nextplaces
         } = this.props
+        console.log("nextplaces",nextplaces)
         const map = new google.maps.Map(mapRef, {
             zoom: 5,
             center: coordsList[coordsList.length - 1]
@@ -35,10 +36,12 @@ export default class GMap extends Component {
         const iconNew = './images/marker_new.png'
 
         coordsList.forEach((route) => {
+            console.log("route",route)
             const marker = new google.maps.Marker({position: route, map, animation: google.maps.Animation.DROP, iconVisited})
         })
         if(nextplaces.length!==0){
         nextplaces.forEach((route) => {
+            console.log("route.coords",route.coords)
             const marker = new google.maps.Marker({position: route.coords, map, animation: google.maps.Animation.DROP, iconNew})
         })
         }
