@@ -18,7 +18,6 @@ export default class GMap extends Component {
             scenario,
             index,
             coordsList,
-            visited,
             waypoints,
             nextplaces
         } = this.props
@@ -93,7 +92,8 @@ export default class GMap extends Component {
     }
 
     render() {
-        console.log('this.props.user', this.props.user)
+        console.log('coordsList',this.props.coordsList)
+        console.log('nextplaces',this.props.nextplaces)
         return (<div id="mapRef" className="mapRef"/>)
     }
 }
