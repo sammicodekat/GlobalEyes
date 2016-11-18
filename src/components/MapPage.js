@@ -42,7 +42,7 @@ return elem.pointsOfInterest.length !== 0}
     const index = waypoints.findIndex(elem => elem._id == id)
     const visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
     console.log('waypoints',waypoints)
-    const rest = waypoints.slice(index)
+    const rest = waypoints.slice(index+1)
     console.log('rest',rest)
     const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
     console.log("nextWayPointIndex",nextWayPointIndex)
