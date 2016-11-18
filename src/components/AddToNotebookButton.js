@@ -27,7 +27,6 @@ const AddToNotebookButton = ( props ) => {
         text: props.clues.text || '',
         noteId: uuid()
       }
-      console.log( 'note' , note )
       updatedUserObj['notebook'] = [...updatedUserObj['notebook'], note]
       updateUserObject(updatedUserObj)
       notHasNote = false
