@@ -31,23 +31,18 @@ class MapPage extends Component {
     updatedUserObj['visitedWaypoints'] = visitedWaypoints
     updateUserObject(updatedUserObj)
     }
-  findFirstWayPoint = (elem) => {
-  console.log('elem',elem)
-return elem.pointsOfInterest.length !== 0}
+  findFirstWayPoint = (elem) => (elem.pointsOfInterest.length !== 0)
 
   render() {
     const { scenario, userObj } = this.props
     const { waypoints } = scenario
     const id = userObj.currentWaypoint
-    const index = waypoints.findIndex(elem => elem._id == id)
     const visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
-    console.log('waypoints',waypoints)
+    const index = waypoints.findIndex(elem => elem._id == id)
     const rest = waypoints.slice(index+1)
     console.log('rest',rest)
     const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
-    console.log("nextWayPointIndex",nextWayPointIndex)
-
-    const nextplaces = waypoints.slice(index+1, nextWayPointIndex+1)
+    const nextplaces = rest.slice(0,nextWayPointIndex+1)
     return (
       <div className="mapPage">
         <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints}/>
