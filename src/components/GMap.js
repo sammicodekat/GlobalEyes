@@ -35,11 +35,13 @@ export default class GMap extends Component {
         const iconNew = './images/marker_new.png'
 
         coordsList.forEach((route) => {
-            const marker = new google.maps.Marker({position: route.coords, map, animation: google.maps.Animation.DROP, iconVisited})
+            const marker = new google.maps.Marker({position: route, map, animation: google.maps.Animation.DROP, iconVisited})
         })
+        if(nextplaces.length!==0){
         nextplaces.forEach((route) => {
             const marker = new google.maps.Marker({position: route.coords, map, animation: google.maps.Animation.DROP, iconNew})
         })
+        }
         const marker = new google.maps.Marker({
             position: coordsList[coordsList.length - 1],
             map,
