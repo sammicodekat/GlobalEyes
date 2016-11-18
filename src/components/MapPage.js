@@ -31,7 +31,9 @@ class MapPage extends Component {
     updatedUserObj['visitedWaypoints'] = visitedWaypoints
     updateUserObject(updatedUserObj)
     }
-  findFirstWayPoint = (elem) => (elem.pointsOfInterest.length !== 0)
+  findFirstWayPoint = (elem) => {
+  console.log('elem',elem)
+return elem.pointsOfInterest.length !== 0}
 
   render() {
     const { scenario, userObj } = this.props
@@ -39,9 +41,12 @@ class MapPage extends Component {
     const id = userObj.currentWaypoint
     const index = waypoints.findIndex(elem => elem._id == id)
     const visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
-    console.log('visited',visited)
+    console.log('waypoints',waypoints)
     const rest = waypoints.slice(index)
+    console.log('rest',rest)
     const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
+    console.log("nextWayPointIndex",nextWayPointIndex)
+
     const nextplaces = waypoints.slice(index, nextWayPointIndex)
     return (
       <div className="mapPage">

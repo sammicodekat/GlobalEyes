@@ -21,7 +21,6 @@ const renderNext = (scenarioId, visited, nextplaces, updateUsersWaypoint) => (
 
 const PlaceList = (props) => (
     <div>
-      <h4>hihih</h4>
       {renderVisited(props.scenarioId, props.visited, props.nextplaces, props.updateUsersWaypoint)}
       {renderNext(props.scenarioId, props.visited, props.nextplaces, props.updateUsersWaypoint)}
     </div>
