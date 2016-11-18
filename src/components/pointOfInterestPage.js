@@ -7,11 +7,6 @@ import Vouchers from './Vouchers'
 import ClueList from './ClueList'
 import AddToNotebookButton from './AddToNotebookButton'
 
-//USER - set this as a vistied POI
-//Pull poi off of the currentWaypoint object and then store into
-//a visitedPOIS array. Store the mongoDB-ID of the POI.
-
-
 class PointOfInterestPage extends Component {
   constructor(props) {
     super(props)
@@ -30,8 +25,6 @@ class PointOfInterestPage extends Component {
     let { uid } = this.props
     const  waypointName = waypoint.waypointName
 
-    //Clue needs to be changed to a single clue. I've renamed it but haven't reduced
-    //the number of clues it holds
     let { poiName, clues, links, text } = poi
     return (
       <div className="poiPage">

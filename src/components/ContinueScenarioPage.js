@@ -4,32 +4,9 @@ import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { getUserObj } from '../actions/auth'
 
-
-//USER - pull user name or use anon(will have a UID???)
-
 class ContinueScenarioPage extends Component {
   constructor(props) {
     super(props)
-  }
-
-  componentWillMount() {
-    // this.props.getScenario(this.props.params.id)
-    // if(this.props.gameObj.currentWayPoint) {
-    //   getWayPoint(this.props.gameObj.currentWayPoint)
-    // } else {
-    //   let updatedGameObj = this.props.gameObj
-    //   updatedGameObj[currentWayPoint] = this.props.waypoint._id
-    //   console.log('WaypointPage - updatedGameObj: ', updatedGameObj)
-      //   scenarioId: 'scenarioId',
-      //   currentWaypoint: 'waypointId',
-      //   visitedWaypoints: [],
-      //   visitedFalsepoints: [],
-      //   pointsOfInterest: [],
-      //   notebook: {},
-      //   vouchers: 0
-      // }
-      // updateGameObj(userObj)
-    // }
   }
 
   render() {

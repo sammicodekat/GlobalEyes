@@ -4,8 +4,6 @@ import { browserHistory } from 'react-router'
 
 import { signInWithGoogle, signOut } from '../actions/auth'
 
-//USER - Set or fetch the user object 
-
 @connect(state => ({
   loggedIn: state.auth.authenticated,
   user: state.auth.user
