@@ -12,9 +12,10 @@ console.log('nextplaces',nextplaces)
 ))
  }
 
-const PlaceList = ({ scenarioId, visited, nextplaces, updateUsersWaypoint }) => (
+const PlaceList = (props) => (
   <div>
-    {renderPlaceList(scenarioId, visited, nextplaces || [], updateUsersWaypoint)}
+    <h4>hihih</h4>
+    {renderPlaceList(props.scenarioId, props.visited, props.nextplaces, props.updateUsersWaypoint)}
   </div>
 )
 
