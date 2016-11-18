@@ -47,7 +47,7 @@ return elem.pointsOfInterest.length !== 0}
     const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
     console.log("nextWayPointIndex",nextWayPointIndex)
 
-    const nextplaces = waypoints.slice(index, nextWayPointIndex)
+    const nextplaces = waypoints.slice(index+1, nextWayPointIndex+1)
     return (
       <div className="mapPage">
         <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints}/>
