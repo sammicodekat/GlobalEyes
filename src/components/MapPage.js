@@ -22,8 +22,6 @@ updateUsersWaypoint = (newWaypoint, coords) => {
   }
   updatedUserObj.currentWaypoint = newWaypoint
   updatedUserObj['meowCoords'] = [...updatedUserObj['meowCoords'], coords]
-
-  console.log("I am meow coords: ", updatedUserObj['meowCoords'])
   let visitedWaypoints = [...updatedUserObj.visitedWaypoints] || []
   visitedWaypoints = visitedWaypoints.filter(wp => {
     if(wp == newWaypoint) return
