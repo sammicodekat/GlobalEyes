@@ -16,34 +16,55 @@ export default class GMap extends Component {
     const mapRef = document.getElementById('mapRef')
     const { google } = this.props
     const { scenario } = this.props
+    const { user } = this.props
+    const number = user.visitedWaypoints.length
     const map = new google.maps.Map(mapRef, {
       zoom: 5,
+      //center is user's current waypoint location
       center: scenario.waypoints[0].coords
     })
     const lineSymbol = {
           path: 'M 0,-1 0,1',
           strokeOpacity: 1,
           scale: 4
-        };
+        }
     const icon = '/images/marker_new.png'
     // if (i === 1) icon = './images/marker_current.png'
     // else if (i === 0) icon = './images/marker_visited.png'
     // else icon = './images/marker_new.png'
     scenario.waypoints[0].falseRoute.forEach((route) => {
-     console.log('route', route)
       const marker = new google.maps.Marker({
         position: route.coords,
         map,
         animation: google.maps.Animation.DROP,
         icon
       })})
-    scenario.waypoints.forEach((waypoint)=> {
+
+    for (let i = 0; i < number; i++) {
       const marker = new google.maps.Marker({
-        position: waypoint.coords,
+        position: scenario.waypoints[i].coords,
         map,
         animation: google.maps.Animation.DROP,
         icon
       })
+      let prevInfoWindow = false;
+      const contentString ='<p>'+ scenario.waypoints[i].waypointName+'</p>'
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString
+   })
+        marker.addListener('click', () => {
+         browserHistory.replace(`/${scenario._id}/location/${waypoint._id}`)
+        })
+        marker.addListener('mouseover', () => {
+            if (prevInfoWindow) {
+            prevInfoWindow.close()
+            }
+            infowindow.open(map, marker)
+            prevInfoWindow = infowindow;
+          })
+    }
+
+
       const coords1 = scenario.waypoints[0].falseRoute[0].coords
       const coords2 = scenario.waypoints[0].falseRoute[1].coords
 
@@ -67,27 +88,10 @@ export default class GMap extends Component {
           }],
         map
       })
-      const contentString ='<button>'+waypoint.waypointName+'</button>'
-      const infowindow = new google.maps.InfoWindow({
-        content: contentString
-      })
-
-      let prevInfoWindow = false;
-
-      marker.addListener('click', () => {
-       browserHistory.replace(`/${scenario._id}/location/${waypoint._id}`)
-      })
-      marker.addListener('mouseover', () => {
-          if (prevInfoWindow) {
-          prevInfoWindow.close()
-          }
-          infowindow.open(map, marker)
-          prevInfoWindow = infowindow;
-        })
-    })
-  }
+    }
 
   render() {
+   console.log( 'this.props.user' , this.props.user )
     return (
       <div id="mapRef" className="mapRef" />
     )

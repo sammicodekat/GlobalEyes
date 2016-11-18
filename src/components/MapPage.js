@@ -19,12 +19,14 @@ class MapPage extends Component {
   // }
 
   render() {
-    const { scenario } = this.props
-    const { vouchers, waypoints } = scenario
-
+    const { scenario, userObj } = this.props
+    const { waypoints } = scenario
+    const id = userObj.currentWaypoint
+    const index = waypoints.findIndex(elem => elem._id == id)
+    const visited = userObj.visitedWaypoints
     return (
       <div className="mapPage">
-        <GMap google={window.google} scenario={scenario} />
+        <GMap google={window.google} scenario={scenario} index={index} coordsList={userObj.meowCoords} visited={visited}/>
         <button className="notebookBtn"
           onClick={() => this.openNotebook()}>
           <img src="/images/notebookBtn.png" alt="" />
@@ -34,7 +36,7 @@ class MapPage extends Component {
             <Vouchers vouchers={this.props.userObj.vouchers} />
           </div>
           <div className="waypointButtons">
-            <PlaceList waypoints={waypoints} scenarioId={scenario._id} />
+            <PlaceList waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} />
           </div>
         </div>
       </div>
@@ -42,7 +44,7 @@ class MapPage extends Component {
   }
 }
 
-export default connect(state => ({ scenario: state.scenario, scenarios: state.scenarios, userObj: state.userObj }), dispatch => ({
+export default connect(state => ({ scenario: state.scenario, userObj: state.userObj }), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }
