@@ -31,7 +31,7 @@ export default class GMap extends Component {
             strokeOpacity: 1,
             scale: 4
         }
-        const icon = '/images/marker_new.png'
+        const icon = '/images/user.png'
         const iconVisited = './images/marker_visited.png'
         const iconNew = './images/marker_new.png'
 

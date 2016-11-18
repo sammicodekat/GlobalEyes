@@ -4,8 +4,8 @@ import {browserHistory} from 'react-router'
 const renderVisited = (scenarioId, visited, nextplaces, updateUsersWaypoint) => (
     visited.map((waypoint, i) => (
         <button className='visited' key={i} onClick={() => {
-            browserHistory.replace(`/${scenarioId}/location/${waypoint._id}`),
-            updateUsersWaypoint(waypoint._id, waypoint.coords)
+          browserHistory.replace(`/${scenarioId}/location/${waypoint._id}`),
+          updateUsersWaypoint(waypoint._id, waypoint.coords)
         }}>{waypoint.waypointName}</button>
     ))
 )
