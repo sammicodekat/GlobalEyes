@@ -9,7 +9,7 @@ const pointOfInterestSchema = new Schema({
   },
   links: { type: String },
   text: { type: String },
-  coords: { lat: { type: String }, lng: { type: String } }
+  coords: { lat: { type: Number }, lng: { type: Number } }
 })
 
 const PointOfInterest = mongoose.model('PointOfInterest', pointOfInterestSchema)
