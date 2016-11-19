@@ -9,6 +9,7 @@ class OneScenarioPage extends Component {
   constructor(props) {
     super(props)
   }
+
   // componentWillMount() {
   //   this.props.getScenario(this.props.params.id)
   // }
