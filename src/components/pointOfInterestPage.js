@@ -44,10 +44,11 @@ class PointOfInterestPage extends Component {
     return (
       <div className="poiPage">
         <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
+        <button className="goBack" onClick={browserHistory.goBack}>Go Back</button>
         {this.checkEndGame(this.props.params.waypointId)}
-        <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
-        <div className="waypointSplash">
-          <img src={links} alt={poiName} />
+          <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
+          <div className="waypointSplash">
+            <img src={links} alt={poiName} />
         </div>
         <div className="waypointBody">
           <h1 className="waypointName">{poiName}</h1>

@@ -4,9 +4,6 @@ import { connect } from 'react-redux'
 import { updateUserObject } from '../actions/auth'
 
 class EndScenarioPage extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   placesVisted = () => {
     const { userObj, scenario } = this.props

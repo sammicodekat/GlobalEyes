@@ -8,14 +8,14 @@ import { getUserObj, updateUserObject } from '../actions/auth'
 class ScenariosPage extends Component {
   constructor(props) {
     super(props)
-    this.state = { disable: true }
+    this.state = { show: false }
   }
   componentWillMount() {
     this.props.getScenarios()
   }
   componentWillReceiveProps(newProps) {
     if (Array.isArray(newProps.userObj.visitedWaypoints)) {
-      this.setState({ disable: false })
+      this.setState({ show: true})
     }
   }
   //Adds vouchers to the Firebase userObj
@@ -37,6 +37,11 @@ class ScenariosPage extends Component {
     }
 
     let userLoggedIn
+    let continueBtn = ''
+    const { show } = this.state
+    if (show) {
+      continueBtn = (<button id={this.props.userId} className="continue" onClick={() => { browserHistory.push('/continue') }}>Continue Last Scenario</button>)
+    }
     if (this.props.user.photoURL) {
       userLoggedIn = (
         <div key={this.props.user.uid} className="userProfile">
@@ -49,7 +54,6 @@ class ScenariosPage extends Component {
     }
 
     const { scenarios } = this.props
-    const { disable } = this.state
     return (
       <div>
         <div className="backgroundImage" style={randomBackground} />
@@ -58,7 +62,7 @@ class ScenariosPage extends Component {
           <h1 className="appTitle">Globaleyes</h1>
           <div className="scenarios">
             <h2>Scenarios</h2>
-            <button id={this.props.userId} disabled={disable} className="continue" onClick={() => {browserHistory.push('/continue')}}>Continue Last Scenario</button>
+            {continueBtn}
             <ScenariosList setVouchers={this.setVouchers} scenarios={scenarios} />
             <button onClick={() => browserHistory.push('/create')}>+</button>
           </div>
