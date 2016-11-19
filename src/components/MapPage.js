@@ -93,3 +93,4 @@ export default connect(state => ({scenario: state.scenario, userObj: state.userO
     dispatch(getScenario(id))
   }
 }))(MapPage)
+

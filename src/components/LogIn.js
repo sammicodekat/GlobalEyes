@@ -30,7 +30,7 @@ export default class LogIn extends Component {
    }
   }
 
-  render() {
+render() {
     const { loggedIn } = this.props
     const logInButton = <button onClick={this._logIn} className="logIn">Sign Up / Log in</button>
     const logOutButton = <button onClick={this._logOut} className="logOut">Sign Out</button>
