@@ -79,6 +79,7 @@ export function authenticate(provider) {
     console.log('two')
     firebaseAuth.signInWithPopup(provider)
       .then(result => {
+        console.log('three')
         let userObj = {
           currentWaypoint: {},
           visitedWaypoints: 'no waypoints',
@@ -89,7 +90,6 @@ export function authenticate(provider) {
         }
         dispatch(signInSuccess(result))
         storeUserObj(userObj)
-        console.log('three')
         }
       )
       console.log('four')
