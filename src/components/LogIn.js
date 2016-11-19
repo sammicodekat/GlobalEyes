@@ -19,14 +19,18 @@ import { signInWithGoogle, signOut } from '../actions/auth'
 export default class LogIn extends Component {
   _logIn = () => {
   this.props.logIn()
-  browserHistory.push('/scenarios')
   }
 
   _logOut = () => {
     this.props.logOut()
   }
 
-  render() {
+  render() { 
+    console.log('this.props.authenticated: ', this.props.user)
+    if(this.props.user.displayName) {
+      console.log('loggedIn: ')
+      browserHistory.push('/scenarios')
+    }
     const { loggedIn } = this.props
     const logInButton = <button onClick={this._logIn} className="logIn">Sign Up / Log in</button>
     const logOutButton = <button onClick={this._logOut} className="logOut">Sign Out</button>

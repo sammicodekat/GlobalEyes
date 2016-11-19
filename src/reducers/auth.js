@@ -1,5 +1,6 @@
 import * as types from '../actions/actionTypes'
 import initialState from './initialState'
+import { browserHistory } from 'react-router'
 
 // creating a template for our data
 

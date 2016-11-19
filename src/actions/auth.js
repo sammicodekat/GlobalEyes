@@ -74,6 +74,7 @@ function signOutError(err) {
 
 export function authenticate(provider) {
   return dispatch => {
+    console.log('two')
     firebaseAuth.signInWithPopup(provider)
       .then(result => {
         let userObj = {

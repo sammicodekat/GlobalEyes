@@ -13,7 +13,7 @@ import ContinueScenarioPage from './ContinueScenarioPage'
 import WaypointPage from './WaypointPage'
 import FalseRoutePage from './FalseRoutePage'
 import PointOfInterestPage from './pointOfInterestPage'
- 
+
 export default class MyRouter extends Component {
   render() {
     return (

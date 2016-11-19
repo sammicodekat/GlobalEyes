@@ -1,3 +1,5 @@
+/* global document window */
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
@@ -71,18 +73,20 @@ class MapPage extends Component {
     }
     return (
       <div className="mapPage">
+<<<<<<< HEAD
         <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints} updateUsersWaypoint={this.updateUsersWaypoint}/>
+=======
+        <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints} />
+>>>>>>> 6b5d301c252938165c9f54b9208db8bc29d12f42
         <button className="notebookBtn" onClick={() => this.openNotebook()}>
-          <img src="/images/notebookBtn.png" alt=""/>
+          <img src="/images/notebookBtn.png" alt="" />
         </button>
-        <button className="notebookBtn"
-          onClick={() => this.openEndGame()}>End Game</button>
         <div className="travelMenu">
           <div className="voucherBar">
-            <Vouchers vouchers={this.props.userObj.vouchers}/>
+            <Vouchers vouchers={this.props.userObj.vouchers} />
           </div>
           <div className="waypointButtons">
-            <PlaceList updateUsersWaypoint={this.updateUsersWaypoint} waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} nextplaces={nextplaces}/>
+            <PlaceList updateUsersWaypoint={this.updateUsersWaypoint} waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} nextplaces={nextplaces} />
           </div>
         </div>
       </div>
@@ -90,7 +94,7 @@ class MapPage extends Component {
   }
 }
 
-export default connect(state => ({scenario: state.scenario, userObj: state.userObj}), dispatch => ({
+export default connect(state => ({ scenario: state.scenario, userObj: state.userObj }), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }
