@@ -19,6 +19,10 @@ class MapPage extends Component {
     browserHistory.push('/:id/endgame')
   }
 
+  // componentWillMount() {
+  //   this.props.getScenario(this.props.params.id)
+  // }
+
   updateUsersWaypoint = (newWaypoint, coords) => {
     let updatedUserObj = this.props.userObj
     if (updatedUserObj.currentWaypoint !== newWaypoint) {
@@ -48,11 +52,8 @@ class MapPage extends Component {
   render() {
     const {scenario, userObj} = this.props
     const {waypoints} = scenario
-    let nextplaces = [waypoints[0]]
-    let visited = []
-    if(userObj.currentWaypoint){
     const id = userObj.currentWaypoint
-    visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
+    const visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
     const currWaypoint = waypoints.find(waypoint => waypoint._id == id)
     if (currWaypoint.pointsOfInterest.length !== 0) {
       index = waypoints.findIndex(elem => elem._id == id)
@@ -60,13 +61,12 @@ class MapPage extends Component {
     let curr = index
     const rest = waypoints.slice(curr + 1)
     const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
-    nextplaces = rest.slice(0, nextWayPointIndex + 1)
+    let nextplaces = rest.slice(0, nextWayPointIndex + 1)
     nextplaces = nextplaces.filter(place => {
       if (!userObj.visitedWaypoints.includes(place._id)) {
         return place
       }
     })
-    }
     return (
       <div className="mapPage">
         <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints}/>
@@ -93,3 +93,4 @@ export default connect(state => ({scenario: state.scenario, userObj: state.userO
     dispatch(getScenario(id))
   }
 }))(MapPage)
+
