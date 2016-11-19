@@ -58,7 +58,7 @@ class ScenariosPage extends Component {
           <h1 className="appTitle">Globaleyes</h1>
           <div className="scenarios">
             <h2>Scenarios</h2>
-            <button id={this.props.userId} disabled={disable} className="continue" onClick={() => browserHistory.push('/continue')}>Continue Last Scenario</button>
+            <button id={this.props.userId} disabled={disable} className="continue" onClick={() => {browserHistory.push('/continue')}}>Continue Last Scenario</button>
             <ScenariosList setVouchers={this.setVouchers} scenarios={scenarios} />
             <button onClick={() => browserHistory.push('/create')}>+</button>
           </div>
