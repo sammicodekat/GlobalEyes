@@ -23,7 +23,6 @@ class EndScenarioPage extends Component {
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
-      console.log('I am the userObj: ', this.props.userObj)
     return (
       <div className="introPage">
         <div className="backgroundImage" style={randomBackground} />

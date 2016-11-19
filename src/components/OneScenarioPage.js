@@ -12,7 +12,6 @@ class OneScenarioPage extends Component {
   // componentWillMount() {
   //   this.props.getScenario(this.props.params.id)
   // }
-
   beginAdventure = () => {
     const { scenario } = this.props
     let updatedUserObj = this.props.userObj
