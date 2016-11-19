@@ -18,8 +18,13 @@ class ContinueScenarioPage extends Component {
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
-    const current = scenario.waypoints.filter( waypoint => waypoint._id == userObj.currentWaypoint)
-
+    console.log( 'scenario.waypoints' , scenario.waypoints )
+    console.log( 'userObj.currentWaypoint' , userObj.currentWaypoint )
+    let currLocation = ''
+    if(scenario.waypoints){
+    let current = scenario.waypoints.filter( waypoint => waypoint._id == userObj.currentWaypoint)
+    currLocation = current[0].waypointName
+    }
     return (
       <div className="introPage">
         <div className="backgroundImage" style={randomBackground} />
@@ -31,7 +36,7 @@ class ContinueScenarioPage extends Component {
               <p>Welcome back, {userObj.userName},</p>
               <p>When you last left you'd discovered {userObj.visitedWaypoints.length} waypoints on your journey.</p>
               <p>You have <b>{userObj.vouchers}</b> <i>travel vouchers</i> remaining, use them wisely.</p>
-              <p>Your journey continues in <b>{current[0].waypointName}</b>.</p>
+              <p>Your journey continues in <b>{currLocation}</b>.</p>
               <p>Good Luck!</p>
             </div>
             <div className="introVouchers">
