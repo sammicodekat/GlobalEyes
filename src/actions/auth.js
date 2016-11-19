@@ -30,6 +30,7 @@ export function getUserObj(userId) {
 }
 
 export function storeUserObj(userObj) {
+  console.log('five')
   userRef.once('value', snap => {
     let object = snap.val()
     let keys = Object.keys(object)
@@ -73,7 +74,9 @@ function signOutError(err) {
 }
 
 export function authenticate(provider) {
+  console.log('One')
   return dispatch => {
+    console.log('two')
     firebaseAuth.signInWithPopup(provider)
       .then(result => {
         let userObj = {
@@ -86,8 +89,10 @@ export function authenticate(provider) {
         }
         dispatch(signInSuccess(result))
         storeUserObj(userObj)
+        console.log('three')
         }
       )
+      console.log('four')
       .catch(err => dispatch(signInError(err)))
   }
 }
