@@ -12,8 +12,8 @@ class PointOfInterestPage extends Component {
     super(props)
   }
   componentWillMount(){
-   this.props.getPoi(this.props.params.poiId)
-  this.props.getWayPoint(this.props.params.waypointId)
+    this.props.getPoi(this.props.params.poiId)
+    // this.props.getWayPoint(this.props.params.waypointId)
   }
 
   openNotebook() {

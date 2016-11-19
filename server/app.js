@@ -1,5 +1,5 @@
 const PORT = process.env.PORT || 8000
-
+require('dotenv').config({ silent: true })
 // const http = require('http')
 const path = require('path')
 const morgan = require('morgan')
@@ -8,7 +8,7 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
 // Mongoose Configy
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/globaleyes'
+const MONGODB_URI = process.env.MONGODB_URI || process.env.MONGOURI
 
 mongoose.Promise = Promise
 mongoose.connect(MONGODB_URI, (err) => {

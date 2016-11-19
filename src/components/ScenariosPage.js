@@ -12,8 +12,6 @@ class ScenariosPage extends Component {
   componentWillMount() {
     this.props.getScenarios()
   }
-
-
   //Adds vouchers to the Firebase userObj
   setVouchers = (vouchers) => {
     let updatedUserObj =  this.props.userObj
