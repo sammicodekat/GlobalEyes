@@ -25,12 +25,13 @@ export default class LogIn extends Component {
     this.props.logOut()
   }
 
-  render() { 
-    console.log('this.props.authenticated: ', this.props.user)
-    if(this.props.user.displayName) {
-      console.log('loggedIn: ')
+  componentWillReceiveProps(newProps) {
+    if(newProps.user.displayName) {
       browserHistory.push('/scenarios')
     }
+  }
+
+  render() { 
     const { loggedIn } = this.props
     const logInButton = <button onClick={this._logIn} className="logIn">Sign Up / Log in</button>
     const logOutButton = <button onClick={this._logOut} className="logOut">Sign Out</button>
