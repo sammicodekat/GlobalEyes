@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 
 import ScenarioForm from './CreateScenario/ScenarioForm'
 import { createNewScenario } from '../actions/scenariosActions'
-//USER - pull in user data
-//Associate userName(firebase) with the scenario
+// USER - pull in user data
+// Associate userName(firebase) with the scenario
 
 class CreateScenarioPage extends Component {
   constructor(props) {
@@ -16,19 +16,19 @@ class CreateScenarioPage extends Component {
       wayPointArr: []
     }
   }
-   componentWillReceiveProps(newProps) {
-     const { wayPointArr } = this.state
-     if (newProps.wayPointId) {
-       wayPointArr.push(newProps.wayPointId)
-     }
-     this.setState({ wayPointArr })
-   }
+  componentWillReceiveProps(newProps) {
+    const { wayPointArr } = this.state
+    if (newProps.wayPointId) {
+      wayPointArr.push(newProps.wayPointId)
+    }
+    this.setState({ wayPointArr })
+  }
 
   setNewScenario = (e) => {
-    let field = e.target.name
-    let { newScenario } = this.state
+    const field = e.target.name
+    const { newScenario } = this.state
     newScenario[field] = e.target.value
-    return this.setState({newScenario,field})
+    return this.setState({ newScenario, field })
   }
 
   submitNewScenario = (e) => {

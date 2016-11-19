@@ -71,8 +71,8 @@ class WayPointForm extends Component {
     poiArr.map((poi, i) => (
       <div key={`enteredPoi${i}`} className="enteredPoi">
         <h4>{poi.poiName}</h4>
-        <p>{`${poi.text.substring(0, 60)}...` || ''}</p>
-        <p>{poi.clues ? 'Clue: Yes' : 'Clue: No'}</p>
+        <p>Text: {poi.text || 'no text'}</p>
+        <p>Clue: {poi.clues ? poi.clues.text : 'no clues'}</p>
       </div>
     ))
   )
