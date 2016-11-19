@@ -6,9 +6,6 @@ import { updateUserObject } from '../actions/auth'
 import Vouchers from './Vouchers'
 
 class OneScenarioPage extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   componentWillMount() {
     this.props.getScenario(this.props.params.id)
@@ -17,20 +14,20 @@ class OneScenarioPage extends Component {
   beginAdventure = () => {
     const { scenario } = this.props
     let updatedUserObj = this.props.userObj
-    updatedUserObj['uid'] = this.props.user.uid
-    updatedUserObj['scenarioId'] = scenario._id
-    updatedUserObj['currentWaypoint'] = ''
-    updatedUserObj['meowCoords'] = [scenario.waypoints[0].coords]
-    let visitedWaypoints = updatedUserObj.visitedWaypoints || []
+    updatedUserObj.uid = this.props.user.uid
+    updatedUserObj.scenarioId = scenario._id
+    updatedUserObj.currentWaypoint = ''
+    updatedUserObj.meowCoords = [scenario.waypoints[0].coords]
+    // let visitedWaypoints = updatedUserObj.visitedWaypoints || []
     // visitedWaypoints = visitedWaypoints.filter(wp => {
     //   if(wp == scenario.waypoints[0]._id) return
     //   else return wp
     // })
     // visitedWaypoints = [...visitedWaypoints]
-    updatedUserObj['visitedWaypoints'] = visitedWaypoints
-    updatedUserObj['visitedFalsepoints'] = []
-    updatedUserObj['pointsOfInterest'] = []
-    updatedUserObj['notebook'] = {note: 'Sorry, you do not have any notes yet.'},
+    updatedUserObj.visitedWaypoints = ['']
+    // updatedUserObj['visitedFalsepoints'] = []
+    updatedUserObj.pointsOfInterest = ['']
+    updatedUserObj.notebook = {note: 'Sorry, you do not have any notes yet.'}
     // updatedUserObj['vouchers']--
     updateUserObject(updatedUserObj)
     browserHistory.replace(`/${scenario._id}/map`)
@@ -38,7 +35,6 @@ class OneScenarioPage extends Component {
 
   render() {
     const { scenario, userObj } = this.props
-    const { vouchers } = scenario
     const name = scenario.waypoints ? scenario.waypoints[0].waypointName : ''
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`

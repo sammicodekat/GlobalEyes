@@ -42,11 +42,13 @@ export default class GMap extends Component {
       scale: 4
     }
 
-    const icon = '/images/user.png'
-    const iconVisited = '/images/marker_visited.png'
+    let iconVisited = '/images/marker_visited.png'
     const iconNew = '/images/marker_new.png'
 
     visited.forEach((route) => {
+      if (route.coords.lat == coordsList[coordsList.length - 1].lat) {
+        iconVisited = '/images/user.png'
+      }
       const marker = new google.maps.Marker({ position: route.coords, map, animation: google.maps.Animation.DROP, icon: iconVisited })
       marker.addListener('click', () => {
         browserHistory.replace(`/${scenario._id}/location/${route._id}`)
@@ -88,15 +90,6 @@ export default class GMap extends Component {
           infowindow.close()
         })
       })
-    }
-    if(coordsList.length>1){
-    const marker = new google.maps.Marker({
-      position: coordsList[coordsList.length - 1],
-      map,
-      animation: google.maps.Animation.DROP,
-      icon
-
-    })
     }
     const routes = coordsList.length
     let i = 0
