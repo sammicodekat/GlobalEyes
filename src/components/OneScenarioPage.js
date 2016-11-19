@@ -35,7 +35,6 @@ class OneScenarioPage extends Component {
 
   render() {
     const { scenario, userObj } = this.props
-    const { vouchers } = scenario
     const name = scenario.waypoints ? scenario.waypoints[0].waypointName : ''
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
