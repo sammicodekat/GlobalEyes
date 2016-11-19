@@ -35,7 +35,7 @@ export default class GMap extends Component {
     const iconNew = '/images/marker_new.png'
 
     visited.forEach((route) => {
-      const marker = new google.maps.Marker({ position: route.coords, map, animation: google.maps.Animation.DROP, iconVisited })
+      const marker = new google.maps.Marker({ position: route.coords, map, animation: google.maps.Animation.DROP, icon: iconVisited })
       marker.addListener('click', () => {
         browserHistory.replace(`/${scenario._id}/location/${route._id}`)
         updateUsersWaypoint(route._id, route.coords)
@@ -54,7 +54,7 @@ export default class GMap extends Component {
 
     if (nextplaces.length !== 0) {
       nextplaces.forEach((route) => {
-        const marker = new google.maps.Marker({ position: route.coords, map, animation: google.maps.Animation.DROP, iconNew })
+        const marker = new google.maps.Marker({ position: route.coords, map, animation: google.maps.Animation.DROP, icon: iconNew })
         marker.addListener('click', () => {
           browserHistory.replace(`/${scenario._id}/location/${route._id}`)
           updateUsersWaypoint(route._id, route.coords)
