@@ -6,6 +6,8 @@ import { browserHistory } from 'react-router'
 import Vouchers from './Vouchers'
 import PoiList from './PoiList'
 
+//delete this commment
+
 class WaypointPage extends Component {
   constructor(props) {
     super(props)
