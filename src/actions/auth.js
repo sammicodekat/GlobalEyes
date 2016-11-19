@@ -25,7 +25,7 @@ export function getUserObj(userId) {
   userObjRef.off()
   userObjRef.on('value', snap => {
     let userObj = snap.val()
-    store.dispatch(receiveUser(userObj)) 
+    store.dispatch(receiveUser(userObj))
   })
 }
 
@@ -78,9 +78,10 @@ export function authenticate(provider) {
       .then(result => {
         let userObj = {
           currentWaypoint: {},
+          visitedWaypoints: 'no waypoints',
           uid: result.user.uid,
           userName: result.user.displayName,
-          notebook: {note: "Sorry, You don't yet have any notes"},
+          notebook: { note: "Sorry, You don't yet have any notes" },
           vouchers: 0
         }
         dispatch(signInSuccess(result))

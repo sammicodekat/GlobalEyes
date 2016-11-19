@@ -13,11 +13,12 @@ class ScenariosPage extends Component {
   //   this.props.getScenarios()
   // }
 
-  
+
   //Adds vouchers to the Firebase userObj
   setVouchers = (vouchers) => {
     let updatedUserObj =  this.props.userObj
     updatedUserObj.vouchers = vouchers
+    updatedUserObj.visitedWaypoints = []
     updateUserObject(updatedUserObj)
   }
 

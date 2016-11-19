@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 const NoteList = ( props ) => {
   let clueDisplay
-  console.log( 'props.userObj' , props.userObj)
   if(!props.userObj.notebook.note){
     clueDisplay = props.userObj.notebook.map((clue, i) => {
       return (
