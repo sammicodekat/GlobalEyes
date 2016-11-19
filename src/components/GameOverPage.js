@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import { updateUserObject } from '../actions/auth'
 
 class GameOverPage extends Component {
@@ -28,16 +28,13 @@ class GameOverPage extends Component {
         <div className="backgroundImage" style={randomBackground} />
         <div className="pageContent">
           <div className="intro">
-            <h1>{`Sorry ${this.props.userObj.userName} You've Run Out of Voucher ${this.props.scenario.scenarioName}`}</h1>
+            <h1>{`Sorry ${this.props.userObj.userName} You're Out of Travel Vouchers`}</h1>
             <div className="greeting">
-              <h3>Your travel stats: </h3>
-              <p>You visited <b>{`${this.props.scenario.vouchers - this.props.userObj.vouchers}`}</b> amazing places:</p>
+              <h3>You Visited: </h3>
               <ul>{this.placesVisted()}</ul> 
-              <p>You used <b>{`${this.props.scenario.vouchers - this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> on your journey</p>
-              <p>You have <b>{`${this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> remaining</p>
             </div>
             <div className="introVouchers">
-              <button>Start Another Adventure</button>
+              <button onClick={ () => { browserHistory.push('/scenarios') } }>Start Another Adventure</button>
             </div>
           </div>
         </div>
