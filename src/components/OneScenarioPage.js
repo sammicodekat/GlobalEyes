@@ -9,31 +9,28 @@ class OneScenarioPage extends Component {
   constructor(props) {
     super(props)
   }
-  // componentWillMount() {
-  //   this.props.getScenario(this.props.params.id)
-  // }
+  componentWillMount() {
+    this.props.getScenario(this.props.params.id)
+  }
 
   beginAdventure = () => {
     const { scenario } = this.props
     let updatedUserObj = this.props.userObj
     updatedUserObj['uid'] = this.props.user.uid
     updatedUserObj['scenarioId'] = scenario._id
-    updatedUserObj['currentWaypoint'] = scenario.waypoints[0]._id
+    updatedUserObj['currentWaypoint'] = ''
     updatedUserObj['meowCoords'] = [scenario.waypoints[0].coords]
     let visitedWaypoints = updatedUserObj.visitedWaypoints || []
-    visitedWaypoints = visitedWaypoints.filter(wp => {
-      if(wp == scenario.waypoints[0]._id) return
-      else return wp
-    })
-    visitedWaypoints = [...visitedWaypoints, scenario.waypoints[0]._id]
-    console.log('I am the waypoint name in OneScenarioPage: ', scenario.waypoints[0].waypointName)
-    console.log('I am the waypoint id in OneScenarioPage: ', scenario.waypoints[0]._id)
+    // visitedWaypoints = visitedWaypoints.filter(wp => {
+    //   if(wp == scenario.waypoints[0]._id) return
+    //   else return wp
+    // })
+    // visitedWaypoints = [...visitedWaypoints]
     updatedUserObj['visitedWaypoints'] = visitedWaypoints
-    console.log('I am visitedWaypoints in OneScenarioPage: ', visitedWaypoints)
     updatedUserObj['visitedFalsepoints'] = []
     updatedUserObj['pointsOfInterest'] = []
     updatedUserObj['notebook'] = {note: 'Sorry, you do not have any notes yet.'},
-    updatedUserObj['vouchers']--
+    // updatedUserObj['vouchers']--
     updateUserObject(updatedUserObj)
     browserHistory.replace(`/${scenario._id}/map`)
   }

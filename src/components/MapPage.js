@@ -18,9 +18,9 @@ class MapPage extends Component {
   openEndGame = () => {
     browserHistory.push('/:id/endgame')
   }
-  // componentWillMount() {
-  //   this.props.getScenario(this.props.params.id)
-  // }
+  componentWillMount() {
+    this.props.getScenario(this.props.params.id)
+  }
 
   updateUsersWaypoint = (newWaypoint, coords) => {
     let updatedUserObj = this.props.userObj
@@ -67,7 +67,7 @@ class MapPage extends Component {
     })
     return (
       <div className="mapPage">
-        <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints}/>
+        <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints} updateUsersWaypoint={this.updateUsersWaypoint}/>
         <button className="notebookBtn" onClick={() => this.openNotebook()}>
           <img src="/images/notebookBtn.png" alt=""/>
         </button>
