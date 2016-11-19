@@ -18,7 +18,8 @@ export default class GMap extends Component {
       scenario,
       coordsList,
       visited,
-      nextplaces
+      nextplaces,
+      updateUsersWaypoint
     } = this.props
     const map = new google.maps.Map(mapRef, {
       zoom: 5,
@@ -37,6 +38,7 @@ export default class GMap extends Component {
       const marker = new google.maps.Marker({ position: route.coords, map, animation: google.maps.Animation.DROP, iconVisited })
       marker.addListener('click', () => {
         browserHistory.replace(`/${scenario._id}/location/${route._id}`)
+        updateUsersWaypoint(route._id, route.coords)
       })
       let prevInfoWindow = false
       const contentString = '<p>' + route.waypointName + '</p>'
@@ -55,6 +57,7 @@ export default class GMap extends Component {
         const marker = new google.maps.Marker({ position: route.coords, map, animation: google.maps.Animation.DROP, iconNew })
         marker.addListener('click', () => {
           browserHistory.replace(`/${scenario._id}/location/${route._id}`)
+          updateUsersWaypoint(route._id, route.coords)
         })
         let prevInfoWindow = false
         const contentString = '<p>' + route.waypointName + '</p>'
@@ -97,8 +100,6 @@ export default class GMap extends Component {
   }
 
   render() {
-    console.log('coordsList', this.props.coordsList)
-    console.log('nextplaces', this.props.nextplaces)
     return (<div id="mapRef" className="mapRef" />)
   }
 }
