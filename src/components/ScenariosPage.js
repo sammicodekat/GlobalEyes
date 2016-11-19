@@ -14,7 +14,7 @@ class ScenariosPage extends Component {
     this.props.getScenarios()
   }
   componentWillReceiveProps(newProps) {
-    if (newProps.userObj.visitedWaypoints) {
+    if (Array.isArray(newProps.userObj.visitedWaypoints)) {
       this.setState({ disable: false })
     }
   }
