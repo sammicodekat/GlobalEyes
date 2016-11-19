@@ -6,6 +6,8 @@ import PlaceList from './PlaceList'
 import { getScenario } from '../actions/ScenarioActions'
 import { updateUserObject } from '../actions/auth'
 
+let index = 0
+
 class MapPage extends Component {
 
   componentWillMount() {
@@ -46,11 +48,11 @@ class MapPage extends Component {
     const id = userObj.currentWaypoint
     const visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
     const currWaypoint = waypoints.find(waypoint => waypoint._id == id)
-    let index = 0
     if (currWaypoint.pointsOfInterest.length !== 0) {
       index = waypoints.findIndex(elem => elem._id == id)
     }
-    const rest = waypoints.slice(index + 1)
+    let curr = index
+    const rest = waypoints.slice(curr + 1)
     const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
     let nextplaces = rest.slice(0, nextWayPointIndex + 1)
     nextplaces = nextplaces.filter(place => {
