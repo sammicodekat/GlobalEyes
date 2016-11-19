@@ -20,7 +20,6 @@ export default class LogIn extends Component {
   _logIn = () => {
   this.props.logIn()
   }
-
   _logOut = () => {
     this.props.logOut()
   }
@@ -29,8 +28,7 @@ export default class LogIn extends Component {
      browserHistory.push('/scenarios')
    }
   }
-
-render() {
+  render() {
     const { loggedIn } = this.props
     const logInButton = <button onClick={this._logIn} className="logIn">Sign Up / Log in</button>
     const logOutButton = <button onClick={this._logOut} className="logOut">Sign Out</button>
