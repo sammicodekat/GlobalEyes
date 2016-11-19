@@ -10,9 +10,9 @@ let index = 0
 
 class MapPage extends Component {
 
-  componentWillMount() {
-    this.props.getScenario(this.props.params.id)
-  }
+  // componentWillMount() {
+  //   this.props.getScenario(this.props.params.id)
+  // }
   openNotebook = () => {
     document.getElementById('notebook').className = 'open'
   }
