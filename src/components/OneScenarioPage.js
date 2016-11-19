@@ -19,7 +19,7 @@ class OneScenarioPage extends Component {
     updatedUserObj['uid'] = this.props.user.uid
     updatedUserObj['scenarioId'] = scenario._id
     updatedUserObj['currentWaypoint'] = ''
-    updatedUserObj['meowCoords'] = []
+    updatedUserObj['meowCoords'] = [scenario.waypoints[0].coords]
     let visitedWaypoints = updatedUserObj.visitedWaypoints || []
     // visitedWaypoints = visitedWaypoints.filter(wp => {
     //   if(wp == scenario.waypoints[0]._id) return

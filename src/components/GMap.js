@@ -97,7 +97,7 @@ export default class GMap extends Component {
         })
       })
     }
-    if(coordsList.length>0){
+    if(coordsList.length>1){
     const marker = new google.maps.Marker({
       position: coordsList[coordsList.length - 1],
       map,
