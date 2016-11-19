@@ -1,6 +1,6 @@
 /* global document */
-import {browserHistory} from 'react-router'
-import React, {Component} from 'react'
+import { browserHistory } from 'react-router'
+import React, { Component } from 'react'
 
 export default class GMap extends Component {
   componentDidMount() {
@@ -16,12 +16,10 @@ export default class GMap extends Component {
     const {
       google,
       scenario,
-      index,
       coordsList,
-      waypoints,
+      visited,
       nextplaces
     } = this.props
-    console.log("nextplaces", nextplaces)
     const map = new google.maps.Map(mapRef, {
       zoom: 5,
       center: coordsList[coordsList.length - 1]
@@ -32,17 +30,42 @@ export default class GMap extends Component {
       scale: 4
     }
     const icon = '/images/user.png'
-    const iconVisited = './images/marker_visited.png'
-    const iconNew = './images/marker_new.png'
+    const iconVisited = '/images/marker_visited.png'
+    const iconNew = '/images/marker_new.png'
 
-    coordsList.forEach((route) => {
-      console.log("route", route)
-      const marker = new google.maps.Marker({position: route, map, animation: google.maps.Animation.DROP, iconVisited})
+    visited.forEach((route) => {
+      const marker = new google.maps.Marker({ position: route.coords, map, animation: google.maps.Animation.DROP, iconVisited })
+      marker.addListener('click', () => {
+        browserHistory.replace(`/${scenario._id}/location/${route._id}`)
+      })
+      let prevInfoWindow = false
+      const contentString = '<p>' + route.waypointName + '</p>'
+      const infowindow = new google.maps.InfoWindow({ content: contentString })
+      marker.addListener('mouseover', () => {
+        if (prevInfoWindow !== false) {
+          prevInfoWindow.close()
+        }
+        infowindow.open(map, marker)
+        prevInfoWindow = infowindow
+      })
     })
+
     if (nextplaces.length !== 0) {
       nextplaces.forEach((route) => {
-        console.log("route.coords", route.coords)
-        const marker = new google.maps.Marker({position: route.coords, map, animation: google.maps.Animation.DROP, iconNew})
+        const marker = new google.maps.Marker({ position: route.coords, map, animation: google.maps.Animation.DROP, iconNew })
+        marker.addListener('click', () => {
+          browserHistory.replace(`/${scenario._id}/location/${route._id}`)
+        })
+        let prevInfoWindow = false
+        const contentString = '<p>' + route.waypointName + '</p>'
+        const infowindow = new google.maps.InfoWindow({ content: contentString })
+        marker.addListener('mouseover', () => {
+          if (prevInfoWindow !== false) {
+            prevInfoWindow.close()
+          }
+          infowindow.open(map, marker)
+          prevInfoWindow = infowindow
+        })
       })
     }
     const marker = new google.maps.Marker({
@@ -51,29 +74,6 @@ export default class GMap extends Component {
       animation: google.maps.Animation.DROP,
       icon
     })
-    //   for (let i = 0; i < number; i++) {
-    //     const marker = new google.maps.Marker({
-    //       position: scenario.waypoints[i].coords,
-    //       map,
-    //       animation: google.maps.Animation.DROP,
-    //       icon
-    //     })
-    //     let prevInfoWindow = false
-    //     const contentString ='<p>'+ scenario.waypoints[i].waypointName+'</p>'
-    //     const infowindow = new google.maps.InfoWindow({
-    //       content: contentString
-    //  })
-    //       marker.addListener('click', () => {
-    //        browserHistory.replace(`/${scenario._id}/location/${waypoint._id}`)
-    //       })
-    //       marker.addListener('mouseover', () => {
-    //           if (prevInfoWindow) {
-    //           prevInfoWindow.close()
-    //           }
-    //           infowindow.open(map, marker)
-    //           prevInfoWindow = infowindow;
-    //         })
-    //   }
     const routes = coordsList.length
     let i = 0
     while (i + 1 < routes) {
@@ -99,6 +99,6 @@ export default class GMap extends Component {
   render() {
     console.log('coordsList', this.props.coordsList)
     console.log('nextplaces', this.props.nextplaces)
-    return (<div id="mapRef" className="mapRef"/>)
+    return (<div id="mapRef" className="mapRef" />)
   }
 }
