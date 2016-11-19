@@ -10,15 +10,15 @@ class EndScenarioPage extends Component {
 
   placesVisted = () => {
     const { userObj, scenario } = this.props
-    return userObj.visitedWaypoints.map((wp, i)=> {
-      if(wp === scenario.waypoints[i]._id) {
-         return (
+    return userObj.visitedWaypoints.map((wp, i) => {
+      if (wp === scenario.waypoints[i]._id) {
+        return (
           <li key={i}>{scenario.waypoints[i].waypointName}</li>
         )
       }
     })
   }
- 
+
   render() {
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
@@ -33,7 +33,7 @@ class EndScenarioPage extends Component {
             <div className="greeting">
               <h3>Your travel stats: </h3>
               <p>You visited <b>{`${this.props.scenario.vouchers - this.props.userObj.vouchers}`}</b> amazing places:</p>
-              <ul>{this.placesVisted()}</ul> 
+              <ul>{this.placesVisted()}</ul>
               <p>You used <b>{`${this.props.scenario.vouchers - this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> on your journey</p>
               <p>You have <b>{`${this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> remaining</p>
             </div>

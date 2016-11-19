@@ -1,3 +1,5 @@
+/* global document window */
+
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import GMap from './GMap'
@@ -15,13 +17,9 @@ class MapPage extends Component {
     document.getElementById('notebook').className = 'open'
   }
 
-  openEndGame = () => {
-    browserHistory.push('/:id/endgame')
-  }
-
-  componentWillMount() {
-    this.props.getScenario(this.props.params.id)
-  }
+  // componentWillMount() {
+  //   this.props.getScenario(this.props.params.id)
+  // }
 
   updateUsersWaypoint = (newWaypoint, coords) => {
     let updatedUserObj = this.props.userObj
@@ -68,18 +66,16 @@ class MapPage extends Component {
     })
     return (
       <div className="mapPage">
-        <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints}/>
+        <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints} />
         <button className="notebookBtn" onClick={() => this.openNotebook()}>
-          <img src="/images/notebookBtn.png" alt=""/>
+          <img src="/images/notebookBtn.png" alt="" />
         </button>
-        <button className="notebookBtn"
-          onClick={() => this.openEndGame()}>End Game</button>
         <div className="travelMenu">
           <div className="voucherBar">
-            <Vouchers vouchers={this.props.userObj.vouchers}/>
+            <Vouchers vouchers={this.props.userObj.vouchers} />
           </div>
           <div className="waypointButtons">
-            <PlaceList updateUsersWaypoint={this.updateUsersWaypoint} waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} nextplaces={nextplaces}/>
+            <PlaceList updateUsersWaypoint={this.updateUsersWaypoint} waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} nextplaces={nextplaces} />
           </div>
         </div>
       </div>
@@ -87,7 +83,7 @@ class MapPage extends Component {
   }
 }
 
-export default connect(state => ({scenario: state.scenario, userObj: state.userObj}), dispatch => ({
+export default connect(state => ({ scenario: state.scenario, userObj: state.userObj }), dispatch => ({
   getScenario(id) {
     dispatch(getScenario(id))
   }
