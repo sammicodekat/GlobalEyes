@@ -123,7 +123,7 @@ export default class GMap extends Component {
         ],
         map
       })
-      i++
+      i += 1
     }
   }
 
