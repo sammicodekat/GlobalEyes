@@ -26,9 +26,12 @@ class OneScenarioPage extends Component {
       else return wp
     })
     visitedWaypoints = [...visitedWaypoints, scenario.waypoints[0]._id]
+    console.log('I am the waypoint name in OneScenarioPage: ', scenario.waypoints[0].waypointName)
+    console.log('I am the waypoint id in OneScenarioPage: ', scenario.waypoints[0]._id)
     updatedUserObj['visitedWaypoints'] = visitedWaypoints
+    console.log('I am visitedWaypoints in OneScenarioPage: ', visitedWaypoints)
     updatedUserObj['visitedFalsepoints'] = []
-    updatedUserObj['pointsOfInterest'] = [],
+    updatedUserObj['pointsOfInterest'] = []
     updatedUserObj['notebook'] = {note: 'Sorry, you do not have any notes yet.'},
     updatedUserObj['vouchers']--
     updateUserObject(updatedUserObj)

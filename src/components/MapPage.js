@@ -5,17 +5,22 @@ import Vouchers from './Vouchers'
 import PlaceList from './PlaceList'
 import { getScenario } from '../actions/ScenarioActions'
 import { updateUserObject } from '../actions/auth'
+import { browserHistory } from 'react-router'
 
 let index = 0
 
 class MapPage extends Component {
 
-  // componentWillMount() {
-  //   this.props.getScenario(this.props.params.id)
-  // }
   openNotebook = () => {
     document.getElementById('notebook').className = 'open'
   }
+
+  openEndGame = () => {
+    browserHistory.push('/:id/endgame')
+  }
+  // componentWillMount() {
+  //   this.props.getScenario(this.props.params.id)
+  // }
 
   updateUsersWaypoint = (newWaypoint, coords) => {
     let updatedUserObj = this.props.userObj
@@ -66,6 +71,8 @@ class MapPage extends Component {
         <button className="notebookBtn" onClick={() => this.openNotebook()}>
           <img src="/images/notebookBtn.png" alt=""/>
         </button>
+        <button className="notebookBtn"
+          onClick={() => this.openEndGame()}>End Game</button>
         <div className="travelMenu">
           <div className="voucherBar">
             <Vouchers vouchers={this.props.userObj.vouchers}/>

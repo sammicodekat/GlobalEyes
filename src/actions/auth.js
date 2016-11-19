@@ -78,10 +78,10 @@ export function authenticate(provider) {
       .then(result => {
         let userObj = {
           currentWaypoint: {},
-          visitedWaypoints: 'no waypoint one',
+          visitedWaypoints: 'no waypoints',
           uid: result.user.uid,
           userName: result.user.displayName,
-          notebook: {note: "Sorry, You don't yet have any notes"},
+          notebook: { note: "Sorry, You don't yet have any notes" },
           vouchers: 0
         }
         dispatch(signInSuccess(result))
