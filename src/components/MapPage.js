@@ -49,12 +49,14 @@ class MapPage extends Component {
       newWaypoint
     ]
     updatedUserObj['visitedWaypoints'] = visitedWaypoints
+    console.log(updatedUserObj,"updatedUserObj")
     updateUserObject(updatedUserObj)
   }
 
   findFirstWayPoint = (elem) => (elem.pointsOfInterest.length !== 0)
 
   render() {
+    //notworking
     const {scenario, userObj} = this.props
     const {waypoints} = scenario
     let nextplaces = [waypoints[0]]

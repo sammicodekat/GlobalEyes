@@ -36,6 +36,7 @@ class OneScenarioPage extends Component {
   render() {
     const { scenario, userObj } = this.props
     const name = scenario.waypoints ? scenario.waypoints[0].waypointName : ''
+    const userFirstName = userObj.userName.split(' ')[0]
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
@@ -47,7 +48,7 @@ class OneScenarioPage extends Component {
             <h1>{scenario.scenarioName || ''}</h1>
             <h4>created by: {scenario.scenarioAuthor || ''}</h4>
             <div className="greeting">
-              <p>Greetings Traveller,</p>
+              <p>Greetings {userFirstName},</p>
               <p>You are about to embark on an amazing adventure.</p>
               <p>I have given you <b>{this.props.userObj.vouchers}</b> <i>travel vouchers</i> for your journey, use them wisely.</p>
               <p>Your journey begins in <b>{name}</b>.</p>
