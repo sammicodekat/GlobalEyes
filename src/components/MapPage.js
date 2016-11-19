@@ -73,11 +73,7 @@ class MapPage extends Component {
     }
     return (
       <div className="mapPage">
-<<<<<<< HEAD
         <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints} updateUsersWaypoint={this.updateUsersWaypoint}/>
-=======
-        <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints} />
->>>>>>> 6b5d301c252938165c9f54b9208db8bc29d12f42
         <button className="notebookBtn" onClick={() => this.openNotebook()}>
           <img src="/images/notebookBtn.png" alt="" />
         </button>
