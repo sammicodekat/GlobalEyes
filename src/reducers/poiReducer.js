@@ -1,7 +1,7 @@
 import * as types from '../actions/actionTypes'
-import initialState from './initialState'
+// import initialState from './initialState'
 
-export default function poiReducer(state = initialState.pointOfInterest, action) {
+export default function poiReducer(state = {}, action) {
   switch (action.type) {
     case types.RECEIVE_POI_SUCCESS:
     console.log('action',action)

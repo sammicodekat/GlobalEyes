@@ -45,7 +45,6 @@ class MapPage extends Component {
       newWaypoint
     ]
     updatedUserObj['visitedWaypoints'] = visitedWaypoints
-    console.log(updatedUserObj,"updatedUserObj")
     updateUserObject(updatedUserObj)
   }
   findFirstWayPoint = (elem) => (elem.pointsOfInterest.length !== 0)
