@@ -1,19 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { browserHistory } from 'react-router'
+import { browserHistory } from 'react-router'
 import { updateUserObject } from '../actions/auth'
 
 class EndScenarioPage extends Component {
-  constructor(props) {
-    super(props)
-  }
 
   placesVisted = () => {
     const { userObj, scenario } = this.props
-    return userObj.visitedWaypoints.map((wp, i) => {
-      if (wp === scenario.waypoints[i]._id) {
+    return scenario.waypoints.map( (wp,i) => {
+      if (userObj.visitedWaypoints.includes(wp._id)) {
         return (
-          <li key={i}>{scenario.waypoints[i].waypointName}</li>
+          <li key={i}>{wp.waypointName}</li>
         )
       }
     })
@@ -37,7 +34,7 @@ class EndScenarioPage extends Component {
               <p>You have <b>{`${this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> remaining</p>
             </div>
             <div className="introVouchers">
-              <button>Start Another Adventure</button>
+              <button onClick={ () => { browserHistory.push('/scenarios') } }>Start Another Adventure</button>
             </div>
           </div>
         </div>

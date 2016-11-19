@@ -21,6 +21,12 @@ class MapPage extends Component {
     browserHistory.push('/:id/endgame')
   }
 
+  componentWillMount(){
+    if(this.props.userObj.vouchers === 0) {
+      browserHistory.push(`You-Silly-Silly-Silly-Bad-Loser/gameover`)
+    }
+  }
+
   updateUsersWaypoint = (newWaypoint, coords) => {
     let updatedUserObj = this.props.userObj
     if (updatedUserObj.currentWaypoint !== newWaypoint) {
@@ -43,30 +49,34 @@ class MapPage extends Component {
       newWaypoint
     ]
     updatedUserObj['visitedWaypoints'] = visitedWaypoints
+    console.log(updatedUserObj,"updatedUserObj")
     updateUserObject(updatedUserObj)
   }
+
   findFirstWayPoint = (elem) => (elem.pointsOfInterest.length !== 0)
+
   render() {
+    //notworking
     const {scenario, userObj} = this.props
     const {waypoints} = scenario
     let nextplaces = [waypoints[0]]
     let visited = []
     if(userObj.currentWaypoint){
-    const id = userObj.currentWaypoint
-    visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
-    const currWaypoint = waypoints.find(waypoint => waypoint._id == id)
-    if (currWaypoint.pointsOfInterest.length !== 0) {
-      index = waypoints.findIndex(elem => elem._id == id)
-    }
-    let curr = index
-    const rest = waypoints.slice(curr + 1)
-    const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
-    nextplaces = rest.slice(0, nextWayPointIndex + 1)
-    nextplaces = nextplaces.filter(place => {
-      if (!userObj.visitedWaypoints.includes(place._id)) {
-        return place
+      const id = userObj.currentWaypoint
+      visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
+      const currWaypoint = waypoints.find(waypoint => waypoint._id == id)
+      if (currWaypoint.pointsOfInterest.length !== 0) {
+        index = waypoints.findIndex(elem => elem._id == id)
       }
-    })
+      let curr = index
+      const rest = waypoints.slice(curr + 1)
+      const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
+      nextplaces = rest.slice(0, nextWayPointIndex + 1)
+      nextplaces = nextplaces.filter(place => {
+        if (!userObj.visitedWaypoints.includes(place._id)) {
+          return place
+        }
+      })
     }
     return (
       <div className="mapPage">
