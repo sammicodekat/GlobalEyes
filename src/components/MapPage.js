@@ -18,9 +18,10 @@ class MapPage extends Component {
   openEndGame = () => {
     browserHistory.push('/:id/endgame')
   }
-  // componentWillMount() {
-  //   this.props.getScenario(this.props.params.id)
-  // }
+
+  componentWillMount() {
+    this.props.getScenario(this.props.params.id)
+  }
 
   updateUsersWaypoint = (newWaypoint, coords) => {
     let updatedUserObj = this.props.userObj
