@@ -32,15 +32,18 @@ class MapPage extends Component {
     updateUserObject(updatedUserObj)
     }
   findFirstWayPoint = (elem) => (elem.pointsOfInterest.length !== 0)
-
   render() {
     const { scenario, userObj } = this.props
     const { waypoints } = scenario
     const id = userObj.currentWaypoint
     const visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
-    const index = waypoints.findIndex(elem => elem._id == id)
+    const currWaypoint = waypoints.find( waypoint => waypoint._id == id)
+    console.log('currWaypoint', currWaypoint)
+    let index = 0
+    if (currWaypoint.pointOfInterest.length !== 0){
+    index = waypoints.findIndex(elem => elem._id == id)
+    }
     const rest = waypoints.slice(index+1)
-    console.log('rest',rest)
     const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
     const nextplaces = rest.slice(0,nextWayPointIndex+1)
     return (
