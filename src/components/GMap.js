@@ -58,10 +58,6 @@ export default class GMap extends Component {
         content: contentString
       })
 
-      marker.addListener('click', () => {
-        browserHistory.replace(`/${scenario._id}/location/${route._id}`)
-      })
-
       marker.addListener('mouseover', () => {
         infowindow.open(map, marker)
       })
@@ -84,10 +80,6 @@ export default class GMap extends Component {
           content: contentString
         })
 
-        marker.addListener('click', () => {
-          browserHistory.replace(`/${scenario._id}/location/${route._id}`)
-        })
-
         marker.addListener('mouseover', () => {
           infowindow.open(map, marker)
         })
@@ -97,6 +89,7 @@ export default class GMap extends Component {
         })
       })
     }
+    if(coordsList.length>1){
     const marker = new google.maps.Marker({
       position: coordsList[coordsList.length - 1],
       map,
@@ -104,6 +97,7 @@ export default class GMap extends Component {
       icon
 
     })
+    }
     const routes = coordsList.length
     let i = 0
     while (i + 1 < routes) {
