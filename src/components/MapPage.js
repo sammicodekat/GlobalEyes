@@ -50,6 +50,7 @@ class MapPage extends Component {
   }
   findFirstWayPoint = (elem) => (elem.pointsOfInterest.length !== 0)
   render() {
+    //notworking
     const {scenario, userObj} = this.props
     const {waypoints} = scenario
     const id = userObj.currentWaypoint
@@ -93,4 +94,3 @@ export default connect(state => ({scenario: state.scenario, userObj: state.userO
     dispatch(getScenario(id))
   }
 }))(MapPage)
-
