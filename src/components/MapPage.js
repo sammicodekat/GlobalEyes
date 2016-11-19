@@ -52,7 +52,7 @@ class MapPage extends Component {
     }
     const rest = waypoints.slice(index + 1)
     const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
-    const nextplaces = rest.slice(0, nextWayPointIndex + 1)
+    let nextplaces = rest.slice(0, nextWayPointIndex + 1)
     nextplaces = nextplaces.filter(place => {
       if (!userObj.visitedWaypoints.includes(place._id)) {
         return place
