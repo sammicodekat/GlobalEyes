@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { browserHistory } from 'react-router'
+// import { browserHistory } from 'react-router'
 import { updateUserObject } from '../actions/auth'
 
 class EndScenarioPage extends Component {
@@ -8,25 +8,37 @@ class EndScenarioPage extends Component {
     super(props)
   }
 
+  placesVisted = () => {
+    const { userObj, scenario } = this.props
+    return userObj.visitedWaypoints.map((wp, i)=> {
+      if(wp === scenario.waypoints[i]._id) {
+         return (
+          <li key={i}>{scenario.waypoints[i].waypointName}</li>
+        )
+      }
+    })
+  }
+ 
   render() {
-    const { vouchers } = scenario
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
+      console.log('I am the userObj: ', this.props.userObj)
     return (
       <div className="introPage">
         <div className="backgroundImage" style={randomBackground} />
         <div className="pageContent">
           <div className="intro">
-            <h1>{`Congrats ${userObj.displayName} You've Completed ${scenario.scenarioName}`}</h1>
+            <h1>{`Congrats ${this.props.userObj.userName} You've Completed ${this.props.scenario.scenarioName}`}</h1>
             <div className="greeting">
               <h3>Your travel stats: </h3>
-              <p>You visited {`${userObj.visitedWaypoints.length}`} amazing places</p>
-              <p>You used <b>{vouchers}</b> <i>travel vouchers</i> on your journey</p>
-              <p>Your journey begins in <b>{name}</b>.</p>
+              <p>You visited <b>{`${this.props.scenario.vouchers - this.props.userObj.vouchers}`}</b> amazing places:</p>
+              <ul>{this.placesVisted()}</ul> 
+              <p>You used <b>{`${this.props.scenario.vouchers - this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> on your journey</p>
+              <p>You have <b>{`${this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> remaining</p>
             </div>
             <div className="introVouchers">
-              <button onClick={this.beginAdventure}>Start Another Adventure</button>
+              <button>Start Another Adventure</button>
             </div>
           </div>
         </div>
@@ -35,11 +47,11 @@ class EndScenarioPage extends Component {
   }
 }
 
-export default connect(state => ({
-  scenario: state.scenario,
-  userObj: state.userObj
-}), dispatch => ({
-  getScenario(id) {
-    dispatch(getScenario(id))
+function mapStateToProps(state) {
+  return {
+    userObj: state.userObj,
+    scenario: state.scenario
   }
-}))(EndScenarioPage)
+}
+
+export default connect(mapStateToProps, null)(EndScenarioPage)
