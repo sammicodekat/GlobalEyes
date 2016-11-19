@@ -71,7 +71,7 @@ export default class ScenarioForm extends Component {
           {waypointForms}
         </div>
         <div className="formControls">
-          <button className="addWaypointBtn" type="button" onClick={() => this.addWaypointInput()}><span>+</span>add new waypoint</button>
+          <button className="addWaypointBtn" type="button" onClick={() => this.addWaypointInput()}><span>+</span>Add Waypoint</button>
           <button className="btnClass" type="submit" onClick={onClick}>Submit Scenario</button>
         </div>
       </form>

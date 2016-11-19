@@ -13,6 +13,7 @@ export default class GMap extends Component {
 
   initMap() {
     const mapRef = document.getElementById('mapRef')
+
     const {
       google,
       scenario,
@@ -21,15 +22,26 @@ export default class GMap extends Component {
       nextplaces,
       updateUsersWaypoint
     } = this.props
+
+    const styles = [
+      {
+        featureType: '',
+        elementType: '',
+        stylers: []
+      }
+    ]
+
     const map = new google.maps.Map(mapRef, {
       zoom: 5,
       center: coordsList[coordsList.length - 1]
     })
+
     const lineSymbol = {
       path: 'M 0,-1 0,1',
       strokeOpacity: 1,
       scale: 4
     }
+
     const icon = '/images/user.png'
     const iconVisited = '/images/marker_visited.png'
     const iconNew = '/images/marker_new.png'
@@ -40,15 +52,22 @@ export default class GMap extends Component {
         browserHistory.replace(`/${scenario._id}/location/${route._id}`)
         updateUsersWaypoint(route._id, route.coords)
       })
-      let prevInfoWindow = false
-      const contentString = '<p>' + route.waypointName + '</p>'
-      const infowindow = new google.maps.InfoWindow({ content: contentString })
+
+      const contentString = `<span className="mapTip">${route.waypointName}</span>`
+      const infowindow = new google.maps.InfoWindow({
+        content: contentString
+      })
+
+      marker.addListener('click', () => {
+        browserHistory.replace(`/${scenario._id}/location/${route._id}`)
+      })
+
       marker.addListener('mouseover', () => {
-        if (prevInfoWindow !== false) {
-          prevInfoWindow.close()
-        }
         infowindow.open(map, marker)
-        prevInfoWindow = infowindow
+      })
+
+      marker.addListener('mouseout', () => {
+        infowindow.close()
       })
     })
 
@@ -59,23 +78,32 @@ export default class GMap extends Component {
           browserHistory.replace(`/${scenario._id}/location/${route._id}`)
           updateUsersWaypoint(route._id, route.coords)
         })
-        let prevInfoWindow = false
-        const contentString = '<p>' + route.waypointName + '</p>'
-        const infowindow = new google.maps.InfoWindow({ content: contentString })
+
+        const contentString = `<span className="mapTip">${route.waypointName}</span>`
+        const infowindow = new google.maps.InfoWindow({
+          content: contentString
+        })
+
+        marker.addListener('click', () => {
+          browserHistory.replace(`/${scenario._id}/location/${route._id}`)
+        })
+
         marker.addListener('mouseover', () => {
-          if (prevInfoWindow !== false) {
-            prevInfoWindow.close()
-          }
           infowindow.open(map, marker)
-          prevInfoWindow = infowindow
+        })
+
+        marker.addListener('mouseout', () => {
+          infowindow.close()
         })
       })
     }
+
     const marker = new google.maps.Marker({
       position: coordsList[coordsList.length - 1],
       map,
       animation: google.maps.Animation.DROP,
       icon
+
     })
     const routes = coordsList.length
     let i = 0
