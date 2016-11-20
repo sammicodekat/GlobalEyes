@@ -37,6 +37,7 @@ class WaypointPage extends Component {
     const { pano } = this.state
     const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
     let showPointsOfInterest = <div></div>
+    let pointsOfInterestMessage = <div></div>
 
     const streetViewContainer = (
       <div id="streetViewContainer">
@@ -46,6 +47,10 @@ class WaypointPage extends Component {
 
     if(Array.isArray(pointsOfInterest) && pointsOfInterest.length) {
       showPointsOfInterest = <PoiList pois={pointsOfInterest} params={this.props.params} />
+    }
+
+    if((this.props.scenario.vouchers - this.props.userObj.vouchers) < 2) {
+      pointsOfInterestMessage = <h3 className="wpIntro">Our world has some amazing places to see. When you travel to a new waypoint be sure to stop for a moment and enjoy the Points of Interest. Persistant explorers will be rewarded with clues on where to go to next and perhaps even given additional travel vouchers.</h3>
     }
 
     return (
@@ -60,6 +65,7 @@ class WaypointPage extends Component {
         <div className="waypointBody">
           <h1 className="waypointName">{waypointName}</h1>
           <article className="infoBlock">
+            {pointsOfInterestMessage}
             <h3>About this Location:</h3>
             <p>{text}</p>
           </article>
@@ -70,7 +76,7 @@ class WaypointPage extends Component {
   }
 }
 
-export default connect(state => ({ waypoint: state.waypoint, userObj: state.userObj }), dispatch => ({
+export default connect(state => ({ scenario: state.scenario, waypoint: state.waypoint, userObj: state.userObj }), dispatch => ({
   getWayPoint(id) {
     dispatch(getWayPoint(id))
   }

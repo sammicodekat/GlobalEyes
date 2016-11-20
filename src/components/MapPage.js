@@ -74,10 +74,10 @@ class MapPage extends Component {
     const { waypoints } = scenario
     let visited = []
     nextplaces = [waypoints[0]]
-    let waypointMessage = 'To get started click on a waypoint below or the pointer icon "DANIEL POINTER GOES HERE" on the map.'
+    let waypointMessage = <span className="mapMessage">To get started click on a waypoint below or the pointer icon <img src="/images/marker_new.png" alt="map marker"/> on the map.</span>
 
     if(userObj.currentWaypoint){
-      waypointMessage = `Select another waypoint. You've got ${userObj.vouchers} travel vouchers left`
+      waypointMessage = <span className="mapMessage">Select another waypoint. You've got {userObj.vouchers} travel vouchers left</span>
       const id = userObj.currentWaypoint
       visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
       // visited = userObj.visitedWaypoints.map( wp => {
@@ -122,7 +122,6 @@ class MapPage extends Component {
             <Vouchers vouchers={this.props.userObj.vouchers} />
           </div>
           <div className="waypointButtons">
-            <h5></h5>
             {waypointMessage}
             <PlaceList updateUsersWaypoint={this.updateUsersWaypoint} waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} nextplaces={nextplaces} />
           </div>
