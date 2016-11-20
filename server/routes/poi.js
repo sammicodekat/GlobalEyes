@@ -22,6 +22,11 @@ router.route('/:id')
   .then(poi => res.send(poi))
   .catch(err => res.status(400).send(err))
 })
+.put((req, res) => {
+  Poi.findByIdAndUpdate(req.params.id, { $set: req.body }, { new: true })
+  .then(newPoi => res.send(newPoi))
+  .catch(err => res.status(400).send(err))
+})
 .delete((req, res) => {
   Poi.findByIdAndRemove(req.params.id)
   .then(() => {
