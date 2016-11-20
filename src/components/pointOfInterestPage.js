@@ -1,4 +1,4 @@
-/* global document */
+/* global document window */
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -8,14 +8,26 @@ import { getWayPoint } from '../actions/wayPointsActions'
 // import Vouchers from './Vouchers'
 import ClueList from './ClueList'
 import AddToNotebookButton from './AddToNotebookButton'
+import StreetView from './StreetView'
 
 class PointOfInterestPage extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      pano: 'closed'
+    }
   }
-  componentWillMount(){
+
+  componentWillMount() {
     this.props.getPoi(this.props.params.poiId)
     // this.props.getWayPoint(this.props.params.waypointId)
+  }
+
+  togglePano() {
+    const { pano } = this.state
+    let toggled = 'closed'
+    if (pano === 'closed') toggled = 'open'
+    this.setState({ pano: toggled })
   }
 
   checkEndGame = (id) => {
@@ -38,15 +50,24 @@ class PointOfInterestPage extends Component {
   render() {
     const { poi, user, waypoint, scenario } = this.props
     // const { uid } = this.props
+    const { pano } = this.state
     const waypointName = waypoint.waypointName
-    const { poiName, clues, links, text } = poi
+    const { poiName, clues, links, text, coords } = poi
+
+    const streetViewContainer = (
+      <div id="streetViewContainer">
+        <StreetView google={window.google} coords={coords} />
+      </div>
+    )
 
     return (
       <div className="poiPage">
         <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
-        <button className="goBack" onClick={browserHistory.goBack}>Go Back</button>
+        <button className="backBtn" onClick={browserHistory.goBack}><img src="/images/backArrow.png" alt="back to waypoint" />back to waypoint</button>
         {this.checkEndGame(this.props.params.waypointId)}
           <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
+          <button className="panoBtn" onClick={() => this.togglePano()}><img src="/images/pano.png" alt="open panorama" /></button>
+          {pano === 'open' ? streetViewContainer : null}
           <div className="waypointSplash">
             <img src={links} alt={poiName} />
         </div>
