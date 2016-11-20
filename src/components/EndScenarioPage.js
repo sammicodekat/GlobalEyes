@@ -4,6 +4,17 @@ import { browserHistory } from 'react-router'
 import { updateUserObject } from '../actions/auth'
 
 class EndScenarioPage extends Component {
+  clearUserData = () => {
+    const updatedUserObj = this.props.userObj
+    updatedUserObj.scenarioId = ''
+    updatedUserObj.currentWaypoint = ''
+    updatedUserObj.meowCoords = ['']
+    updatedUserObj.visitedWaypoints = ''
+    updatedUserObj.pointsOfInterest = ['']
+    updatedUserObj.notebook = { note: 'Sorry, you do not have any notes yet.' }
+    updateUserObject(updatedUserObj)
+    browserHistory.push('/scenarios')
+  }
 
   placesVisted = () => {
     const { userObj, scenario } = this.props
@@ -34,7 +45,7 @@ class EndScenarioPage extends Component {
               <p>You have <b>{`${this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> remaining</p>
             </div>
             <div className="introVouchers">
-              <button onClick={ () => { browserHistory.push('/scenarios') } }>Start Another Adventure</button>
+              <button onClick={this.clearUserData}>Start Another Adventure</button>
             </div>
           </div>
         </div>

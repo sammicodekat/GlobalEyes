@@ -18,17 +18,9 @@ class OneScenarioPage extends Component {
     updatedUserObj.scenarioId = scenario._id
     updatedUserObj.currentWaypoint = ''
     updatedUserObj.meowCoords = [scenario.waypoints[0].coords]
-    // let visitedWaypoints = updatedUserObj.visitedWaypoints || []
-    // visitedWaypoints = visitedWaypoints.filter(wp => {
-    //   if(wp == scenario.waypoints[0]._id) return
-    //   else return wp
-    // })
-    // visitedWaypoints = [...visitedWaypoints]
     updatedUserObj.visitedWaypoints = ['']
-    // updatedUserObj['visitedFalsepoints'] = []
     updatedUserObj.pointsOfInterest = ['']
-    updatedUserObj.notebook = {note: 'Sorry, you do not have any notes yet.'}
-    // updatedUserObj['vouchers']--
+    updatedUserObj.notebook = { note: 'Sorry, you do not have any notes yet.' }
     updateUserObject(updatedUserObj)
     browserHistory.replace(`/${scenario._id}/map`)
   }
