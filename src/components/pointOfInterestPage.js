@@ -41,6 +41,14 @@ class PointOfInterestPage extends Component {
     const waypointName = waypoint.waypointName
     const { poiName, clues, links, text } = poi
 
+    let clueDisplay = <div></div>
+    let buttonDisplay = <div></div>
+
+    if(clues) {
+     clueDisplay = <ClueList clues={clues} waypointName={waypointName} />
+     buttonDisplay = <AddToNotebookButton poiName={poiName} clues={clues} waypointName={waypointName} />
+    }
+
     return (
       <div className="poiPage">
         <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
@@ -56,8 +64,8 @@ class PointOfInterestPage extends Component {
             <h3>About this Point of Interest</h3>
             <p>{text}</p>
           </article>
-          <ClueList clues={clues} waypointName={waypointName} />
-          <AddToNotebookButton poiName={poiName} clues={clues} waypointName={waypointName} />
+          {clueDisplay}
+          {buttonDisplay}
         </div>
       </div>
     )

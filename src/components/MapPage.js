@@ -56,7 +56,6 @@ class MapPage extends Component {
   findFirstWayPoint = (elem) => (elem.pointsOfInterest.length !== 0)
 
   render() {
-    //notworking
     const {scenario, userObj} = this.props
     const {waypoints} = scenario
     let nextplaces = [waypoints[0]]
