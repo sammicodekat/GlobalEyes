@@ -9,6 +9,8 @@ import { getWayPoint } from '../actions/wayPointsActions'
 import ClueList from './ClueList'
 import AddToNotebookButton from './AddToNotebookButton'
 import StreetView from './StreetView'
+import { updateUserObject } from '../actions/auth'
+
 
 class PointOfInterestPage extends Component {
   constructor(props) {
@@ -21,6 +23,10 @@ class PointOfInterestPage extends Component {
   componentWillMount() {
     this.props.getPoi(this.props.params.poiId)
     // this.props.getWayPoint(this.props.params.waypointId)
+  }
+
+  componentDidMount() {
+    this.voucherGamble()
   }
 
   togglePano() {
@@ -47,8 +53,17 @@ class PointOfInterestPage extends Component {
     document.getElementById('notebook').className = 'open'
   }
 
+  voucherGamble() {
+    let updatedUserObj = this.props.userObj
+    const dice = Math.random()
+    if (dice > 0.7) {
+      updatedUserObj.vouchers += 1
+      updateUserObject(updatedUserObj)
+    }
+  }
+
   render() {
-    const { poi, user, waypoint, scenario } = this.props
+    const { poi, user, waypoint, scenario, userObj } = this.props
     // const { uid } = this.props
     const { pano } = this.state
     const waypointName = waypoint.waypointName
@@ -56,16 +71,24 @@ class PointOfInterestPage extends Component {
 
     const streetViewContainer = (
       <div id="streetViewContainer">
+        <button className="closePano" onClick={() => this.togglePano()}><img src="/images/closeBtn.png" alt="close pano"/></button>
         <StreetView google={window.google} coords={coords} />
       </div>
     )
 
     let clueDisplay = <div></div>
     let buttonDisplay = <div></div>
+    let pointOfInterestMessage = <div></div>
 
     if(clues) {
      clueDisplay = <ClueList clues={clues} waypointName={waypointName} />
      buttonDisplay = <AddToNotebookButton poiName={poiName} clues={clues} waypointName={waypointName} />
+    }
+
+
+    console.log('this.props.userObj.pointsOfInterest.length : ', this.props.userObj.pointsOfInterest.length )
+    if(userObj.pointsOfInterest && (poi._id === userObj.pointsOfInterest[0]._id || poi._id === userObj.pointsOfInterest[1]._id) ) {
+      pointOfInterestMessage = <h3 className="introMessage">Look at you, you beautiful explorer you, you've arrived at a Point of Interest. Read more about this space below, click on the panorama button for a 360 view or, if you're lucky enough to have found one, read the clue that can help guide you to the next destination.</h3>
     }
 
     return (
@@ -82,18 +105,21 @@ class PointOfInterestPage extends Component {
         <div className="waypointBody">
           <h1 className="waypointName">{poiName}</h1>
           <article className="infoBlock">
+          {pointOfInterestMessage}
             <h3>About this Point of Interest</h3>
             <p>{text}</p>
           </article>
-          {clueDisplay}
-          {buttonDisplay}
+          <div className="poiList">
+            {clueDisplay}
+            {buttonDisplay}
+          </div>
         </div>
       </div>
     )
   }
 }
 
-export default connect(state => ({ poi: state.poi, user: state.auth.user, waypoint: state.waypoint, scenario: state.scenario }), dispatch => ({
+export default connect(state => ({ poi: state.poi, user: state.auth.user, waypoint: state.waypoint, scenario: state.scenario, userObj: state.userObj }), dispatch => ({
   getPoi(id) {
     dispatch(getPoi(id))
   },
