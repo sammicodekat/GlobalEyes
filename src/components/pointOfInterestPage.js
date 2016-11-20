@@ -9,6 +9,8 @@ import { getWayPoint } from '../actions/wayPointsActions'
 import ClueList from './ClueList'
 import AddToNotebookButton from './AddToNotebookButton'
 import StreetView from './StreetView'
+import { updateUserObject } from '../actions/auth'
+
 
 class PointOfInterestPage extends Component {
   constructor(props) {
@@ -52,9 +54,12 @@ class PointOfInterestPage extends Component {
   }
 
   voucherGamble() {
+    let updatedUserObj = this.props.userObj
     const dice = Math.random()
-    if (dice > 0.8) console.log('win!')
-    console.log('dice: ', dice)
+    if (dice > 0.7) {
+      updatedUserObj.vouchers += 1
+      updateUserObject(updatedUserObj)
+    }
   }
 
   render() {
@@ -82,7 +87,7 @@ class PointOfInterestPage extends Component {
 
 
     console.log('this.props.userObj.pointsOfInterest.length : ', this.props.userObj.pointsOfInterest.length )
-    if(poi._id === userObj.pointsOfInterest[0]._id || poi._id === userObj.pointsOfInterest[1]._id ) {
+    if(userObj.pointsOfInterest && (poi._id === userObj.pointsOfInterest[0]._id || poi._id === userObj.pointsOfInterest[1]._id) ) {
       pointOfInterestMessage = <h3 className="introMessage">Look at you, you beautiful explorer you, you've arrived at a Point of Interest. Read more about this space below, click on the panorama button for a 360 view or, if you're lucky enough to have found one, read the clue that can help guide you to the next destination.</h3>
     }
 
