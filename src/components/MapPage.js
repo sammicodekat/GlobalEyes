@@ -76,7 +76,7 @@ class MapPage extends Component {
     nextplaces = [waypoints[0]]
     let waypointMessage = <span className="mapMessage">To get started click on a waypoint below or the pointer icon <img src="/images/marker_new.png" alt="map marker"/> on the map.</span>
 
-    if(userObj.currentWaypoint){
+    if (userObj.currentWaypoint) {
       waypointMessage = <span className="mapMessage">Select another waypoint. You've got {userObj.vouchers} travel vouchers left</span>
       const id = userObj.currentWaypoint
       visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
