@@ -70,10 +70,8 @@ class MapPage extends Component {
   }
 
   render() {
-    //notworking
     const { scenario, userObj } = this.props
     const { waypoints } = scenario
-    let visited = []
     nextplaces = [waypoints[0]]
     if (userObj.currentWaypoint) {
       const id = userObj.currentWaypoint

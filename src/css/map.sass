@@ -81,10 +81,26 @@ $desktop: "(min-width: 1200px)"
 .panoBtn
   position: fixed
   right: 0
-  top: 58px
+  top: 68px
   padding: 0
   border-radius: 0
   z-index: 2000
+  height: 50px
+  width: 50px
+  opacity: 0.8
+  background-color: transparent
+  box-shadow: none
+  display: flex
+  align-items: center
+
+  img
+    object-fit: contain
+    width: 50px
+
+.panoBtn:hover
+  background-color: transparent
+  box-shadow: none
+  opacity: 1
 
 #streetViewContainer
   width: 100vw
@@ -101,5 +117,4 @@ $desktop: "(min-width: 1200px)"
     height: 100%
     top: 0
     left: 0
-    background-color: green
     position: relative

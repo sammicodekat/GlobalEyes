@@ -28,7 +28,7 @@ class GameOverPage extends Component {
         <div className="backgroundImage" style={randomBackground} />
         <div className="pageContent">
           <div className="intro">
-            <h1>{`Sorry ${this.props.userObj.userName} You're Out of Travel Vouchers`}</h1>
+            <h1>{`Sorry ${this.props.userObj.userName} You're Out of Travel Vouchers.`}</h1>
             <div className="greeting">
               <h3>You Visited: </h3>
               <ul>{this.placesVisted()}</ul>

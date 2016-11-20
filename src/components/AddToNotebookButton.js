@@ -1,7 +1,13 @@
+/* global document */
+
 import React from 'react'
 import { connect } from 'react-redux'
 import { updateUserObject } from '../actions/auth'
 import uuid from 'uuid'
+
+const openNotebook = () => {
+  document.getElementById('notebook').className = 'open'
+}
 
 const AddToNotebookButton = ( props ) => {
   console.log( 'props' , props )
@@ -29,6 +35,7 @@ const AddToNotebookButton = ( props ) => {
       updateUserObject(updatedUserObj)
       notHasNote = false
     }
+    openNotebook()
   }
 
   return(

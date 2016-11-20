@@ -15,6 +15,7 @@ $desktop: "(min-width: 1200px)"
   background-color: #29ABE2
   padding: 20px
   display: block
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0)
 
   button
     margin: 0 auto
@@ -35,3 +36,30 @@ $desktop: "(min-width: 1200px)"
 
     span
       align-self: center
+
+.backBtn
+  position: fixed
+  background-color: transparent
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0)
+  color: white
+  top: 8px
+  left: 8px
+  z-index: 100
+  border-radius: 0
+  font-size: 1em
+  padding: 0
+  margin: 0
+  height: 50px
+  opacity: 0.8
+  display: flex
+  align-items: center
+
+  img
+    object-fit: contain
+    height: 25px
+    margin-right: 10px
+
+.backBtn:hover
+  background-color: transparent
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0)
+  opacity: 1
