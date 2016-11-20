@@ -25,12 +25,6 @@ class WaypointPage extends Component {
     document.getElementById('notebook').className = 'open'
   }
 
-  // togglePano() {
-  //   const svc = document.getElementById('streetViewContainer')
-  //   if (svc.className === 'closed') svc.className = 'open'
-  //   else svc.className = 'closed'
-  // }
-
   togglePano() {
     const { pano } = this.state
     let toggled = 'closed'
@@ -44,7 +38,7 @@ class WaypointPage extends Component {
     const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
 
     const streetViewContainer = (
-      <div id="streetViewContainer" className="closed">
+      <div id="streetViewContainer">
         <StreetView google={window.google} coords={coords} />
       </div>
     )
@@ -53,7 +47,7 @@ class WaypointPage extends Component {
       <div className="waypoint">
         <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
         <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
-        <button className="panoBtn" onClick={() => this.togglePano()}>pano</button>
+        <button className="panoBtn" onClick={() => this.togglePano()}><img src="/images/pano.png" alt="open panorama" /></button>
         {pano === 'open' ? streetViewContainer : null}
         <div className="waypointSplash">
           <img src={links} alt={waypointName} />
