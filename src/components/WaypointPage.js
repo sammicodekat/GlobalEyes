@@ -41,6 +41,7 @@ class WaypointPage extends Component {
 
     const streetViewContainer = (
       <div id="streetViewContainer">
+        <button className="closePano" onClick={() => this.togglePano()}><img src="/images/closeBtn.png" alt="close pano"/></button>
         <StreetView google={window.google} coords={coords} />
       </div>
     )

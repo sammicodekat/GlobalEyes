@@ -23,6 +23,10 @@ class PointOfInterestPage extends Component {
     // this.props.getWayPoint(this.props.params.waypointId)
   }
 
+  componentDidMount() {
+    this.voucherGamble()
+  }
+
   togglePano() {
     const { pano } = this.state
     let toggled = 'closed'
@@ -47,6 +51,12 @@ class PointOfInterestPage extends Component {
     document.getElementById('notebook').className = 'open'
   }
 
+  voucherGamble() {
+    const dice = Math.random()
+    if (dice > 0.8) console.log('win!')
+    console.log('dice: ', dice)
+  }
+
   render() {
     const { poi, user, waypoint, scenario } = this.props
     // const { uid } = this.props
@@ -56,6 +66,7 @@ class PointOfInterestPage extends Component {
 
     const streetViewContainer = (
       <div id="streetViewContainer">
+        <button className="closePano" onClick={() => this.togglePano()}><img src="/images/closeBtn.png" alt="close pano"/></button>
         <StreetView google={window.google} coords={coords} />
       </div>
     )
@@ -85,8 +96,10 @@ class PointOfInterestPage extends Component {
             <h3>About this Point of Interest</h3>
             <p>{text}</p>
           </article>
-          {clueDisplay}
-          {buttonDisplay}
+          <div className="poiList">
+            {clueDisplay}
+            {buttonDisplay}
+          </div>
         </div>
       </div>
     )
