@@ -9,7 +9,7 @@ const bodyParser = require('body-parser')
 
 // Mongoose Configy
 const MONGODB_URI = process.env.MONGODB_URI || process.env.MONGOURI
-
+// const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/globaleyes'
 mongoose.Promise = Promise
 mongoose.connect(MONGODB_URI, (err) => {
   console.log(err || `MongoDB connected to ${MONGODB_URI}`)

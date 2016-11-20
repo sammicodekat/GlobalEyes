@@ -7,10 +7,10 @@ class EndScenarioPage extends Component {
 
   placesVisted = () => {
     const { userObj, scenario } = this.props
-    return userObj.visitedWaypoints.map((wp, i) => {
-      if (wp === scenario.waypoints[i]._id) {
+    return scenario.waypoints.map( (wp,i) => {
+      if (userObj.visitedWaypoints.includes(wp._id)) {
         return (
-          <li key={i}>{scenario.waypoints[i].waypointName}</li>
+          <li key={i}>{wp.waypointName}</li>
         )
       }
     })

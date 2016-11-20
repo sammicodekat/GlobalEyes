@@ -9,25 +9,21 @@ class ContinueScenarioPage extends Component {
   componentWillMount() {
     this.props.getScenario(this.props.userObj.scenarioId)
   }
-  placesVisited = () =>( this.props.userObj.visitedWaypoints.map((wp, i) => {
-    if (wp === this.props.scenario.waypoints[i]._id) {
-      return (
-        <li key={i}>{this.props.scenario.waypoints[i].waypointName}</li>
-      )
-    }
-  }))
   render() {
     const { userObj, scenario } = this.props
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
-
     let currLocation = ''
     let places = ''
     if (scenario.waypoints){
       const current = scenario.waypoints.filter( waypoint => waypoint._id == userObj.currentWaypoint)
       currLocation = current[0].waypointName
-      places = this.placesVisited()
+      places = scenario.waypoints.map((wp,i) => {
+        if( userObj.visitedWaypoints.includes(wp._id) ){
+           return (<li key={i}>{wp.waypointName}</li>)
+        }
+        })
     }
     return (
       <div className="introPage">
