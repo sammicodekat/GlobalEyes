@@ -48,10 +48,10 @@ class OneScenarioPage extends Component {
             <h1>{scenario.scenarioName || ''}</h1>
             <h4>created by: {scenario.scenarioAuthor || ''}</h4>
             <div className="greeting">
-              <p>Greetings {userFirstName},</p>
+              <p>Greetings {userFirstName}</p>
               <p>You are about to embark on an amazing adventure.</p>
-              <p>I have given you <b>{this.props.userObj.vouchers}</b> <i>travel vouchers</i> for your journey, use them wisely.</p>
-              <p>Your journey begins in <b>{name}</b>.</p>
+              <p>You'll be given <b>{this.props.userObj.vouchers}</b> <i>travel vouchers</i> for your journey. Use them wisely because if you run out out it will be game over and you'll be stranded. You can track how many vouchers you have left by looking for the voucher icon 'ICON GOES HERE KIND BUDDY'.</p>
+              <p>Got your bags? Ready to go? You better be because your journey is about to begin in <b>{name}</b>.</p>
               <p>Good Luck!</p>
             </div>
             <div className="introVouchers">

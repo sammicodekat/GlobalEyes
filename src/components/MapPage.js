@@ -60,6 +60,10 @@ class MapPage extends Component {
     const {waypoints} = scenario
     let nextplaces = [waypoints[0]]
     let visited = []
+    let waypointMessage = 'To get started click on a waypoint below or the pointer icon "DANIEL POINTER GOES HERE" on the map.'
+    if(userObj.currentWaypoint !== '') {
+      waypointMessage = `Select another waypoint. You've got ${userObj.vouchers} travel vouchers left`
+    }
     if(userObj.currentWaypoint){
       const id = userObj.currentWaypoint
       visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
@@ -88,6 +92,8 @@ class MapPage extends Component {
             <Vouchers vouchers={this.props.userObj.vouchers} />
           </div>
           <div className="waypointButtons">
+            <h5></h5>
+            {waypointMessage}
             <PlaceList updateUsersWaypoint={this.updateUsersWaypoint} waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} nextplaces={nextplaces} />
           </div>
         </div>
