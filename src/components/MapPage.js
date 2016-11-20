@@ -119,7 +119,6 @@ class MapPage extends Component {
             <Vouchers vouchers={this.props.userObj.vouchers} />
           </div>
           <div className="waypointButtons">
-            <h5></h5>
             {waypointMessage}
             <PlaceList updateUsersWaypoint={this.updateUsersWaypoint} waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} nextplaces={nextplaces} />
           </div>
