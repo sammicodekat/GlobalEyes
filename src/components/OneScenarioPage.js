@@ -19,7 +19,7 @@ class OneScenarioPage extends Component {
     updatedUserObj.currentWaypoint = ''
     updatedUserObj.meowCoords = [scenario.waypoints[0].coords]
     updatedUserObj.visitedWaypoints = ['']
-    updatedUserObj.pointsOfInterest = ['']
+    updatedUserObj.pointsOfInterest = [...scenario.waypoints[0].pointsOfInterest]
     updatedUserObj.notebook = { note: 'Sorry, you do not have any notes yet.' }
     updateUserObject(updatedUserObj)
     browserHistory.replace(`/${scenario._id}/map`)

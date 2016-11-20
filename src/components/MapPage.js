@@ -80,6 +80,9 @@ class MapPage extends Component {
       waypointMessage = `Select another waypoint. You've got ${userObj.vouchers} travel vouchers left`
       const id = userObj.currentWaypoint
       visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
+      // visited = userObj.visitedWaypoints.map( wp => {
+      //  let index = waypoints.findIndex((elem)=> {elem._id===wp})
+      // return wp=waypoints[index]})
       const currWaypoint = waypoints.find(waypoint => waypoint._id == id)
 
       if (currWaypoint.pointsOfInterest.length !== 0) {
@@ -105,7 +108,7 @@ class MapPage extends Component {
           return place
         }
       })
-      
+
       nextplaces = this.shuffle(leftover)
     }
     return (
