@@ -74,12 +74,15 @@ class MapPage extends Component {
     const { waypoints } = scenario
     let visited = []
     nextplaces = [waypoints[0]]
-    let waypointMessage = 'To get started click on a waypoint below or the pointer icon "DANIEL POINTER GOES HERE" on the map.'
+    let waypointMessage = <span className="mapMessage">To get started click on a waypoint below or the pointer icon <img src="/images/marker_new.png" alt="map marker"/> on the map.</span>
 
     if(userObj.currentWaypoint){
-      waypointMessage = `Select another waypoint. You've got ${userObj.vouchers} travel vouchers left`
+      waypointMessage = <span className="mapMessage">Select another waypoint. You've got {userObj.vouchers} travel vouchers left</span>
       const id = userObj.currentWaypoint
       visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
+      // visited = userObj.visitedWaypoints.map( wp => {
+      //  let index = waypoints.findIndex((elem)=> {elem._id===wp})
+      // return wp=waypoints[index]})
       const currWaypoint = waypoints.find(waypoint => waypoint._id == id)
 
       if (currWaypoint.pointsOfInterest.length !== 0) {
@@ -105,7 +108,7 @@ class MapPage extends Component {
           return place
         }
       })
-      
+
       nextplaces = this.shuffle(leftover)
     }
     return (

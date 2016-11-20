@@ -10,7 +10,7 @@ const Notebook = () => (
   <div id="notebook">
     <div className="notebookHeader">
       <h1>Notebook</h1>
-      <button className="closeButton" onClick={() => closeNotebook()}>X</button>
+      <button className="closeButton" onClick={() => closeNotebook()}><img src="/images/closeBtn.png" alt="close notebook"/></button>
     </div>
     <NoteList />
   </div>

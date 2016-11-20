@@ -7,7 +7,7 @@ const NoteList = ( props ) => {
     clueDisplay = props.userObj.notebook.map((clue, i) => {
       return (
         <div key={`${clue.waypoint}+${i}`} className="notebookEntry">
-          <span className="foundIn">Found in</span>
+          <span className="foundIn">Clues found in</span>
           <h2>{clue.waypoint}</h2>
           <div className="notebookClue">
             <h4>{clue.name}</h4>
