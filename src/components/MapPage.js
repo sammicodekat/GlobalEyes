@@ -74,17 +74,23 @@ class MapPage extends Component {
     const { waypoints } = scenario
     let visited = []
     nextplaces = [waypoints[0]]
-    if (userObj.currentWaypoint) {
+    let waypointMessage = 'To get started click on a waypoint below or the pointer icon "DANIEL POINTER GOES HERE" on the map.'
+
+    if(userObj.currentWaypoint){
+      waypointMessage = `Select another waypoint. You've got ${userObj.vouchers} travel vouchers left`
       const id = userObj.currentWaypoint
       visited = waypoints.filter(waypoint => userObj.visitedWaypoints.includes(waypoint._id))
       const currWaypoint = waypoints.find(waypoint => waypoint._id == id)
+
       if (currWaypoint.pointsOfInterest.length !== 0) {
         index = waypoints.findIndex(elem => elem._id == id)
       }
+
       let curr = index
       const rest = waypoints.slice(curr + 1)
       const nextWayPointIndex = rest.findIndex(this.findFirstWayPoint)
       nextplaces = rest.slice(0, nextWayPointIndex + 1)
+
       if (leftover.length > 0) {
         leftover.forEach(a => {
           if (!nextplaces.includes(a)){
@@ -93,11 +99,13 @@ class MapPage extends Component {
         })
         leftover = []
       }
+
       leftover = nextplaces.filter(place => {
         if (!userObj.visitedWaypoints.includes(place._id)) {
           return place
         }
       })
+      
       nextplaces = this.shuffle(leftover)
     }
     return (
@@ -111,6 +119,8 @@ class MapPage extends Component {
             <Vouchers vouchers={this.props.userObj.vouchers} />
           </div>
           <div className="waypointButtons">
+            <h5></h5>
+            {waypointMessage}
             <PlaceList updateUsersWaypoint={this.updateUsersWaypoint} waypoints={waypoints} scenarioId={scenario._id} index={index} coordsList={userObj.meowCoords} visited={visited} nextplaces={nextplaces} />
           </div>
         </div>

@@ -40,7 +40,7 @@ class ScenariosPage extends Component {
     let continueBtn = ''
     const { show } = this.state
     if (show) {
-      continueBtn = (<button id={this.props.userId} className="continue" onClick={() => { browserHistory.push('/continue') }}>Continue Last Scenario</button>)
+      continueBtn = (<div><h4>Already Started an Adventure? </h4> <button id={this.props.userId} className="continue" onClick={() => { browserHistory.push('/continue') }}>Continue Last Scenario</button></div>)
     }
     if (this.props.user.photoURL) {
       userLoggedIn = (
@@ -62,8 +62,11 @@ class ScenariosPage extends Component {
           <h1 className="appTitle">Globaleyes</h1>
           <div className="scenarios">
             <h2>Scenarios</h2>
-            {continueBtn}
+            <h4>Choose a Scenario to Start a New Adventure.</h4>
             <ScenariosList setVouchers={this.setVouchers} scenarios={scenarios} />
+
+            {continueBtn}
+            <h4>Want to Create Your Own Scenario?</h4>
             <button onClick={() => browserHistory.push('/create')}>+</button>
           </div>
         </div>
