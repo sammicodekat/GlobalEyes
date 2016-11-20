@@ -50,7 +50,7 @@ class OneScenarioPage extends Component {
             <div className="greeting">
               <p>Greetings {userFirstName}</p>
               <p>You are about to embark on an amazing adventure.</p>
-              <p>You'll be given <b>{this.props.userObj.vouchers}</b> <i>travel vouchers</i> for your journey. Use them wisely because if you run out out it will be game over and you'll be stranded. You can track how many vouchers you have left by looking for the voucher icon 'ICON GOES HERE KIND BUDDY'.</p>
+              <p>You'll be given <b>{this.props.userObj.vouchers}</b> <i>travel vouchers</i> for your journey. Use them wisely because if you run out out it will be game over and you&#39;ll be stranded. You can track how many vouchers you have left by looking for the voucher icon <img src="/images/voucherSm.png" alt="voucher"/>.</p>
               <p>Got your bags? Ready to go? You better be because your journey is about to begin in <b>{name}</b>.</p>
               <p>Good Luck!</p>
             </div>
