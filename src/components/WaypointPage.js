@@ -36,12 +36,17 @@ class WaypointPage extends Component {
     const { waypoint } = this.props
     const { pano } = this.state
     const { waypointName, pointsOfInterest, falseRoute, coords, links, text } = waypoint
+    let showPointsOfInterest = <div></div>
 
     const streetViewContainer = (
       <div id="streetViewContainer">
         <StreetView google={window.google} coords={coords} />
       </div>
     )
+
+    if(Array.isArray(pointsOfInterest) && pointsOfInterest.length) {
+      showPointsOfInterest = <PoiList pois={pointsOfInterest} params={this.props.params} />
+    }
 
     return (
       <div className="waypoint">
@@ -58,7 +63,7 @@ class WaypointPage extends Component {
             <h3>About this Location:</h3>
             <p>{text}</p>
           </article>
-          <PoiList pois={pointsOfInterest} params={this.props.params} />
+          {showPointsOfInterest}
         </div>
       </div>
     )
