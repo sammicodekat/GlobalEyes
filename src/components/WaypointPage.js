@@ -50,7 +50,7 @@ class WaypointPage extends Component {
     }
 
     if((this.props.scenario.vouchers - this.props.userObj.vouchers) < 2) {
-      pointsOfInterestMessage = <h3 className="wpIntro">Our world has some amazing places to see. When you travel to a new waypoint be sure to stop for a moment and enjoy the Points of Interest. Persistant explorers will be rewarded with clues on where to go to next and perhaps even given additional travel vouchers.</h3>
+      pointsOfInterestMessage = <h3 className="introMessage">Our world has some amazing places to see. When you travel to a new waypoint be sure to stop for a moment and enjoy the Points of Interest. Persistant explorers will be rewarded with clues on where to go to next and perhaps even given additional travel vouchers.</h3>
     }
 
     return (

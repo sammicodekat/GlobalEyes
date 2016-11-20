@@ -48,7 +48,7 @@ class PointOfInterestPage extends Component {
   }
 
   render() {
-    const { poi, user, waypoint, scenario } = this.props
+    const { poi, user, waypoint, scenario, userObj } = this.props
     // const { uid } = this.props
     const { pano } = this.state
     const waypointName = waypoint.waypointName
@@ -62,10 +62,17 @@ class PointOfInterestPage extends Component {
 
     let clueDisplay = <div></div>
     let buttonDisplay = <div></div>
+    let pointOfInterestMessage = <div></div>
 
     if(clues) {
      clueDisplay = <ClueList clues={clues} waypointName={waypointName} />
      buttonDisplay = <AddToNotebookButton poiName={poiName} clues={clues} waypointName={waypointName} />
+    }
+
+
+    console.log('this.props.userObj.pointsOfInterest.length : ', this.props.userObj.pointsOfInterest.length )
+    if(poi._id === userObj.pointsOfInterest[0]._id || poi._id === userObj.pointsOfInterest[1]._id ) {
+      pointOfInterestMessage = <h3 className="introMessage">Look at you, you beautiful explorer you, you've arrived at a Point of Interest. Read more about this space below, click on the panorama button for a 360 view or, if you're lucky enough to have found one, read the clue that can help guide you to the next destination.</h3>
     }
 
     return (
@@ -82,6 +89,7 @@ class PointOfInterestPage extends Component {
         <div className="waypointBody">
           <h1 className="waypointName">{poiName}</h1>
           <article className="infoBlock">
+          {pointOfInterestMessage}
             <h3>About this Point of Interest</h3>
             <p>{text}</p>
           </article>
@@ -93,7 +101,7 @@ class PointOfInterestPage extends Component {
   }
 }
 
-export default connect(state => ({ poi: state.poi, user: state.auth.user, waypoint: state.waypoint, scenario: state.scenario }), dispatch => ({
+export default connect(state => ({ poi: state.poi, user: state.auth.user, waypoint: state.waypoint, scenario: state.scenario, userObj: state.userObj }), dispatch => ({
   getPoi(id) {
     dispatch(getPoi(id))
   },
