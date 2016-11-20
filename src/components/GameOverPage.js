@@ -10,15 +10,15 @@ class GameOverPage extends Component {
 
   placesVisted = () => {
     const { userObj, scenario } = this.props
-    return userObj.visitedWaypoints.map((wp, i)=> {
-      if(wp === scenario.waypoints[i]._id) {
-         return (
-          <li key={i}>{scenario.waypoints[i].waypointName}</li>
+    return scenario.waypoints.map((wp,i) => {
+      if (userObj.visitedWaypoints.includes(wp._id)) {
+        return (
+          <li key={i}>{wp.waypointName}</li>
         )
       }
     })
   }
- 
+
   render() {
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
@@ -31,7 +31,7 @@ class GameOverPage extends Component {
             <h1>{`Sorry ${this.props.userObj.userName} You're Out of Travel Vouchers`}</h1>
             <div className="greeting">
               <h3>You Visited: </h3>
-              <ul>{this.placesVisted()}</ul> 
+              <ul>{this.placesVisted()}</ul>
             </div>
             <div className="introVouchers">
               <button onClick={ () => { browserHistory.push('/scenarios') } }>Start Another Adventure</button>
