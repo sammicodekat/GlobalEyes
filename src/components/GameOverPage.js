@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { updateUserObject } from '../actions/auth'
+import { ShareButtons, generateShareIcon } from 'react-share'
+const { FacebookShareButton, GooglePlusShareButton, TwitterShareButton } = ShareButtons
+const FacebookIcon = generateShareIcon('facebook')
+const TwitterIcon = generateShareIcon('twitter')
+const GooglePlusIcon = generateShareIcon('google')
 
 class GameOverPage extends Component {
 
@@ -41,6 +46,31 @@ class GameOverPage extends Component {
             <div className="greeting">
               <h3>You Visited: </h3>
               <ul>{this.placesVisted()}</ul>
+            </div>
+            <div className='shares'>
+              <FacebookShareButton
+                url={shareUrl}
+                title={title}
+                className="sharebutton">
+                <FacebookIcon
+                  size={32}
+                  round />
+              </FacebookShareButton>
+              <TwitterShareButton
+                url={shareUrl}
+                title={title}
+                className="sharebutton">
+                <TwitterIcon
+                  size={32}
+                  round />
+              </TwitterShareButton>
+              <GooglePlusShareButton
+                url={shareUrl}
+                className="sharebutton">
+                <GooglePlusIcon
+                  size={32}
+                  round />
+              </GooglePlusShareButton>
             </div>
             <div className="introVouchers">
               <button onClick={this.clearUserData}>Start Another Adventure</button>

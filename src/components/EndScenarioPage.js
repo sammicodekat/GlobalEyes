@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
 import { updateUserObject } from '../actions/auth'
+import { ShareButtons, generateShareIcon } from 'react-share'
+const { FacebookShareButton, GooglePlusShareButton, TwitterShareButton } = ShareButtons
+const FacebookIcon = generateShareIcon('facebook')
+const TwitterIcon = generateShareIcon('twitter')
+const GooglePlusIcon = generateShareIcon('google')
 
 class EndScenarioPage extends Component {
   clearUserData = () => {
@@ -31,6 +36,8 @@ class EndScenarioPage extends Component {
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
+    const shareUrl = 'https://murmuring-badlands-17800.herokuapp.com/'
+    const title = `I just travelled to ${this.props.userObj.visitedWaypoints.length} countires! Checkout Globaleyes @`
     return (
       <div className="introPage">
         <div className="backgroundImage" style={randomBackground} />
@@ -39,14 +46,39 @@ class EndScenarioPage extends Component {
             <h1>{`Congrats ${this.props.userObj.userName} You've Completed ${this.props.scenario.scenarioName}`}</h1>
             <div className="greeting">
               <h3>Your travel stats: </h3>
-              <p>You visited <b>{`${this.props.scenario.vouchers - this.props.userObj.vouchers}`}</b> amazing places:</p>
+              <p>You visited <b>{`${this.props.userObj.visitedWaypoints.length}`}</b> amazing places:</p>
               <ul>{this.placesVisted()}</ul>
-              <p>You used <b>{`${this.props.scenario.vouchers - this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> on your journey</p>
+              {/* <p>You used <b>{`${this.props.scenario.vouchers - this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> on your journey</p> */}
               <p>You have <b>{`${this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> remaining</p>
             </div>
-            <div className="introVouchers">
-              <button onClick={this.clearUserData}>Start Another Adventure</button>
+            <div className='shares'>
+              <FacebookShareButton
+                url={shareUrl}
+                title={title}
+                className="sharebutton">
+                <FacebookIcon
+                  size={32}
+                  round />
+              </FacebookShareButton>
+              <TwitterShareButton
+                url={shareUrl}
+                title={title}
+                className="sharebutton">
+                <TwitterIcon
+                  size={32}
+                  round />
+              </TwitterShareButton>
+              <GooglePlusShareButton
+                url={shareUrl}
+                className="sharebutton">
+                <GooglePlusIcon
+                  size={32}
+                  round />
+              </GooglePlusShareButton>
             </div>
+          </div>
+          <div className="introVouchers">
+            <button onClick={this.clearUserData}>Start Another Adventure</button>
           </div>
         </div>
       </div>
