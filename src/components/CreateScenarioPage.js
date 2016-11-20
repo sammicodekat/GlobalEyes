@@ -37,10 +37,9 @@ class CreateScenarioPage extends Component {
     const { wayPointArr } = this.state
     newSce.scenarioName = this.state.newScenario.scenarioName
     newSce.waypoints = wayPointArr
-    newSce.scenarioAuthor = this.props.userObj.displayName
+    newSce.scenarioAuthor = this.props.user.userName
     const filtered = wayPointArr.filter(waypoint => waypoint)
-    console.log('filtered: ', filtered)
-    newSce.vouchers = Math.ceil(wayPointArr.length * 1.5)
+    newSce.vouchers = Math.ceil(wayPointArr.length/1.4)
     this.props.createNewScenario(newSce)
     this.setState({ newScenario: {}, wayPointArr: [] })
     // browserHistory.push(`${scenario._id}/map`)

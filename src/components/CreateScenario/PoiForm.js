@@ -50,6 +50,7 @@ class PoiForm extends Component {
     newPoi.links = newPointOfInterestObj.links
     newPoi.text = newPointOfInterestObj.text
     newPoi.clues = nclues
+    newPoi.coords = newPointOfInterestObj.coords
     this.props.createNewPoi(newPoi)
     let { poiCount } = this.state
 
@@ -64,6 +65,8 @@ class PoiForm extends Component {
   select = (suggest) => {
     const { newPointOfInterest } = this.state
     newPointOfInterest.poiName = suggest.label
+    const coords = { lat: suggest.location.lat, lng: suggest.location.lng }
+    newPointOfInterest.coords = coords
     return this.setState({ newPointOfInterest })
   }
 
@@ -71,7 +74,6 @@ class PoiForm extends Component {
     const { name } = this.props
     const { poiCount, newPointOfInterest } = this.state
     let poiFields = []
-    // const deleteButton = poiCount ? (<button type="button" onClick={() => this.removePoiInput()}>Delete Point of Interest</button>) : ''
     for (let j = 1; j <= poiCount; j += 1) {
       const pName = `${name}_pointOfInterest${j}`
       const link = `${name}_pointOfInterest${j}_link`

@@ -12,7 +12,6 @@ import EndScenarioPage from './EndScenarioPage'
 import GameOverPage from './GameOverPage'
 import ContinueScenarioPage from './ContinueScenarioPage'
 import WaypointPage from './WaypointPage'
-import FalseRoutePage from './FalseRoutePage'
 import PointOfInterestPage from './pointOfInterestPage'
 
 export default class MyRouter extends Component {
@@ -30,7 +29,6 @@ export default class MyRouter extends Component {
             <Route path="/:id/gameover" component={GameOverPage} />
             <Route path="/:id/map" component={MapPage} />
             <Route path="/:id/location/:waypointId/poi/:poiId" component={PointOfInterestPage} />
-            <Route path="/:id/location/:waypointId/:falseRouteIndex" component={FalseRoutePage} />
             <Route path="/:id/location/:waypointId" component={WaypointPage} />
           </Route>
         </Route>

@@ -36,16 +36,12 @@ class WayPointForm extends Component {
     e.preventDefault()
     const { newWayPoint, poiArr } = this.state
     const newWP = {}
-    const falseroutes = []
-    falseroutes.push(newWayPoint.falseRoute1)
-    falseroutes.push(newWayPoint.falseRoute2)
     const coords = { lat: newWayPoint.lat, lng: newWayPoint.lng }
     newWP.waypointName = newWayPoint.waypointName
     newWP.links = newWayPoint.links
     newWP.text = newWayPoint.text
     newWP.coords = coords
     newWP.pointsOfInterest = poiArr
-    newWP.falseRoute = falseroutes
     this.props.createNewWayPoint(newWP)
     this.setState({ newPointOfInterest: {}, poiArr: [] })
   }
@@ -110,24 +106,6 @@ class WayPointForm extends Component {
           {this.renderEnteredPois(poiArr)}
           <PoiForm name="waypointLocation" />
         </div>
-        {/* <h2>False Routes</h2>
-        <FalseRouteForm /> */}
-        {/* <Geosuggest
-          type="text"
-          onKeyPress={this.setNewWayPoint}
-          name="falseRoute1"
-          value={newWayPoint.falseRoute1}
-          onSuggestSelect={this.selectF}
-          placeHolder="Enter False Waypoint"
-        />
-        <Geosuggest
-          type="text"
-          onKeyPress={this.setNewWayPoint}
-          name="falseRoute2"
-          value={newWayPoint.falseRoute2}
-          onSuggestSelect={this.selectF}
-          placeHolder="Enter False Waypoint"
-        /> */}
         <button className="btnClass" type="submit" onClick={this.submitNewWayPoint}>Commit WayPoint</button>
       </div>
     )
