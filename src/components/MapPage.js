@@ -6,7 +6,7 @@ import { browserHistory } from 'react-router'
 import GMap from './GMap'
 import Vouchers from './Vouchers'
 import PlaceList from './PlaceList'
-import { getScenario } from '../actions/ScenarioActions'
+import { getWayPoint } from '../actions/wayPointsActions'
 import { updateUserObject } from '../actions/auth'
 
 let index = 0
@@ -132,7 +132,7 @@ class MapPage extends Component {
 }
 
 export default connect(state => ({ scenario: state.scenario, userObj: state.userObj }), dispatch => ({
-  getScenario(id) {
-    dispatch(getScenario(id))
+  getWayPoint(id) {
+    dispatch(getWayPoint(id))
   }
 }))(MapPage)

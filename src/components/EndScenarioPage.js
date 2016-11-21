@@ -37,7 +37,7 @@ class EndScenarioPage extends Component {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
     const shareUrl = 'https://murmuring-badlands-17800.herokuapp.com/'
-    const title = `I just travelled to ${this.props.userObj.visitedWaypoints.length} countires! Checkout Globaleyes @`
+    const title = `I just traveled to ${this.props.userObj.visitedWaypoints.length} countries! Checkout Globaleyes @`
     return (
       <div className="introPage">
         <div className="backgroundImage" style={randomBackground} />

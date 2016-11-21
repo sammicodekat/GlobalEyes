@@ -16,13 +16,17 @@ class PointOfInterestPage extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      pano: 'closed'
+      pano: 'closed',
+      waypoint: {},
+      poi: {}
     }
   }
 
   componentWillMount() {
-    this.props.getPoi(this.props.params.poiId)
-    // this.props.getWayPoint(this.props.params.waypointId)
+    // this.props.getPoi(this.props.params.poiId)
+  const waypoint = this.props.scenario.waypoints.find(waypoint => (waypoint._id == this.props.params.waypointId))
+  const poi = waypoint.pointsOfInterest.find( poi => (poi._id == this.props.params.poiId))
+  this.setState({ waypoint, poi })
   }
 
   componentDidMount() {
@@ -63,10 +67,10 @@ class PointOfInterestPage extends Component {
   }
 
   render() {
-    const { poi, user, waypoint, scenario, userObj } = this.props
+    const { scenario, userObj } = this.props
     // const { uid } = this.props
-    const { pano } = this.state
-    const waypointName = waypoint.waypointName
+    const { pano, waypoint, poi } = this.state
+    const { waypointName } = waypoint
     const { poiName, clues, links, text, coords } = poi
 
     const streetViewContainer = (
@@ -85,8 +89,6 @@ class PointOfInterestPage extends Component {
      buttonDisplay = <AddToNotebookButton poiName={poiName} clues={clues} waypointName={waypointName} />
     }
 
-
-    console.log('this.props.userObj.pointsOfInterest.length : ', this.props.userObj.pointsOfInterest.length )
     if(userObj.pointsOfInterest && (poi._id === userObj.pointsOfInterest[0]._id || poi._id === userObj.pointsOfInterest[1]._id) ) {
       pointOfInterestMessage = <h3 className="introMessage">Look at you, you beautiful explorer you, you've arrived at a Point of Interest. Read more about this space below, click on the panorama button for a 360 view or, if you're lucky enough to have found one, read the clue that can help guide you to the next destination.</h3>
     }
@@ -119,11 +121,8 @@ class PointOfInterestPage extends Component {
   }
 }
 
-export default connect(state => ({ poi: state.poi, user: state.auth.user, waypoint: state.waypoint, scenario: state.scenario, userObj: state.userObj }), dispatch => ({
+export default connect(state => ({ poi: state.poi, user: state.auth.user, scenario: state.scenario, userObj: state.userObj }), dispatch => ({
   getPoi(id) {
     dispatch(getPoi(id))
-  },
-  getWayPoint(id) {
-    dispatch(getWayPoint(id))
   }
 }))(PointOfInterestPage)
