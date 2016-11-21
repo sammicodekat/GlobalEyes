@@ -12,7 +12,7 @@ $desktop: "(min-width: 1200px)"
   display: block
   position: relative
   margin: 0 auto
-  height: 90%
+  // height: 90%
   @media #{$tablet}
     height: auto
     width: 70vw
@@ -34,16 +34,17 @@ $desktop: "(min-width: 1200px)"
 
   .introVouchers
     background-color: #29abe2
-    position: fixed
-    bottom: 0
+    position: absolute
+    bottom: -160px
     left: 0
-    height: 100px
     width: 100%
-    padding: 0 20px
+    height: 160px
+    padding: 10px 20px
     box-sizing: border-box
-    display: flex
-    justify-content: space-between
     @media #{$tablet}
+      display: flex
+      justify-content: space-between
+      bottom: -80px
       height: 80px
       position: absolute
 
@@ -67,7 +68,6 @@ $desktop: "(min-width: 1200px)"
 
   button
     font-size: 1.2em
-    height: 60%
     position: relative
     right: 10px
     align-self: center

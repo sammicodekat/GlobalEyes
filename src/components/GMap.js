@@ -33,7 +33,13 @@ export default class GMap extends Component {
 
     const map = new google.maps.Map(mapRef, {
       zoom: 5,
-      center: coordsList[coordsList.length - 1]
+      center: coordsList[coordsList.length - 1],
+      zoomControl: true,
+      mapTypeControl: false,
+      scaleControl: false,
+      streetViewControl: true,
+      rotateControl: false,
+      fullscreenControl: false
     })
 
     const lineSymbol = {

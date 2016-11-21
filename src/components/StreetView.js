@@ -21,7 +21,8 @@ export default class StreetView extends Component {
         pov: {
           heading: 34,
           pitch: 10
-        }
+        },
+        fullscreenControl: false
       }
     )
     // streetViewRef.setStreetView(panorama)
