@@ -12,7 +12,7 @@ class GameOverPage extends Component {
 
   placesVisted = () => {
     const { userObj, scenario } = this.props
-    return scenario.waypoints.map((wp,i) => {
+    return scenario.waypoints.map((wp, i) => {
       if (userObj.visitedWaypoints.includes(wp._id)) {
         return (
           <li key={i}>{wp.waypointName}</li>
@@ -37,6 +37,8 @@ class GameOverPage extends Component {
     const randomBackground = {
       backgroundImage: `url(/images/background${Math.floor(Math.random() * 2) + 1}.jpg)`
     }
+    const shareUrl = 'https://murmuring-badlands-17800.herokuapp.com/'
+    const title = `I just travelled to ${this.props.userObj.visitedWaypoints.length} countires! Checkout Globaleyes @`
     return (
       <div className="introPage">
         <div className="backgroundImage" style={randomBackground} />
@@ -45,34 +47,23 @@ class GameOverPage extends Component {
             <h1>{`Sorry ${this.props.userObj.userName} You're Out of Travel Vouchers.`}</h1>
             <div className="greeting">
               <h3>You Visited: </h3>
-              <ul>{this.placesVisted()}</ul>
-            </div>
-            <div className='shares'>
-              <FacebookShareButton
-                url={shareUrl}
-                title={title}
-                className="sharebutton">
-                <FacebookIcon
-                  size={32}
-                  round />
-              </FacebookShareButton>
-              <TwitterShareButton
-                url={shareUrl}
-                title={title}
-                className="sharebutton">
-                <TwitterIcon
-                  size={32}
-                  round />
-              </TwitterShareButton>
-              <GooglePlusShareButton
-                url={shareUrl}
-                className="sharebutton">
-                <GooglePlusIcon
-                  size={32}
-                  round />
-              </GooglePlusShareButton>
+              <ul className="visitedPlaces">{this.placesVisted()}</ul>
             </div>
             <div className="introVouchers">
+              <div className="shares">
+                Share:
+                <FacebookShareButton url={shareUrl} title={title} className="shareButton">
+                  <FacebookIcon size={32} round />
+                </FacebookShareButton>
+
+                <TwitterShareButton url={shareUrl} title={title} className="shareButton">
+                  <TwitterIcon size={32} round />
+                </TwitterShareButton>
+
+                <GooglePlusShareButton url={shareUrl} className="shareButton">
+                  <GooglePlusIcon size={32} round />
+                </GooglePlusShareButton>
+              </div>
               <button onClick={this.clearUserData}>Start Another Adventure</button>
             </div>
           </div>

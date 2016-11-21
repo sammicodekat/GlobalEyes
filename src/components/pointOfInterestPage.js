@@ -93,11 +93,11 @@ class PointOfInterestPage extends Component {
 
     return (
       <div className="poiPage">
-        <button className="notebookBtn" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
+        <button className="notebookBtn" title="open notebook" onClick={() => this.openNotebook()}><img src="/images/notebookBtn.png" alt="open notebook" /></button>
         <button className="backBtn" onClick={browserHistory.goBack}><img src="/images/backArrow.png" alt="back to waypoint" />back to waypoint</button>
         {this.checkEndGame(this.props.params.waypointId)}
-          <button className="mapBtn" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
-          <button className="panoBtn" onClick={() => this.togglePano()}><img src="/images/pano.png" alt="open panorama" /></button>
+          <button className="mapBtn" title="back to map" onClick={() => browserHistory.replace(`/${this.props.params.id}/map`)}><img src="/images/mapBtn.png" alt="to map" /></button>
+          <button className="panoBtn" title="view 360 panorama" onClick={() => this.togglePano()}><img src="/images/pano.png" alt="open panorama" /></button>
           {pano === 'open' ? streetViewContainer : null}
           <div className="waypointSplash">
             <img src={links} alt={poiName} />
