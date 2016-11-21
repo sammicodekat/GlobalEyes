@@ -12,7 +12,7 @@ class GameOverPage extends Component {
 
   placesVisted = () => {
     const { userObj, scenario } = this.props
-    return scenario.waypoints.map((wp,i) => {
+    return scenario.waypoints.map((wp, i) => {
       if (userObj.visitedWaypoints.includes(wp._id)) {
         return (
           <li key={i}>{wp.waypointName}</li>

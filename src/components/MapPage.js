@@ -24,7 +24,7 @@ class MapPage extends Component {
 
   componentWillMount(){
     if (this.props.userObj.vouchers === 0) {
-      browserHistory.push(`You-Silly-Silly-Silly-Bad-Loser/gameover`)
+      browserHistory.push(`/${this.props.params.id}/gameover`)
     }
   }
 
@@ -114,7 +114,7 @@ class MapPage extends Component {
     return (
       <div className="mapPage">
         <GMap google={window.google} scenario={scenario} index={index} nextplaces={nextplaces} coordsList={userObj.meowCoords} visited={visited} waypoints={waypoints} updateUsersWaypoint={this.updateUsersWaypoint} />
-        <button className="notebookBtn" onClick={() => this.openNotebook()}>
+        <button className="notebookBtn" title="open notebook" onClick={() => this.openNotebook()}>
           <img src="/images/notebookBtn.png" alt="" />
         </button>
         <div className="travelMenu">
