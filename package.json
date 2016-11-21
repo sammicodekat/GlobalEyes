@@ -10,7 +10,7 @@
     "node": "6"
   },
   "keywords": [],
-  "author": "Daniel, Joshua, Richard, Sammi",
+  "author": "Daniel, Joshua, Sammi",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.15.2",

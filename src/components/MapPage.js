@@ -96,7 +96,7 @@ class MapPage extends Component {
 
       if (leftover.length > 0) {
         leftover.forEach(a => {
-          if (!nextplaces.includes(a)){
+          if (!nextplaces.includes(a)) {
             nextplaces.push(a)
           }
         })
