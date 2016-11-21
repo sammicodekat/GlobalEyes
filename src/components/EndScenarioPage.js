@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { browserHistory } from 'react-router'
-import { updateUserObject } from '../actions/auth'
 import { ShareButtons, generateShareIcon } from 'react-share'
+import { updateUserObject } from '../actions/auth'
 const { FacebookShareButton, GooglePlusShareButton, TwitterShareButton } = ShareButtons
 const FacebookIcon = generateShareIcon('facebook')
 const TwitterIcon = generateShareIcon('twitter')
@@ -23,7 +23,7 @@ class EndScenarioPage extends Component {
 
   placesVisted = () => {
     const { userObj, scenario } = this.props
-    return scenario.waypoints.map( (wp,i) => {
+    return scenario.waypoints.map((wp, i) => {
       if (userObj.visitedWaypoints.includes(wp._id)) {
         return (
           <li key={i}>{wp.waypointName}</li>
@@ -47,38 +47,27 @@ class EndScenarioPage extends Component {
             <div className="greeting">
               <h3>Your travel stats: </h3>
               <p>You visited <b>{`${this.props.userObj.visitedWaypoints.length}`}</b> amazing places:</p>
-              <ul>{this.placesVisted()}</ul>
+              <ul className="visitedPlaces">{this.placesVisted()}</ul>
               {/* <p>You used <b>{`${this.props.scenario.vouchers - this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> on your journey</p> */}
               <p>You have <b>{`${this.props.userObj.vouchers}`}</b> <i>travel vouchers</i> remaining</p>
             </div>
-            <div className='shares'>
-              <FacebookShareButton
-                url={shareUrl}
-                title={title}
-                className="sharebutton">
-                <FacebookIcon
-                  size={32}
-                  round />
-              </FacebookShareButton>
-              <TwitterShareButton
-                url={shareUrl}
-                title={title}
-                className="sharebutton">
-                <TwitterIcon
-                  size={32}
-                  round />
-              </TwitterShareButton>
-              <GooglePlusShareButton
-                url={shareUrl}
-                className="sharebutton">
-                <GooglePlusIcon
-                  size={32}
-                  round />
-              </GooglePlusShareButton>
+            <div className="introVouchers">
+              <div className="shares">
+                Share:
+                <FacebookShareButton url={shareUrl} title={title} className="shareButton">
+                  <FacebookIcon size={32} round />
+                </FacebookShareButton>
+
+                <TwitterShareButton url={shareUrl} title={title} className="shareButton">
+                  <TwitterIcon size={32} round />
+                </TwitterShareButton>
+
+                <GooglePlusShareButton url={shareUrl} className="shareButton">
+                  <GooglePlusIcon size={32} round />
+                </GooglePlusShareButton>
+              </div>
+              <button onClick={this.clearUserData}>Start Another Adventure</button>
             </div>
-          </div>
-          <div className="introVouchers">
-            <button onClick={this.clearUserData}>Start Another Adventure</button>
           </div>
         </div>
       </div>

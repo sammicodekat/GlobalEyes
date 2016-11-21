@@ -21,6 +21,12 @@ $desktop: "(min-width: 1200px)"
     margin-top: 20vh
 
   .greeting
+    .visitedPlaces
+      list-style: square
+      font-weight: 300
+      color: #29abe2
+      list-style-position: inside
+      margin-left: 20px
     @media #{$tablet}
       margin-bottom: 150px
     @media #{$desktop}
@@ -33,6 +39,8 @@ $desktop: "(min-width: 1200px)"
     left: 0
     height: 100px
     width: 100%
+    padding: 0 20px
+    box-sizing: border-box
     display: flex
     justify-content: space-between
     @media #{$tablet}
@@ -65,3 +73,18 @@ $desktop: "(min-width: 1200px)"
     align-self: center
     @media #{$tablet}
       font-size: 1.5em
+
+.shares
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+  align-items: center
+  background-color: white
+  font-weight: 500
+  color: #29abe2
+  padding: 0 20px
+  margin: 15px
+  border-radius: 10px
+  .shareButton
+    cursor: pointer
+    margin: 10px

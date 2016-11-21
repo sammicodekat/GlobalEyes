@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { getScenario } from '../actions/ScenarioActions'
 import { browserHistory } from 'react-router'
+import { getScenario } from '../actions/ScenarioActions'
 import { getUserObj } from '../actions/auth'
 import Vouchers from './Vouchers'
 
@@ -16,14 +16,14 @@ class ContinueScenarioPage extends Component {
     }
     let currLocation = ''
     let places = ''
-    if (scenario.waypoints){
-      const current = scenario.waypoints.filter( waypoint => waypoint._id == userObj.currentWaypoint)
+    if (scenario.waypoints) {
+      const current = scenario.waypoints.filter(waypoint => waypoint._id == userObj.currentWaypoint)
       currLocation = current[0].waypointName
-      places = scenario.waypoints.map((wp,i) => {
-        if( userObj.visitedWaypoints.includes(wp._id) ){
-           return (<li key={i}>{wp.waypointName}</li>)
+      places = scenario.waypoints.map((wp, i) => {
+        if (userObj.visitedWaypoints.includes(wp._id)) {
+          return (<li key={i}>{wp.waypointName}</li>)
         }
-        })
+      })
     }
     return (
       <div className="introPage">
@@ -34,9 +34,9 @@ class ContinueScenarioPage extends Component {
             <h4>created by: {scenario.scenarioAuthor || ''}</h4>
             <div className="greeting">
               <p>Welcome back, {userObj.userName},</p>
-              <p>When you last left you'd discovered <b>{userObj.visitedWaypoints.length}</b> amazing places:</p>
-              <ul>{places}</ul>
-              <p>You have <b>{userObj.vouchers}</b> <i>travel vouchers</i> remaining, use them wisely.</p>
+              <p>When you last left you&#39;d discovered <b>{userObj.visitedWaypoints.length}</b> amazing {userObj.visitedWaypoints.length === 1 ? 'place' : 'places'}:</p>
+              <ul className="visitedPlaces">{places}</ul>
+              <p>You have <b>{userObj.vouchers}</b> <i>travel {userObj.vouchers === 1 ? 'voucher' : 'vouchers'}</i> remaining, use {userObj.vouchers === 1 ? 'it' : 'them'} wisely.</p>
               <p>Your journey continues in <b>{currLocation}</b>.</p>
               <p>Good Luck!</p>
             </div>
