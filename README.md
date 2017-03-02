@@ -10,4 +10,4 @@ Globaleyes is a browser based educational platform for teaching geography, civic
 * Firebase
 * Google Map API
 
-## [Live Demo](https://murmuring-badlands-17800.herokuapp.com/)
+## [Live Demo](http://globaleyes.codecatdesigns.com/)
